@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">C语言学习Note（二）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据">数据</a>
+      <ul>
+        <li></li>
+        <li><a href="#字节和字的概念重申">字节和字的概念（重申）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <hr>
+<h2 id="数据">数据</h2>
+<h4 id="常量">常量</h4>
+<p>self explantaory。如果是常量，编译器一般通过用户书写的形式来识别数据类型</p>
+<h4 id="c有别于python的数据类型">C有别于Python的数据类型</h4>
+<p><strong>long</strong>, <strong>short</strong>, <strong>unsigned</strong>, <strong>signed</strong>, <strong>void</strong>, <strong>_Bool</strong>, <strong>Complex</strong> 和 <strong>_Imaginary</strong></p>
+<p>其中 <strong>long</strong>, <strong>short</strong>, <strong>unsigned</strong> 和 <strong>signed</strong> 用于提供基本整数类型的变式，如 <strong>unsigned short int</strong> 和 <strong>long long int</strong></p>
+<h3 id="字节和字的概念重申">字节和字的概念（重申）</h3>
+<p><strong>字节</strong>为常用的计算机<strong>存储单位</strong>（1 bytes = 8 bit - 标准定义，但C对此有不同的定义）</p>
+<p><strong>字</strong>为涉及计算机时给定的自然存储单位（如字长位32位，64位）。字长越大，数据转移越快，允许内存访问也更多。</p>
+<h4 id="浮点数">浮点数</h4>
+<p>浮点数的存储方案，浮点数分成小数和指数部分来表示，且这两部分分开存储。计算机内部使用二进制和2的幂进行储存。</p>
+<p>对于一些算术运算，浮点数损失的精度更多。</p>
+<p>计算机的浮点数不能表示取键内所有的值，且通常知识实际值的近似值。</p>
+<h4 id="int-类型">int 类型</h4>
+<p>存储一个 int 类型要占一个机器字长（一般而言）。</p>
+<p>声明变量，位变量赋予名称且分配内存空间。</p>
+<p>初始化变量，为变量赋予一个初始值。初始化可以直接在声明中完成
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kt">int</span> <span class="nx">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nx">b</span> <span class="p">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span> <span class="cm">/* work but bad 只有 e 初始化了 */</span></code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">               <span class="o">+-----------+-----+-----------+</span> 
+<span class="kt">int</span> <span class="nx">a</span><span class="p">;</span>         <span class="p">|</span>           <span class="p">|</span>     <span class="p">|</span>           <span class="p">|</span>
+    <span class="p">|</span>          <span class="o">+-----------+-----+-----------+</span>  
+    <span class="p">|</span>                          <span class="p">|</span>
+    <span class="p">|</span>     <span class="nx">创建内存空间</span>          <span class="p">|</span>
+    <span class="p">|</span><span class="nx">__________________________</span><span class="p">|</span>
+
+               <span class="o">+-----------+-----+-----------+</span> 
+<span class="kt">int</span> <span class="nx">a</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>     <span class="p">|</span>           <span class="p">|</span>  <span class="mi">2</span>  <span class="p">|</span>           <span class="p">|</span>
+    <span class="p">|</span>          <span class="o">+-----------+-----+-----------+</span>  
+    <span class="p">|</span>                          <span class="nx">a</span>
+    <span class="p">|</span>                          <span class="p">|</span>
+    <span class="p">|</span><span class="nx">__________________________</span><span class="p">|</span>
+        <span class="nx">创建内存空间赋值</span></code></pre></div>
+<h4 id="printf函数-和-int-值">printf()函数 和 int 值</h4>
+<p>字符串中 %d 指明打印整数的值，%d 称为转换说明，指定函数显示一个值所使用的格式</p>
+<p><strong>注</strong>：大部分函数需要指定参数的数量，但由于 printf() 函数的参数数目不定，编译器不会捕获转换说明的数量于待打印值的数量不相同的错误。</p>
+<p>例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d %d %d\n&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">//
+</span><span class="c1"></span>
+<span class="o">//</span> <span class="nx">打印结果</span><span class="err">：</span><span class="mi">10</span> <span class="mi">16</span> <span class="mf">1650287143.</span> <span class="nx">后两个值为内存中的任意值</span><span class="err">，</span><span class="nx">内存中的数据不同</span><span class="err">，</span><span class="nx">编译器管理内存的位置也不同</span></code></pre></div>
+<h4 id="八进制和十六进制">八进制和十六进制</h4>
+<p>C 假定常量是十进制数。八进制和十六进制技术系统在于计算机相关的值时方便（不影响数被储存的方式，都以二进制进行编码），因为 8 和 16 是 2 的幂。</p>
+<p>如：十进制数 65536，十六进制是 10000</p>
+<p>十六进制的每一位数由4位二进制数表示</p>
+<p>如：3 -&gt; 0011, 5 -&gt; 0101</p>
+<p>在 C 中，使用 0x 或 0X 前缀表示十六进制，0 前缀表示八进制。</p>
+<p>在 printf() 中，以八进制表示数字，使用 %o；以十六进制表示数字，使用 %x. 如果要显示各进制的前缀0、0x 和 0X，必须分别使用 %#o、%#x、%#X。</p>
+<h4 id="修饰整数类型">修饰整数类型</h4>
+<p>附属关键字：short、long 和 unsigned</p>
+<ul>
+<li>
+<p>short int ( 等价位 short) 占用存储空间可能比 int 类型少</p>
+</li>
+<li>
+<p>long int ( 等价位 long) 占用存储空间可能比 int 类型多</p>
+</li>
+<li>
+<p>C99: long long int 或 long long, 至少占 64 位</p>
+</li>
+<li>
+<p>unsigned int 或 unsigned 只用于非负值的场合，且范围不同。16 位 unsigned int: 0~65535。正负号的位现在用于表示另一个二进制位</p>
+</li>
+<li>
+<p>C90: unsigned long int / unsigned long 和 unsigned int / unsigned short</p>
+</li>
+<li>
+<p>C99: unsigned long long int / unsigned long long</p>
+</li>
+<li>
+<p>在任何由符号类型前添加关键字 signed，表示强调使用有符号类型的意图</p>
+</li>
+</ul>
+<h4 id="多种整型需注意的地方">多种整型需注意的地方</h4>
+<p>C 语言只规定了 short 占用的储存空间不能多于 int， int 不能多于 long，是为了适应不同的机器。在实际使用中，有些类型之间通常有重叠</p>
+<p>如，Windows 3 机器上的 int 和 short 都占 16 位，long 为 32位；后来 Windows 和苹果系统都使用 16位 存储 short，32 位存储 int 和 long。64 位处理器普及后，引入能储存 64 位整数的 long long。</p>
+<p>C 标准对基本数据只规定了允许的最小大小。如，16 位机，short 和 int 的最小取值范围都是 [-32767, 32767]</p>
+<p>多种 int 类型使用所需注意的地方：</p>
+<ul>
+<li>
+<p>除非在必要的情况下，不要使用 long 类型，因为对于那些 long 类型占用的空间比 int 大的系统，使用 long 类型会减慢运算速度</p>
+</li>
+<li>
+<p>如果在 long 类型和 int 类型占用空间相同的机器上编码，当确实需要 32 位的整数时， 应使用 long 类型而不是 int 类型。对于 long long，同理</p>
+</li>
+<li>
+<p>如果在 int 设置为 32 位的系统中使用 16 位的值，使用 short 节省空间</p>
+</li>
+<li>
+<p>编译器会根据取值范围是否被超过来调整常量的类型（存储空间小至存储空间大）。八进制和十六进制同理</p>
+</li>
+<li>
+<p>可用 l 或 L 后缀来把常量作为 long 处理; ll 或 LL 后缀来把常量作为 long long 处理; u 或 U 后缀表示 unsigned。这两类后缀的顺序不影响类型分配，且同样能运用到八进制和十六进制中</p>
+</li>
+</ul>
+<h4 id="整数溢出">整数溢出</h4>
+<p>原理：当变量的值到达到类型能表示最大的时候，会从类型取值范围的最小值重新计数。</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/c/c-note-1/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/study-habit/reading-skill/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

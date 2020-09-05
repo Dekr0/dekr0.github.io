@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Python之logging模块</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <p>logging模块提供了一个灵活的事件记录系统并且是线程安全的。</p>
+<hr>
+<h1 id="基础用法---模块级别的函数">基础用法 - 模块级别的函数</h1>
+<p>logging.basicConfig() - 为logging系统提供基本配置。此函数应该在debug()，info()等类似的函数调用之前调用</p>
+<p>此函数一些常用、可选的参数</p>
+<p>filename：文件处理器的名字（如果此函数为空，事件信息会被在标准错误流（即sys.stderr）中输出/记录）</p>
+<p>format：处理器的格式化字符串（格式化字符串的格式定义与类LogRecord、Formatter相关）</p>
+<p>datefmt：事件日期的格式</p>
+<p>level：设置根记录器的级别（建议直接使用logging模块内部定义好的级别）</p>
+<p><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">CRITICAL</span> <span class="p">=</span> <span class="mi">50</span>
+<span class="nx">FATAL</span> <span class="p">=</span> <span class="nx">CRITICAL</span>
+<span class="nx">ERROR</span> <span class="p">=</span> <span class="mi">40</span>
+<span class="nx">WARNING</span> <span class="p">=</span> <span class="mi">30</span>
+<span class="nx">WARN</span> <span class="p">=</span> <span class="nx">WARNING</span>
+<span class="nx">INFO</span> <span class="p">=</span> <span class="mi">20</span>
+<span class="nx">DEBUG</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="nx">NOTSET</span> <span class="p">=</span> <span class="mi">0</span></code></pre></td></tr></table>
+</div>
+</div>
+这些级别的数值可以直接以 logging.<em>level</em> 的方式来调取（级别大名要大写）</p>
+<p>以下这些函数会根据函数名所代表的级别来记录一条信息或事件。如果此函数名所代表的级别低于根记录器的级别，信息或事件将不会被记录器所记录</p>
+<ul>
+<li>
+<p>logging.<strong>debug</strong>(msg, *<em>args</em>, **<em>kwargs</em>)</p>
+</li>
+<li>
+<p>logging.<strong>info</strong>(msg, *<em>args</em>, **<em>kwargs</em>)</p>
+</li>
+<li>
+<p>logging.<strong>warning</strong>(msg, *<em>args</em>, **<em>kwargs</em>)</p>
+</li>
+<li>
+<p>logging.<strong>error</strong>(msg, *<em>args</em>, **<em>kwargs</em>)</p>
+</li>
+<li>
+<p>logging.<strong>critical</strong>(msg, *<em>args</em>, **<em>kwargs</em>)</p>
+</li>
+<li>
+<p>logging.<strong>exception</strong>(msg, *<em>args</em>, **<em>kwargs</em>) Note: 以ERROR的级别记录信息</p>
+</li>
+<li>
+<p>logging.<strong>log</strong>(level, msg, *<em>args</em>, <em><em><em>kwargs</em>) Note: 以</em>level</em>的级别记录信息</p>
+</li>
+</ul>
+<p>在这些函数里通用的参数：</p>
+<ul>
+<li>msg：格式化字符串信息</li>
+<li>*args：这些参数会被用于格式化字符串所用（2.7版本的格式化方式）</li>
+<li>*kwargs有三个指定的参数
+<ul>
+<li>exc_info：如果为true，异常信息将会被添加到记录信息内</li>
+<li>stack_info：如果为true，栈信息将会被添加到记录信息内</li>
+<li>extra：此参数将接收一个字典，此字典被用于修改类<strong>LogRecord</strong>的**__dict__**中的一些用户在创建logging事件的自定义属性。字典的键将会
+对应这些自定义属性的名字。在调用这些记录信息和事件的函数时，被传入字典中的值在会赋予给这些自定义属性（以另一种方式格式化字符串）（如不明
+，见实例）</li>
+</ul>
+</li>
+</ul>
+<p>实例
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="nx">logging</span>
+
+<span class="nx">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="nx">filename</span><span class="p">=</span><span class="s">&#34;output.log&#34;</span><span class="p">,</span>
+                    <span class="nx">format</span><span class="p">=</span><span class="s">&#34;%(asctime)s - %(username)s - %(IP)s - %(levelname)s - %(module)s: %(message)s&#34;</span><span class="p">,</span>
+                    <span class="nx">datefmt</span><span class="p">=</span><span class="s">&#34;%Y-%m-%d %H:%M:%S %p&#34;</span><span class="p">,</span>
+                    <span class="nx">level</span><span class="p">=</span><span class="nx">logging</span><span class="p">.</span><span class="nx">WARN</span><span class="p">)</span>
+<span class="nx">D</span> <span class="p">=</span> <span class="p">{</span><span class="s">&#34;username&#34;</span><span class="p">:</span> <span class="s">&#34;Dekr0&#34;</span><span class="p">,</span> <span class="s">&#34;IP&#34;</span><span class="p">:</span> <span class="s">&#34;127.0.0.1&#34;</span><span class="p">}</span>
+
+<span class="nx">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="s">&#34;debug&#34;</span><span class="p">,</span> <span class="nx">extra</span><span class="p">=</span><span class="nx">D</span><span class="p">)</span>
+<span class="nx">logging</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">&#34;info&#34;</span><span class="p">,</span> <span class="nx">extra</span><span class="p">=</span><span class="nx">D</span><span class="p">)</span>
+<span class="nx">logging</span><span class="p">.</span><span class="nf">warning</span><span class="p">(</span><span class="s">&#34;warn&#34;</span><span class="p">,</span> <span class="nx">extra</span><span class="p">=</span><span class="nx">D</span><span class="p">)</span>
+<span class="nx">logging</span><span class="p">.</span><span class="nb">error</span><span class="p">(</span><span class="s">&#34;error&#34;</span><span class="p">,</span> <span class="nx">extra</span><span class="p">=</span><span class="nx">D</span><span class="p">)</span>
+<span class="nx">logging</span><span class="p">.</span><span class="nf">critical</span><span class="p">(</span><span class="s">&#34;critical&#34;</span><span class="p">,</span> <span class="nx">extra</span><span class="p">=</span><span class="nx">D</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></p>
+<hr>
+<h1 id="进阶用法---使用类loggers-logrecord-handlers-filters-and-formatters">进阶用法 - 使用类loggers, LogRecord, handlers, filters, and Formatters</h1>
+<p>Logging流程图：
+<figure>
+    <img src="/images/logging_flow.jpg"/> 
+</figure>
+</p>
+<p>Loggers（记录器）: 提供logging模块的接口，给程序代码直接使用</p>
+<p>此类的对象，即记录器，都有一个名字，对象名将用于排列。这些对象是按照命名空间层级来进行排列，用&rdquo;.&ldquo;来进行分级。这意味着logger的名字可以用来跟踪包或模块的层级。</p>
+<p>一个logger对象名为a，a.b和a.c是logger对象a的子对象。</p>
+<p>通过调用模块级别的函数logging.getLogger()来获取一个记录器.如果参数给出名字存在于字典中，直接调用，不存在，初始化一个记录器；如果参数为空，直接调用根记录器，根记录器的名为&quot;root&rdquo;。(见附录-源码剖析）</p>
+<p>debug()，info()等类似的函数，都是调用根记录器的方法</p>
+<p>Remark：不推荐直接以logging.Logger()的方式来获取一个记录器</p>
+<p>Handlers（处理器）: 将日志记录（由loggers，即记录器创建）发送到合适的目的地（例如，文件，HTTP GET/POST地点，通过SMTP发送电子邮件</p>
+<p>Filters（过滤器）: 提供决定日志记录输出的功能</p>
+<p>Formatters（格式化器）: 指定日志记录在最终输出的格式</p>
+<p>LogRecord（日志记录）：日志记录对象，日志事件的信息将会被封装在一个LogRecord的实例中，被在类loggers，handlers，filters和formatters之间传递</p>
+<hr>
+<h1 id="参考文献">参考文献</h1>
+<p><a href="https://docs.python.org/3/howto/logging.html">https://docs.python.org/3/howto/logging.html</a></p>
+<hr>
+<h1 id="附录">附录</h1>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/src-queue/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/python/general-concept-review/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

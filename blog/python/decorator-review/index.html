@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Python之装饰器</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <h1 id="装饰器decorator">装饰器（decorator）</h1>
+<p>与装饰器运作相关的情景（对象、指针、内存空间、地址）：</p>
+<p>已定义的函数体允许以变量赋值的方式赋值给其他变量</p>
+<p>函数体内部允许定义新的函数体（注意：作用域）</p>
+<p>函数体能够充当一个函数体的返回值</p>
+<p>函数体能够充当另一个函数体的参数</p>
+<p>如果一段代码定义两个拥有相同函数名的函数，但所执行操作的不同。最后被解析的函数的函数体将会被保留，而最先被解析的函数的函数体会被覆盖。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">def</span> <span class="kd">func</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+
+<span class="nx">def</span> <span class="kd">func</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">2</span>
+
+
+<span class="nx">ret</span> <span class="p">=</span> <span class="kd">func</span><span class="p">()</span></code></pre></div>
+<p>粗略来说，函数（方法）名相当于一个函数（方法）对象的对象指针，此指针指向一个内存地址或内存空间，函数体将会存储在此处</p>
+<p>装饰器能够进行对函数和方法进行转换（转化）操作。</p>
+<p>一个函数定义（def &hellip;(&hellip;):）可以被一个或多个装饰器表达式包含。在包含一个函数定义的作用域中，当此函数被定义时，装饰器将会被求值。以函数对象（非函数体）为唯一参数的调用方式所返回的求值结果必须是一个可调用的对象。</p>
+<p><em>@</em> - 进行装饰器的操作</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">@</span><span class="nx">decorator_2</span>
+<span class="err">@</span><span class="nx">decorator_1</span>
+<span class="nx">def</span> <span class="kd">func</span><span class="p">(</span><span class="nx">arg</span><span class="p">):</span>
+    <span class="nx">pass</span></code></pre></div>
+<p>这等同于：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">def</span> <span class="kd">func</span><span class="p">(</span><span class="nx">arg</span><span class="p">):</span>
+    <span class="nx">pass</span>
+
+<span class="kd">func</span> <span class="p">=</span> <span class="nf">decorator_2</span><span class="p">(</span><span class="nf">decorator_1</span><span class="p">(</span><span class="kd">func</span><span class="p">))</span></code></pre></div>
+<p>实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">    <span class="nx">def</span> <span class="nf">decor</span><span class="p">(</span><span class="kd">func</span><span class="p">):</span>
+        <span class="nx">def</span> <span class="nf">format</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">):</span>
+            <span class="nx">ret</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s">&#34;{} + {} = {}&#34;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span> <span class="nx">ret</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nx">format</span>
+
+    <span class="err">@</span><span class="nx">decor</span>
+    <span class="nx">def</span> <span class="nf">addition</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nf">addition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s"># output:
+</span><span class="s">1 + 2 = 3
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>此实例的操作步骤：</p>
+<ol>
+<li>
+<p>执行outer函数（向outer函数求返回值），并将被装饰（包含）的函数对象（inner)，当作参数传进outer函数中</p>
+</li>
+<li>
+<p>func参数变量和inner函数对象同时指向存储inner函数对象中原函数体的内存空间/内存地址（粗略来说，func参数变量和inner函数对象持有相同指针）。</p>
+</li>
+<li>
+<p>从outer函数所求得的返回值重新赋值给函数对象inner（inner原有的函数定义或函数体被重写）。虽然inner函数对象的函数体被重写，但func参数变量（暂时性地）持有inner函数对象的原函数体的内存指针，指针指向存储原函数体的内存空间，原函数体并没有析构。</p>
+</li>
+</ol>
+<p>此处使用装饰器的目的：在不修改原函数体的基础上，将一个新的函数体封装到存储原函数体的函数对象中，并执行新函数体的代码同时执行原函数体的代码。</p>
+<p>在遇到多个拥有不同个数的函数被同一个装饰器装饰而且需要执行这些函数的代码时，直接将装饰器内定义的函数参数替换为动态参数（*args, *kwargs），在这些动态参数直接传入到这些函数之中。（解析器会自动对动态参数进行分配）</p>
+<p>实例
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">    <span class="nx">def</span> <span class="nf">decor</span><span class="p">(</span><span class="kd">func</span><span class="p">):</span>
+        <span class="nx">def</span> <span class="nf">format</span><span class="p">(</span><span class="o">*</span><span class="nx">args</span><span class="p">,</span> <span class="o">*</span><span class="nx">kwargs</span><span class="p">):</span>
+            <span class="nx">ret</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="o">*</span><span class="nx">args</span><span class="p">,</span> <span class="o">*</span><span class="nx">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s">&#34;Calculation&#39;s result: {}&#34;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nx">format</span>
+
+
+    <span class="err">@</span><span class="nx">decor</span>
+    <span class="nx">def</span> <span class="nf">addition</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+
+
+    <span class="err">@</span><span class="nx">decor</span>
+    <span class="nx">def</span> <span class="nf">square</span><span class="p">(</span><span class="nx">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nx">a</span>
+
+    
+    <span class="nx">ret1</span> <span class="p">=</span> <span class="nf">addition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nx">ret2</span> <span class="p">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>在遇到多个装饰器装饰同一个函数</p>
+<p>实例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">    <span class="nx">def</span> <span class="nf">decor2</span><span class="p">(</span><span class="kd">func</span><span class="p">):</span>
+        <span class="nx">def</span> <span class="nf">index</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s">&#34;index&#34;</span><span class="p">)</span>
+            <span class="kd">func</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="nx">index</span>
+
+
+    <span class="nx">def</span> <span class="nf">decor1</span><span class="p">(</span><span class="kd">func</span><span class="p">):</span>
+        <span class="nx">def</span> <span class="nf">fetch</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s">&#34;fetch&#34;</span><span class="p">)</span>
+            <span class="kd">func</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="nx">fetch</span>
+
+
+    <span class="err">@</span><span class="nx">decor2</span>
+    <span class="err">@</span><span class="nx">decor1</span>
+    <span class="nx">def</span> <span class="nf">foo</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">)</span>
+
+
+    <span class="nf">foo</span><span class="p">()</span>
+    <span class="s">&#34;&#34;&#34;
+</span><span class="s">    output:
+</span><span class="s">    index
+</span><span class="s">    fetch
+</span><span class="s">    foo
+</span><span class="s">    &#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>流程：</p>
+<ul>
+<li>
+<p>解析器解析到第17行时，decor2装饰器表达式将被求值，返回值将会赋值给被decor1装饰器表达式转化的foo函数对象中原函数定义和原函数体，即进行转化操作。</p>
+</li>
+<li>
+<p>先求出被decor1装饰器转化的foo函数对象中的元函数定义和原函数体。向decor1装饰器表达式求值，foo函数对象的函数定义和函数体被传入decor1的func参数中</p>
+</li>
+<li>
+<p>decor1内部定义的函数定义和函数体被封装到fetch函数对象，即decor1装饰器表达式求值结果。foo函数对象的原函数定义和原函数体被转化为fetch函数对象的函数定义和函数体（foo函数对象被重新赋值）。原函数体和原函数定义被存储在fetch作用
+域中func变量中。</p>
+</li>
+<li>
+<p>函数定义和函数体被decor1装饰器转化后的foo函数对象，将向decor2装饰器表达式求值，新的foo函数对象及此函数定义和函数体被传入decor2的func参数中</p>
+</li>
+<li>
+<p>decor2内部定义的函数定义和函数体被封装到index函数对象，即decor2装饰器表达式求值结果，foo函数对象的函数定义和函数体被转化为index函数对象的函数定义和函数体（foo函数对象被再次重新赋值）。被decor1转化foo函数对象中的函数体和函数定义被存储在index作用域中func变量中。</p>
+</li>
+</ul>
+<p>装饰器可以同样运用到类</p>
+<p>装饰器的应用场景：一个或多个公用的功能需要在其他功能实现之前实现（在不修改其他功能的代码的基础上。参考开放封闭原则 - 部分功能内部对外封闭，没有修改的权限）。</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/general-concept-review/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-1/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

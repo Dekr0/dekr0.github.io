@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">正则表达式Note（四）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#圆括号">圆括号</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="圆括号">圆括号</h2>
+<p>允许根据不同的目的对字符进行分组等其他用途。圆括号可以创建一或多个字符组，而且匹配的字符组可以用在后来的文本操作中。</p>
+<h4 id="使用圆括号分组"><strong>使用圆括号分组</strong></h4>
+<p>正则表达式模式中圆括号的作用是对字符进行分组，并保存匹配的文本。</p>
+<p>通过圆括号分组的字符都是为了文本操作的目的而建立的。</p>
+<p>要创建一个字符组，只需简单地在需要分组的字符前面加一个圆开括号字符，而后面加一个圆闭括号字符（例：(hello world)，此表达式只包含直接量字符，可用于匹配文本hello world）</p>
+<p>另一个表达式：(hello)( )(world)。此表达式也会匹配相同的文本，同时还建立了三个组，第一个组中包含字符序列hello，第二组中包含一个空格符，而第三组中则包含字符序列world。</p>
+<h4 id="圆括号和限定符"><strong>圆括号和限定符</strong></h4>
+<p>若要对一组字符进行限量，可以把相关的字符或元字符包含在一堆圆括号内，然后在这个组的后面添加一个适当的限定符（例：(A\d){2}）</p>
+<h4 id="交替选择"><strong>交替选择</strong></h4>
+<p>圆括号的另一种重要的应用是表示可选择性。（支持二选一或多选一的应用）</p>
+<p><strong>实例：多项选择</strong></p>
+<p>对医生的称呼可能存在Doctor，doctor以及两种缩写方法——Dr.和Dr。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">Doctor</span>
+
+<span class="nx">Drf</span>
+
+<span class="nx">Dr</span>
+
+<span class="nx">Dr</span><span class="p">.</span>
+
+<span class="nx">Drs</span>
+
+<span class="nx">Doctors</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>定义：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r在或者匹配字符序列D、r和.（一个句号）
+表达式：(Doctor|Dr.?)</p>
+<p>但通过测试Drf中的Dr被匹配到了。</p>
+<p>对定义进行优化：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r。在前面描述的选项后面必须是一个词边界的位置。（利用句点本身是一个非字母字符和词边界符的特性）
+表达式：(Doctor|Dr)&gt;</p>
+<h4 id="错误匹配的交替选择"><strong>错误匹配的交替选择</strong></h4>
+<p><strong>实例</strong></p>
+<p>匹配一个单独的小写字符 a 或者小写的字符序列 ab 中的任何一个。模式 - (a|ab)</p>
+<p>测试文本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span>
+
+<span class="nx">ab</span>
+
+<span class="nx">ac</span> <span class="nx">ab</span>
+
+<span class="nx">ba</span>
+
+<span class="nx">bab</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用表达式 (a|ab) 进行匹配，再使用 (ab|a) 进行一次匹配</p>
+<p><strong>工作原理</strong></p>
+<p>在第二行，使用 (a|ab) 时有一个匹配项，但只匹配了一个字符 a。假设引擎在 a 之前的位置开始匹配，引擎尝试将第一个选项于该行中的第一个字符————也是一个 a，匹配成功。这样，正则表达式引擎就不会再尝试匹配<strong>第二个选项</strong>了。于是，引擎把当前位置移动到了刚找到的匹配项之后（<strong>位于 a 和 b 之间</strong>）的位置上。然后再重新尝试匹配，但此时不论是用 a 还是 ab来匹配字符 b，结果都不会成功。</p>
+<p>但是，当把模式修改为 (ab|a) 时，在第二行中找到了两个字符（ab）的匹配。因为第一个选项 ab 会首先参与匹配。假设匹配从 a 之前的位置开始，那么第一个选项会匹配，因为模式 ab 与字符序列 ab 是匹配的。由于第一个选项匹配，所以第二个选项不再参与匹配。</p>
+<h4 id="捕获圆括号">捕获圆括号</h4>
+<p>与位于圆开括号和圆闭括之间的模式匹配的内容都会被捕获。</p>
+<p><strong>捕获组的编号</strong></p>
+<p>实例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">testing</span><span class="p">:</span> <span class="nx">hello</span> <span class="nx">world</span></code></pre></div>
+<p>使用表达式：(hello) (world)，进行匹配。</p>
+<p>字符序列hello（位于第一个圆开括号之后）就是变量$1 的值，而字符序列 world（位于第二个圆开括号之后）是变量$2 的值。在Python中，在表达式内调用这些变量是\1，\2，etc. 传递到re.sub()里的repl参数中：\g&lt;1&gt;或\1。</p>
+<h4 id="命名的组"><strong>命名的组</strong></h4>
+<p>在Python中的相应的语法:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">(</span><span class="err">?</span><span class="nx">P</span><span class="p">&lt;</span><span class="nx">name</span><span class="p">&gt;</span><span class="nx">expression</span><span class="p">)</span></code></pre></div>
+<p>在表达式内进行引用：(?P=name)。</p>
+<p>通过匹配对象：Match.group(name), Match.group(name)等。</p>
+<p>传递到re.sub()里的repl参数中：\g<!-- raw HTML omitted -->。</p>
+<h4 id="非捕获的圆括号">非捕获的圆括号</h4>
+<p>要创建非捕获圆括号的表达式：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">(</span><span class="err">?</span><span class="p">:</span><span class="nx">the</span><span class="o">-</span><span class="nx">non</span><span class="o">-</span><span class="nx">captured</span><span class="o">-</span><span class="nx">content</span><span class="p">)</span></code></pre></div>
+<h4 id="反向引用">反向引用</h4>
+<p><strong>实例：挑出重复的单词</strong></p>
+<p>定义：</p>
+<p>匹配一个或多个ASCII字母字符，后跟一个或多个空格。然后，尝试匹配千米那匹配的ASCII字母字符序列</p>
+<p>测试文本</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">Pairs</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">the</span> <span class="nx">spring</span><span class="p">.</span>
+
+<span class="nx">The</span> <span class="nx">theoretical</span> <span class="nx">viewpoint</span> <span class="nx">is</span> <span class="nx">of</span> <span class="nx">little</span> <span class="nx">value</span> <span class="nx">here</span><span class="p">.</span>
+
+<span class="nx">I</span> <span class="nx">view</span> <span class="nx">the</span> <span class="nx">theoretical</span> <span class="nx">viewpoint</span> <span class="nx">as</span> <span class="nx">being</span> <span class="nx">of</span> <span class="nx">little</span> <span class="nx">value</span> <span class="nx">here</span><span class="p">.</span> 
+
+<span class="nx">I</span> <span class="nx">think</span> <span class="nx">that</span> <span class="nx">that</span> <span class="nx">is</span> <span class="nx">often</span> <span class="nx">overdone</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="nx">sentence</span> <span class="nx">contains</span> <span class="nx">contains</span> <span class="nx">a</span> <span class="nx">doubled</span> <span class="nx">word</span> <span class="nx">or</span> <span class="nx">two</span> <span class="nx">two</span><span class="p">.</span>
+
+<span class="nx">Fear</span> <span class="nx">fear</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">fearful</span> <span class="nx">thing</span><span class="p">.</span>
+
+<span class="nx">Writing</span> <span class="nx">successful</span> <span class="nx">programs</span> <span class="nx">requires</span> <span class="nx">that</span> <span class="nx">the</span> <span class="nx">the</span> <span class="nx">programmer</span> <span class="nx">fully</span> <span class="nx">understands</span> <span class="nx">the</span> <span class="nx">problem</span> <span class="nx">to</span> <span class="nx">be</span> <span class="nx">solved</span><span class="p">.</span> </code></pre></div>
+<p>使用模式 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">\</span><span class="nf">b</span><span class="p">([</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">+</span><span class="p">)</span> <span class="o">+</span><span class="err">\</span><span class="mi">1</span><span class="err">\</span><span class="nx">b</span></code></pre></div></p>
+<p>此模式将第一个分组将匹配至少一个或多个字符，分组后跟一个带有限定符 + 的空格符，用于匹配第一个分组与后面的字符至少一个或多个空格。最后一个组件 \1，对一个分组中的内容进行反向引用。开始和结束的词边界符是避免匹配到The和theoretical中的the这样的情况</p>
+<hr>
+<p>参考文献：</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-3/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-5/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

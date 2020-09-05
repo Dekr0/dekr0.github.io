@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Python基础知识拾漏</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <h1 id="set类型">set类型</h1>
+<p>与list和tuple（不允许修改的列表），set是一种不允许重复的列表并且是无序的，所以不支持索引</p>
+<p>类set的方法（不存在于list和tuple）：</p>
+<ul>
+<li>
+<p>add(self, *args, **kwargs) - 添加一个元素。如果元素存在，则无效果</p>
+</li>
+<li>
+<p>differece(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法set存在的元素不存在于被传入的set，将这些元素以一个新的set对象返回</p>
+</li>
+<li>
+<p>difference_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素不存在于被传入的set，保留这些元素并移除其他存在于传入的set对象的元素</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">SetA</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,}</span>
+<span class="nx">SetB</span> <span class="p">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,}</span>
+<span class="nx">SetA</span><span class="p">.</span><span class="nf">difference_update</span><span class="p">(</span><span class="nx">SetB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nx">SetA</span><span class="p">)</span>
+<span class="err">#</span> <span class="nx">output</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>
+<p>discrad(self, *args, **kwargs) - 移除一个是此对象成员的元素，如果元素不是对象的成员，不执行（与remove功能相同，但不会因为元素不存在而报错）</p>
+</li>
+<li>
+<p>intersection(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，将这些元素以一个新的set对象返回</p>
+</li>
+<li>
+<p>intersection_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，保留这些元素并移除其他不在于传入的set对象的元素</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">SetA</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,}</span>
+<span class="nx">SetB</span> <span class="p">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,}</span>
+<span class="nx">SetA</span><span class="p">.</span><span class="nf">intersection_update</span><span class="p">(</span><span class="nx">SetB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nx">SetA</span><span class="p">)</span>
+<span class="err">#</span> <span class="nx">output</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>
+<p>isdisjoint(self, *args, **kwargs) - 如果两个set对象没有相交，返回True</p>
+</li>
+<li>
+<p>issubset(self, *args, **kwargs) - 如果此set对象是另一个set对象的子集合，返回True</p>
+</li>
+<li>
+<p>issuperset(self, *args, **kwargs) - 如果此set对象是另一个set对象的父集合，返回True</p>
+</li>
+<li>
+<p>symmetric_difference(self, *args, **kwargs) - 返回两个或者多个set对象中互不存在的元素</p>
+</li>
+<li>
+<p>symmetric_difference_update(self, *args, **kwargs) - 保留两个set对象中互不存在的元素，其他的移除</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">SetA</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,}</span>
+<span class="nx">SetB</span> <span class="p">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,}</span>
+<span class="nx">SetA</span><span class="p">.</span><span class="nf">symmetric_difference_update</span><span class="p">(</span><span class="nx">SetB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nx">SetA</span><span class="p">)</span>
+<span class="err">#</span> <span class="nx">output</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>
+<p>union(self, *args, **kwargs) - 返回两个set对象的并集</p>
+</li>
+<li>
+<p>update(self, *args, **kwargs) - 传入一个可循环的对象（列表，元组等），并更新与这对象的并集</p>
+</li>
+</ul>
+<p>Remark：pop方法无法传参，被移除的元素是随机的</p>
+<hr>
+<h1 id="三元计算">三元计算</h1>
+<p>简化一些简单if-else statement</p>
+<p>var = value_1 if condition else value_2</p>
+<p>如果conidtion成立，取value_1，否则取value_2</p>
+<p>Remark：逻辑判断同样可以利用在赋值和其他应用中</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">obj</span> <span class="p">=</span> <span class="p">(</span><span class="nx">class_A</span> <span class="nx">or</span> <span class="nx">class_B</span><span class="p">)()</span>  <span class="err">#</span> <span class="nx">class_B</span> <span class="nx">does</span> <span class="nx">not</span> <span class="nx">exit</span>
+<span class="nb">print</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+
+<span class="err">#</span> <span class="nx">output</span><span class="p">:</span> <span class="nx">an</span> <span class="nx">index</span> <span class="o">/</span> <span class="nx">memory</span> <span class="nx">address</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">class_A</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">instance</span></code></pre></div>
+<hr>
+<h1 id="lambda表达式">lambda表达式</h1>
+<p>简化一些简单的函数体</p>
+<p>function_name = lambda <em>arguments</em> : &hellip;</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">addition</span> <span class="p">=</span> <span class="nx">lambda</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span>
+<span class="nx">result</span> <span class="p">=</span> <span class="nf">addition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span></code></pre></div>
+<hr>
+<h1 id="递归">递归</h1>
+<p>运作的详解忽略</p>
+<p>Remark：在递归返回时，上一层的函数需要接收返回值，以此类推直到返回至最外层的函数</p>
+<p>错误案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="hl"><span class="lnt"> 6
+</span></span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">def</span> <span class="nf">addition</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">i</span><span class="p">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nx">x</span>
+    <span class="nx">z</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span>
+    <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="hl">    <span class="nf">addition</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span>
+
+<span class="nx">result</span> <span class="p">=</span> <span class="nf">addition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">#</span> <span class="nx">result</span> <span class="nx">is</span> <span class="nx">None</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>由于调用函数自身的时候，没有return来接收底层函数的返回值，只是执行函数体本身，直到最外层的函数也没有接收任何的返回值。在返回到最外层的时候，由于函数体没有设置关键字return，函数本身将不会返回任何值，变量则等于None。</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/src-logging/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/python/decorator-review/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

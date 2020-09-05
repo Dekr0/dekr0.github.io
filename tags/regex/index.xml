@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regex on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/regex/</link>
+    <description>Recent content in regex on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jul 2020 16:13:27 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>正则表达式Note（五）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-5/</link>
+      <pubDate>Tue, 21 Jul 2020 16:13:27 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-5/</guid>
+      <description>向前查找和向后查找 向前查找 向前查找需要根据要匹配的字符序列后面存在一个特定的字符序列（肯定式向前查找）或者不存在一个特定的字符序列（否定式向前查找）来决定是否匹配
+备注：向前查找是一个子模式（子表达式），此模式匹配特定的字符序列（=后面的字符序列），但并不返回匹配结果（需要认识到出现在指定匹配项之后的字符序列不会被正则表达式引擎返回）。从本质上说，向前查找子模式匹配的测试文本中的位置。所谓的向前，也是基于这个位置而言，表示这个子表达式现在期望范围到匹配字符的后面。向前查找也就是向左、向文本中先出现的字符序列中查找要匹配并返回结果的字符序列。
+实例
+一个字符序列：BC21。现在有一个问题定义：匹配两个连续的字母字符，这连个字母字符位于一行的开始并且其后跟两个数字。最终匹配的只有两个字母字符，不匹配任何数字。
+^[A-Za-z]{2}(?=\d\d) ^ 元字符匹配一行开始的位置。[A-Za-z]{2} 匹配两个ASCII字母字符。(?=\d\d)是向前查找，表示这两个字母字符后面必须是两个数字。
+工作原理
+正则表达式引擎从第一行中的B之前的位置开始匹配，它首先尝试将当前位置与 ^ 元字符进行匹配，结果成功。下一个字符类与大写的B，C（限量符{2}）进行匹配，匹配成功。
+然而，模式 (?=\d\d) 会告诉正则表达式引擎，必须检查随后的字符序列中存在 \d\d 表示的两个数字时，才能匹配这两个字母。21能够与\d\d匹配成功，因此向前查找模式 (?=\d\d) 强加的限制条件满足。因此整个模式匹配成功。（如果强加的限制条件不满足，即使前面的字符序列匹配成功，但整个表达式依旧会匹配失败）
+肯定式向前查找 肯定式向前查找 (?=regex_expression) 是指在要匹配的字符序列后面必须存在某些字符序列（通常与要匹配的字符序列不同）的条件约束下完成的匹配过程。
+例如，要匹配字符序列States中的State，可以用： (?=States)State # 含义是“查找一个**后跟字符序列States**的位置。如果该位置存在，则匹配字符序列State” 或者 State(?=s) # 含义是“匹配字符序列**State**，但它后面必须**跟一个小写的s**”</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（四）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-4/</link>
+      <pubDate>Mon, 20 Jul 2020 11:45:39 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-4/</guid>
+      <description>圆括号 允许根据不同的目的对字符进行分组等其他用途。圆括号可以创建一或多个字符组，而且匹配的字符组可以用在后来的文本操作中。
+使用圆括号分组 正则表达式模式中圆括号的作用是对字符进行分组，并保存匹配的文本。
+通过圆括号分组的字符都是为了文本操作的目的而建立的。
+要创建一个字符组，只需简单地在需要分组的字符前面加一个圆开括号字符，而后面加一个圆闭括号字符（例：(hello world)，此表达式只包含直接量字符，可用于匹配文本hello world）
+另一个表达式：(hello)( )(world)。此表达式也会匹配相同的文本，同时还建立了三个组，第一个组中包含字符序列hello，第二组中包含一个空格符，而第三组中则包含字符序列world。
+圆括号和限定符 若要对一组字符进行限量，可以把相关的字符或元字符包含在一堆圆括号内，然后在这个组的后面添加一个适当的限定符（例：(A\d){2}）
+交替选择 圆括号的另一种重要的应用是表示可选择性。（支持二选一或多选一的应用）
+实例：多项选择
+对医生的称呼可能存在Doctor，doctor以及两种缩写方法——Dr.和Dr。
+1 2 3 4 5 6 7 8 9 10 11  Doctor Drf Dr Dr. Drs Doctors   定义：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r在或者匹配字符序列D、r和.（一个句号） 表达式：(Doctor|Dr.?)
+但通过测试Drf中的Dr被匹配到了。
+对定义进行优化：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r。在前面描述的选项后面必须是一个词边界的位置。（利用句点本身是一个非字母字符和词边界符的特性） 表达式：(Doctor|Dr)&amp;gt;
+错误匹配的交替选择 实例
+匹配一个单独的小写字符 a 或者小写的字符序列 ab 中的任何一个。模式 - (a|ab)
+测试文本：
+1 2 3 4 5 6 7 8 9  a ab ac ab ba bab   使用表达式 (a|ab) 进行匹配，再使用 (ab|a) 进行一次匹配</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（三）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-3/</link>
+      <pubDate>Sat, 18 Jul 2020 17:26:37 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-3/</guid>
+      <description>字符串、行和词边界 ^ 元字符 用于在字符类之外。直接匹配位于一行或一个字符串开始位置（Unicode换行符）之后的目标字符
+如果文本只有一行，则无需考虑 ^ 元字符与文本的开始出匹配，还是每一行的开始处匹配这个问题（这两个概念指的是同一位置）。如果需要匹配每一行的开始处，则需要开启多行模式
+python re开启多行模式。调用re函数或方法时，将flags参数设为re.MULTILINE
+$ 元字符 指定出现在一个文件结束位置或文件中一行结束位置（Unicode换行符）之前的字符序列
+同时使用 ^ 和 $ 元字符 实例
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  text = &amp;#34;ABC123\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;There is a part number ABC123.\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;ABC234\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;A purchase order for 400 of ABC345 was received yesterday.\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;ABC789&amp;#34; pattern = re.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（二）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-2/</link>
+      <pubDate>Wed, 15 Jul 2020 19:43:29 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-2/</guid>
+      <description>部分元字符 字符和位置之间的区别：
+示例文本：This is a simple sentence.
+这段文本中第一个字符为T，但第一个字符T前还有一个位置且不可见。第一个字符T和第二个字符h之间，也有一个位置。有些元字符可以匹配位置，如 ^ 元字符，这类元字符可以被称为词边界元字符，一般用来匹配一个字母字符和一个非字母字符之间的位置（严格来说，匹配一个字母序列或数字字母序列的边界）。
+（.）元字符 \w 元字符 表示一个ASCII字母字符（A~Z或a~z）、一个数字或一个下划线字符。不匹配象形符号，标点符号，在某些实现中也不匹配非英语语言中的字母字符（通过某些设置，\w元字符也可以应用于Unicode字符集而不单单是ASCII字符集的环境下）
+对应的字符类是：[A-Za-z0-9_]
+\W 元字符 用于匹配\w元字符不匹配的字符（任何非ASCII字母字符、非数字以及非下划线字符）（包括空格）
+\D 元字符 用于匹配非数字，即\d元字符不能匹配的其他字符（包括空格）
+空白和非空白元字符 \s 元字符，针对性差，匹配任何单个的空白字符（空格符、制表符tab或换行符\n）
+\S 元字符，用于匹配任何非空白字符。其他非英语语言中的字符也与\S 元字符匹配。但 \S 元字符不想句点元字符那样匹配尽可能多的字符。
+\t 元字符，匹配一个制表符
+\n 元字符，匹配一个换行符
+转移符，有些字符，如.字符，如果要让它匹配对应的直接量字符，则需要进行转移，如使用. 元序列来匹配一个句点字符
+ 字符类 字符类用于匹配一个字符集合中的任何一个字符
+字符类是一些字符的无序组合，正则表达式引擎可以从这个组合中挑选出一个字符来完成匹配。如果字符类中指定的任何字符都不能与之匹配，则该字符类匹配失败。
+当字符类不带有关联的限定符是，字符类只会指定其中一个字符用于匹配。例：pe[aei]r可能匹配pear、peer或peir，但不会匹配per。因为per中不包含字符类中所包含的任何一个字符。
+1 2 3 4 5 6 7 8 9 10 11 12  text = &amp;#34;AB31 AB2D AB10 AB18 AB44 AB29 AB24&amp;#34; mathces = re.finditer(&amp;#34;AB[12]\d&amp;#34;, text) showResult(mathces) &amp;#34;&amp;#34;&amp;#34; output: &amp;lt;re.Match object; span=(10, 14), match=&amp;#39;AB10&amp;#39;&amp;gt; &amp;lt;re.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（一）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-1/</link>
+      <pubDate>Sat, 27 Jun 2020 11:51:27 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-1/</guid>
+      <description>所用的语言不同，正则表达式所得出的结果会出现差异
+表达式中的一个组件/字符/部分匹配失败，整个表达式会匹配失败（根据情况）。只有在所有表达式中的组件/字符/部分匹配成功，表达式才能匹配成功。
+findstr Windows命令提示符中的一个提供在文件中寻找字符串的实用程序
+参数
+  /？ - 帮助
+  /N - 标识在匹配的每行前显示行号，以继文件名和匹配的文本
+  正则表达式的分析方法（构造表达式的思路）  用自然语言表达和说明意图  可能需要几次反复的构思才能得到符合要求的恰当描述   考虑数据源及其可能的内容 考虑可以使用的正则表达式选项（根据所使用的语言或应用程序而变化） 考虑灵敏度和特殊性（匹配的精确度和准确性） 对复杂正则表达式给予说明，用空白区域保持表达式说明的清晰  表达式的目的，需要匹配和规避的目标   创建适当的正则表达式 测试结果  匹配单个字符 如果匹配一个特定的字母字符或数子，只需是使用相应的字符或数子组成的模式即可
+实例：已知文本 Excel has XLM macros. They were replaced by Visual Basic for Applications in later versions of the spreadsheet software. CMLIII Leoni could swim like a fish. Legal difficulties plagued the Clinton administration. Lewinski was he source of some of the former president&amp;#39;s difficulties.</description>
+    </item>
+    
+  </channel>
+</rss>

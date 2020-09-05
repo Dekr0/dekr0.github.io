@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">C语言学习Note（一）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#语言介绍和背景">语言介绍和背景</a></li>
+        <li><a href="#语言概述">语言概述</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h3 id="语言介绍和背景">语言介绍和背景</h3>
+<p>部分有意义的内容，内容取自C Primer Plus 第一章</p>
+<p>C语言的设计理念符合自顶向下的规划、结构化编程和模块化设计</p>
+<p>C语言具有通常是汇编语言菜具有的微调控制能力，可根据情况微调程序以获得最大运行速度或最有效的使用内存</p>
+<p>使用C语言的7个步骤：</p>
+<p>第2步：<strong>设计程序</strong></p>
+<p>确认程序的目标和所需完成任务后，将考虑如何用程序实现/完成它。如：组织程序的方式，目标用户，完成程序的所需时间。同时，还要决定在程序中表示数据的方式，及处理数据的方法</p>
+<p>第4步：<strong>编译</strong></p>
+<p>编译器将源代码准换位可执行代码（机器语言代码）程序。编译器先将源代码转换成中间代码，<strong>链接器</strong>把中间代码和其他代码（C库，包含大量标准函数）合并链接，最后生成可执行文件。这种方法能够对程序进行模块化，即独立编译单独的模块，再用链接器合并已编译的模块。</p>
+<p>中间代码，可称为<strong>目标代码</strong>。目标代码包含机器语言代码，但不能直接运行该文件。因为目标文件储存的是编译器翻译的源代码，且缺失<strong>启动代码</strong>（程序和操作系统之间的接口，根据操作系统而变）和<strong>C标准库</strong>中的函数。</p>
+<p>链接器的作用就是把编写的<strong>目标代码</strong>，系统的标准启动代码和库代码（程序中要用到的库函数代码提取）合并成一个文件，即可执行文件。</p>
+<hr>
+<h3 id="语言概述">语言概述</h3>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span><span class="nx">include</span><span class="p">&lt;</span><span class="nx">stdio</span><span class="p">.</span><span class="nx">h</span><span class="p">&gt;</span></code></pre></div>
+<p>告知编译器将stdio.h中的内容包含在程序中，把stdio.h文件中的所有内容都输入该行所有的位置。</p>
+<p>#include是一条C预处理器指令。通常，C编译器在编译前会对源代码进行预处理</p>
+<p>stdio.h是C编译器软件包的标准部分，提供键盘输入和屏幕输出的支持。stdio.h文件（文件名含义：标准输入/输出头文件）中包含供编译器使用的输入和输出函数（如，printf()）信息。</p>
+<p>通常，在C程序顶部的信息集合被称为头文件（header），这些文件包含了编译器创建可执行程序要用到的信息。</p>
+<p><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="o">...</span>
+<span class="p">}</span></code></pre></div>}}</p>
+<h4 id="main-函数">main() 函数</h4>
+<p>C程序一定从 main() 函数开始执行，且是必须是开始的函数。int是main()函数的返回类型，返回值会返回给操作系统。</p>
+<h4 id="声明">声明</h4>
+<p>变量、函数或其他实体的名称，可视为<strong>标识符</strong>。因此，<strong>声明</strong>把特定标识符与计算机内存中的特定位置联系起来，同时也确定了储存在某位置的信息类型或数据类型。Remark：所有变量都必须声明才能使用，即列出程序中用到的所有变量名及其类型。</p>
+<p>使用多条声明</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kt">int</span> <span class="nx">feet</span><span class="p">,</span> <span class="nx">fathoms</span><span class="p">;</span></code></pre></div>
+<p>以前的C语言标准，要求把变量声明在块的顶部，其他语句不能再声明的前面（为了与旧系统更好地兼容，使用旧的规则，且促使在编写程序之前做一些计划）。</p>
+<p>在创建标识符时，<strong>避免</strong>使用一个或两个下划线字符开始的标识符吗，因为操作系统和C库经常使用这类的标识符</p>
+<h4 id="函数简介">函数简介</h4>
+<p>函数是C语言的基本模块。</p>
+<p><strong>函数调用</strong>，当程序运行到已被命名且定义好的函数的那一行后，控制权会被转给此函数。此函数执行结束后，控制权被返回至主调函数。</p>
+<p><strong>函数原型</strong>（C99标准），是一种声明形式，也被称为函数声明。此告知编译器正在使用某函数，且指明了函数的属性。C标准建议，要位程序中用到的所有函数提供函数原型。</p>
+<p>实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span><span class="nx">include</span> <span class="p">&lt;</span><span class="nx">stdio</span><span class="p">.</span><span class="nx">h</span><span class="p">&gt;</span>
+
+<span class="nx">void</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">void</span><span class="p">);</span> <span class="cm">/* ANSI/ISO C函数原型 */</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;index&#34;</span><span class="p">)</span>
+    <span class="nf">fetch</span><span class="p">();</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">void</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span> <span class="cm">/* 函数定义 */</span>
+<span class="p">{</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;fetch&#34;</span><span class="p">);</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>早期的C语言支持一种更简单的函数声明，只需指定返回类型，不用描述参数，但不是现在的函数原型。如果要使用以前写的C代码，就需要旧式函数声明转换成函数原型。
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">void</span> <span class="nf">fetch</span><span class="p">();</span> <span class="cm">/* 早期的函数声明 */</span></code></pre></div></p>
+<p>可见 fetch() 函数的定义，其函数头重述了函数原型的信息：即不带任何参数且没返回值。如果是旧式编译器，要取掉圆括号中的void</p>
+<p>Remark: fetch() 函数的执行取决于它在 main() 中被调用的位置，而不是 fetch() 的定义在文件中的位置。</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-5/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/c/c-note-2/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

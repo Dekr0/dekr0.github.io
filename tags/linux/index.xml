@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/linux/</link>
+    <description>Recent content in linux on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2020 15:49:30 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim命令和配置（一）</title>
+      <link>https://dekr0.github.io/blog/linux/vim-learning-note-1/</link>
+      <pubDate>Mon, 24 Aug 2020 15:49:30 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/linux/vim-learning-note-1/</guid>
+      <description>命令 :i 插入模式
+追加 shift - 在文件头插入
+:w 写入
+:q 退出
+:a 追加, 指针会移动到下一个插入位置
+追加 shift - 在文件尾插入
+/ + keyword 在文本中搜索 keyword
+ 键位 注: 按一次某个可以触发特定操作的键位后, 再按两次相同的键位, 将对整行执行这些操作
+和 的概念 在普通模式下:
+ - 操作 - 动作, 操作的步骤  例:
+按 d 键, 即触发 delete 操作 - 操作
+按 3 键和 方向键 →, 指示往右删除 3 个字符 - 动作
+斜体: 需要接收动作的操作 动作
+c 改变命令 (删除并进入插入模式)
+例
+更改下一个词 - cw
+更改指针中的词 - ci**w**</description>
+    </item>
+    
+    <item>
+      <title>Linux常用指令（一）</title>
+      <link>https://dekr0.github.io/blog/linux/linux-cmd-1/</link>
+      <pubDate>Thu, 20 Aug 2020 16:23:57 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/linux/linux-cmd-1/</guid>
+      <description>对于普通用户, 命令行提示符一般为 &amp;ldquo;$&amp;rdquo;. 而 root 是以 &amp;ldquo;#&amp;rdquo; 结尾
+绝对 (Absolute) 路径 - 指定一个相对于系统的根目录 (root directory)的位置. 如果提供的路径以 / 开头, 此路径是以根目录为起始点的绝对路径
+相对 (Relatitve) 路径 - 如果路径以 ~/ 开头, 路径起始点为 home 目录; 如果路径以一个文件夹或文件的名字开头，无 / 或 ~/, 此路径是以当前目录为起始点的相对路径; 当前目录可以以 . 或 ./ 表.
+pwd 显示当前路径
+ 进程相关 ps 显示当前在系统的进程和进程的信息
+kill 向一个或多个进程发送一个信号 (通常来结束一个进程)
+参数:
+-l: 显示所有信号类型 (后加信号类型名返回其对应的整数值)
+-n: 根据信号类型对应的整数值来选择所发送信号的类型
+bg 将一个进程放进后台
+可以让一个因 Ctrl-Z 被挂起的进程在后台继续运行
+fg 将一个进行放进前台
+jobs 显示当前的进程 (无详细信息)
+&amp;amp; 让命令在后台运行
+单条命令 $ ping www.google.com &amp;amp;</description>
+    </item>
+    
+  </channel>
+</rss>

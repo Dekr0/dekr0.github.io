@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">正则表达式Note（一）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#findstr"><strong>findstr</strong></a></li>
+        <li><a href="#正则表达式的分析方法构造表达式的思路"><strong>正则表达式的分析方法（构造表达式的思路）</strong></a></li>
+        <li><a href="#匹配单个字符"><strong>匹配单个字符</strong></a></li>
+        <li><a href="#匹配连续的字符序列"><strong>匹配连续的字符序列</strong></a></li>
+        <li><a href="#元字符d"><strong>元字符\d</strong></a></li>
+        <li><a href="#匹配可选字符"><strong>匹配可选字符</strong></a></li>
+        <li><a href="#限量操作符--和--">**限量操作符 * 和 + ***</a></li>
+        <li><a href="#大括号语法"><strong>大括号语法</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <p>所用的语言不同，正则表达式所得出的结果会出现差异</p>
+<p>表达式中的一个组件/字符/部分匹配失败，整个表达式会匹配失败（根据情况）。只有在所有表达式中的组件/字符/部分匹配成功，表达式才能匹配成功。</p>
+<h3 id="findstr"><strong>findstr</strong></h3>
+<p>Windows命令提示符中的一个提供在文件中寻找字符串的实用程序</p>
+<p>参数</p>
+<ul>
+<li>
+<p>/？ -  帮助</p>
+</li>
+<li>
+<p>/N - 标识在匹配的每行前显示行号，以继文件名和匹配的文本</p>
+</li>
+</ul>
+<h3 id="正则表达式的分析方法构造表达式的思路"><strong>正则表达式的分析方法（构造表达式的思路）</strong></h3>
+<ul>
+<li>用自然语言表达和说明意图
+<ul>
+<li>可能需要几次反复的构思才能得到符合要求的恰当描述</li>
+</ul>
+</li>
+<li>考虑数据源及其可能的内容</li>
+<li>考虑可以使用的正则表达式选项（根据所使用的语言或应用程序而变化）</li>
+<li>考虑灵敏度和特殊性（匹配的精确度和准确性）</li>
+<li>对复杂正则表达式给予说明，用空白区域保持表达式说明的清晰
+<ul>
+<li>表达式的目的，需要匹配和规避的目标</li>
+</ul>
+</li>
+<li>创建适当的正则表达式</li>
+<li>测试结果</li>
+</ul>
+<h3 id="匹配单个字符"><strong>匹配单个字符</strong></h3>
+<p>如果匹配一个特定的字母字符或数子，只需是使用相应的字符或数子组成的模式即可</p>
+<h4 id="实例已知文本">实例：已知文本</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">Excel</span> <span class="nx">has</span> <span class="nx">XLM</span> <span class="nx">macros</span><span class="p">.</span> <span class="nx">They</span> <span class="nx">were</span> <span class="nx">replaced</span> <span class="nx">by</span> <span class="nx">Visual</span> <span class="nx">Basic</span> <span class="k">for</span> <span class="nx">Applications</span> <span class="nx">in</span> <span class="nx">later</span>
+<span class="nx">versions</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">spreadsheet</span> <span class="nx">software</span><span class="p">.</span>
+
+<span class="nx">CMLIII</span>
+
+<span class="nx">Leoni</span> <span class="nx">could</span> <span class="nx">swim</span> <span class="nx">like</span> <span class="nx">a</span> <span class="nx">fish</span><span class="p">.</span>
+
+<span class="nx">Legal</span> <span class="nx">difficulties</span> <span class="nx">plagued</span> <span class="nx">the</span> <span class="nx">Clinton</span> <span class="nx">administration</span><span class="p">.</span> <span class="nx">Lewinski</span> <span class="nx">was</span> <span class="nx">he</span> <span class="nx">source</span> <span class="nx">of</span>
+<span class="nx">some</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">former</span> <span class="nx">president</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">difficulties</span><span class="p">.</span></code></pre></div>
+<h4 id="目标匹配任何大写的l">目标：匹配任何大写的L</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">with</span> <span class="nf">open</span><span class="p">(</span><span class="s">&#34;text.txt&#34;</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">f</span><span class="p">:</span>
+    <span class="nx">text</span> <span class="p">=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+    <span class="nx">result</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="s">&#34;L&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+
+    <span class="err">#</span> <span class="nx">返回一个列表</span><span class="err">，</span><span class="nx">包含文本中所有大写L</span><span class="err">，</span><span class="nx">非单词</span><span class="err">。</span>
+    <span class="err">#</span> <span class="nx">共5个</span><span class="err">：</span><span class="nx">XLM</span><span class="err">，</span><span class="nx">CMLIII</span><span class="err">，</span><span class="nx">Leoni</span><span class="err">，</span><span class="nx">Legal</span><span class="err">，</span><span class="nx">Lewinski</span>
+    <span class="err">#</span> <span class="p">[</span><span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="匹配连续的字符序列"><strong>匹配连续的字符序列</strong></h3>
+<p>在正则表达式引擎默认的模式（不指出字符或字符序列出现的次数），引擎将假设模式的字符或字符序列下好出现一次，除非设定一个限定符来指定次数。这也适用于相同字符序列的匹配</p>
+<h4 id="备注finditer函数会返回一个可以迭代的结果结果内包含match对象">备注：finditer函数会返回一个可以迭代的结果，结果内包含match对象；</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">text</span> <span class="p">=</span> <span class="s">&#34;The arrow flew through the air at great speed.\n&#34;</span> \
+       <span class="s">&#34;This is a narrative of great interest to many readers.\n&#34;</span> \
+       <span class="s">&#34;Apples and oranges are both types of fruit.\n&#34;</span> \
+       <span class="s">&#34;Asses and donkeys are both four-legged mammals.\n&#34;</span> \
+       <span class="s">&#34;Several million barrels of oil are produced daily.&#34;</span>
+
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s">&#34;rr&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="nx">in</span> <span class="nx">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&#34;span={}, match=&#39;{}&#39;&#34;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nf">span</span><span class="p">(),</span> <span class="nx">i</span><span class="p">.</span><span class="nf">group</span><span class="p">()))</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s">output:
+</span><span class="s">span=(5, 7), match=&#39;rr&#39;
+</span><span class="s">span=(59, 61), match=&#39;rr&#39;
+</span><span class="s">span=(212, 214), match=&#39;rr&#39;
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="工作原理">工作原理：</h4>
+<p>表达式告诉引擎应匹配小写的字符r，如果第1次匹配成功，那么尝试匹配下一个字符。</p>
+<p>如果第1个字符匹配失败，会测试下一个字符是不是小写的r。如果不是，然后重新根据正则表达式中的第1个r开始下一轮的匹配。</p>
+<h3 id="元字符d"><strong>元字符\d</strong></h3>
+<h5 id="备注">备注：</h5>
+<p>类似AAA，L这些模式包含的都是不变的直接量字符，它们的含义就是匹配字符本身</p>
+<p>元字符可能是一个单独的字符，也可能是一堆字符（前一个字符通常是反斜杠），并具有不同于其直接量的含义</p>
+<p>\d元字符表示数字0~9</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">text</span> <span class="p">=</span> <span class="s">&#34;ABC123&#34;</span> \
+       <span class="s">&#34;A234BC&#34;</span> \
+       <span class="s">&#34;A23BCD4&#34;</span> \
+       <span class="s">&#34;Part Number DRC22&#34;</span> <span class="err">\</span> 
+
+<span class="err">#</span> <span class="nx">匹配三个字符</span>
+
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s">&#34;\d\d\d&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="nx">in</span> <span class="nx">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&#34;span={}, match=&#39;{}&#39;&#34;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nf">span</span><span class="p">(),</span> <span class="nx">i</span><span class="p">.</span><span class="nf">group</span><span class="p">()))</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="工作原理-1">工作原理：</h4>
+<p>此模式会匹配三位连续的数字序列，一位或两位不会被匹配</p>
+<p>引擎会根据模式查找一个数字，如果测试的第一个字符不是一个数字，就会在被测试字符串中向前移动一个字符并测试该字符是否是一个数字。如果不是，则会继续上面的步骤。</p>
+<p>对应字符类或等价的模式：(0|1|2|3|4|5|6|7|8|9), [0123456789], [0-9]</p>
+<h3 id="匹配可选字符"><strong>匹配可选字符</strong></h3>
+<p>即匹配直接量字符，此字符出现<strong>零次或者一次</strong></p>
+<p>使用“？”字符来表示前面的字符块是可选的。这里用“块”来表示位于问号之前的模式，“块”可能是单个或多个（不同的）字符，也可能是更复杂的正则表达式结构</p>
+<h4 id="实例">实例：</h4>
+<p><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">text</span> <span class="p">=</span> <span class="s">&#34;Red is a color\n&#34;</span> \
+       <span class="s">&#34;His collar is too tight or too colouuuurful.\n&#34;</span> \
+       <span class="s">&#34;These are bright colours.\n&#34;</span> \
+       <span class="s">&#34;These are bright colors.\n&#34;</span> \
+       <span class="s">&#34;Calorific is a scientific term.\n&#34;</span> \
+       <span class="s">&#34;&#39;Your life is very colourful,&#39; she said&#34;</span>
+
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s">&#34;colou?r&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="nx">in</span> <span class="nx">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&#34;span={}, match=&#39;{}&#39;&#34;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nf">span</span><span class="p">(),</span> <span class="nx">i</span><span class="p">.</span><span class="nf">group</span><span class="p">()))</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s">output:
+</span><span class="s">span=(9, 14), match=&#39;color&#39;
+</span><span class="s">span=(77, 83), match=&#39;colour&#39;
+</span><span class="s">span=(103, 108), match=&#39;color&#39;
+</span><span class="s">span=(162, 168), match=&#39;colour&#39;
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+由于u?表示“匹配0个或1个小写的u”，虽然colouuuurful中的第一个u匹配成功，但引擎尝试将colou?r中的最后
+一个字符（小写的r）与第二个小写的u进行匹配，很明显会失败。</p>
+<p>“？”字符也存在一定的内在局限性。</p>
+<h4 id="实例-1">实例：</h4>
+<p>color和colour拥有多种形式（单复数，第一人称，所有格等）（colors, colours, color&rsquo;s colour&rsquo;s, etc.)
+当使用colou?r&rsquo;?s?&rsquo;s?来匹配这两个单词不同的形式，有可能会匹配到古怪的字符序列，如colour&rsquo;s&rsquo;</p>
+<p>如果需要避免这种情况，目的可描述为：</p>
+<p>匹配一个c。如果存在匹配项，尝试匹配一个o。如果存在匹配项，尝试匹配一个l。如果存在匹配项，尝试匹配一个o。如果存在匹配项，尝试匹配一个可选的u。如果存在匹配项，尝试匹配一个r。如果存在匹配项，尝试匹配一个可选的撇号。如果存在匹配项，尝试匹配一个可选的s。如果前面可选的撇号不存在，则尝试匹配一个可选的撇号。</p>
+<h3 id="限量操作符--和--">**限量操作符 * 和 + ***</h3>
+<p>操作符 * 表示相关模式（一个或一组字符）出现零次或多次（可选多次）</p>
+<p>操作符 + 表示匹配一次或多次前面的块</p>
+<h3 id="大括号语法"><strong>大括号语法</strong></h3>
+<p>{n} - 表示匹配n次重复字符类</p>
+<p>{n, m} - 表示匹配n次到m次重复字符类</p>
+<p>{0, m} - 表示最少匹配零次而最多匹配m次重复字符类</p>
+<p>{n,} - 表示最少匹配n次至无限次重复字符类</p>
+<hr>
+<p>参考文献：</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/decorator-review/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/blog-setup/hugo-build/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

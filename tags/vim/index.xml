@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/vim/</link>
+    <description>Recent content in vim on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2020 15:49:30 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim命令和配置（一）</title>
+      <link>https://dekr0.github.io/blog/linux/vim-learning-note-1/</link>
+      <pubDate>Mon, 24 Aug 2020 15:49:30 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/linux/vim-learning-note-1/</guid>
+      <description>命令 :i 插入模式
+追加 shift - 在文件头插入
+:w 写入
+:q 退出
+:a 追加, 指针会移动到下一个插入位置
+追加 shift - 在文件尾插入
+/ + keyword 在文本中搜索 keyword
+ 键位 注: 按一次某个可以触发特定操作的键位后, 再按两次相同的键位, 将对整行执行这些操作
+和 的概念 在普通模式下:
+ - 操作 - 动作, 操作的步骤  例:
+按 d 键, 即触发 delete 操作 - 操作
+按 3 键和 方向键 →, 指示往右删除 3 个字符 - 动作
+斜体: 需要接收动作的操作 动作
+c 改变命令 (删除并进入插入模式)
+例
+更改下一个词 - cw
+更改指针中的词 - ci**w**</description>
+    </item>
+    
+  </channel>
+</rss>

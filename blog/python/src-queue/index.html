@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Python之queue模块</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <p>The <strong>queue</strong> module introduces the concept of queue (consumer-producer model) by implementing the concept of thread lock, and it is thread-safe for information exchange between threads.</p>
+<hr>
+<h1 id="1-the-concept-of-queue">1. The Concept of Queue</h1>
+<p><strong>Queue</strong> is a linear data structure that follows a specific order (FIFO) in which the operations are performed (Example: consumer - first come, first server).</p>
+<p>There are four basic operations are performed on queue:</p>
+<p><strong>Enqueue</strong>: Adds an item into the queue. An overflow condition occurs if the queue is full.</p>
+<p><strong>Dequeue</strong>: Removes an item from the queue. The order of removing the item is same as pushing into the queue. An underflow condition occurs if the queue is empty. Remark: when first item is removed, the item behind the removed item will become the first item in the queue.</p>
+<p><strong>Front / Rear</strong>: Get the front / last item from queue.</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">           <span class="nx">Enqueue</span>    <span class="nx">Rear</span>         <span class="nx">Queue</span>         <span class="nx">Front</span>    <span class="nx">Dequeue</span>
+              <span class="p">|</span>        <span class="p">|</span>             <span class="p">|</span>             <span class="p">|</span>         <span class="p">|</span>
+              <span class="nx">v</span>        <span class="nx">v</span>             <span class="nx">v</span>             <span class="nx">v</span>         <span class="nx">v</span>
+<span class="o">+----------+</span>    <span class="o">+---+</span>  <span class="o">+---+---+---+---+---+---+---+</span>   <span class="o">+---+</span>     <span class="o">+----------+</span>
+<span class="p">|</span> <span class="nx">Producer</span> <span class="p">|</span> <span class="o">-</span><span class="p">&gt;</span> <span class="p">|</span>   <span class="p">|</span>  <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span> <span class="mi">4</span> <span class="p">|</span> <span class="mi">3</span> <span class="p">|</span> <span class="mi">2</span> <span class="p">|</span> <span class="mi">1</span> <span class="p">|</span>   <span class="p">|</span> <span class="mi">1</span> <span class="p">|</span>  <span class="o">-</span><span class="p">&gt;</span> <span class="p">|</span> <span class="nx">Consumer</span> <span class="p">|</span>
+<span class="o">+----------+</span>    <span class="o">+---+</span>  <span class="o">+---+---+---+---+---+---+---+</span>   <span class="o">+---+</span>     <span class="o">+----------+</span></code></pre></div>
+<hr>
+<h1 id="2-queue-module">2. queue module</h1>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/queue-data-structure/">https://www.geeksforgeeks.org/queue-data-structure/</a></li>
+</ul>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/src-socketserver/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/python/src-logging/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

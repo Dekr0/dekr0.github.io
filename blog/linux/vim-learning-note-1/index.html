@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Vim命令和配置（一）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#命令">命令</a></li>
+        <li><a href="#键位">键位</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h3 id="命令">命令</h3>
+<h4 id="i">:i</h4>
+<p>插入模式</p>
+<p>追加 <strong>shift</strong> - 在文件头插入</p>
+<h4 id="w">:w</h4>
+<p>写入</p>
+<h4 id="q">:q</h4>
+<p>退出</p>
+<h4 id="a">:a</h4>
+<p>追加, 指针会移动到下一个插入位置</p>
+<p>追加 <strong>shift</strong> - 在文件尾插入</p>
+<h4 id="--keyword">/ + <em>keyword</em></h4>
+<p>在文本中搜索 <em>keyword</em></p>
+<hr>
+<h3 id="键位">键位</h3>
+<p>注: 按一次某个可以触发特定操作的键位后, 再按两次相同的键位, 将对整行执行这些操作</p>
+<h4 id="opertaion-和-motion-的概念"><!-- raw HTML omitted --> 和 <!-- raw HTML omitted --> 的概念</h4>
+<p>在普通模式下:</p>
+<ul>
+<li><!-- raw HTML omitted --> - 操作</li>
+<li><!-- raw HTML omitted --> - 动作, 操作的步骤</li>
+</ul>
+<p>例:</p>
+<p>按 d 键, 即触发 delete 操作 - 操作</p>
+<p>按 3 键和 方向键 →, 指示往右删除 3 个字符 - 动作</p>
+<p><em>斜体: 需要接收动作的操作</em>
+<strong>动作</strong></p>
+<h4 id="c"><em>c</em></h4>
+<p>改变命令 (删除并进入插入模式)</p>
+<p>例</p>
+<p>更改下一个词 - <em>c</em><strong>w</strong></p>
+<p>更改指针中的词 - <em>c</em><strong>i</strong>**w**</p>
+<p>更改引号中的内容 - <em>c</em><strong>i</strong>**&quot;**</p>
+<h4 id="d"><em>d</em></h4>
+<p>删除命令</p>
+<p>按 1 次 d 键, 再按两次 d 键, 对整行进行删除</p>
+<h4 id="f"><em>f</em></h4>
+<p>寻找指针所在的行之后的下一个字母</p>
+<p>例</p>
+<p>寻找 Hello World 中的 w - <em>f</em> + w</p>
+<p>删除冒号后的内容 - <strong>d</strong><em>f</em>**:**</p>
+<p>username: dekr0</p>
+<h4 id="i-1">i</h4>
+<p>进入插入模式</p>
+<h4 id="p">p</h4>
+<p>将 buffer 放置在指针后面 (buffer: 如被删除的内容)</p>
+<h4 id="x">x</h4>
+<p>删除单个字符</p>
+<h4 id="u">u</h4>
+<p>撤销</p>
+<h4 id="0">0</h4>
+<p>回到行的开始位置</p>
+<h4 id="b"><strong>b</strong></h4>
+<p>向后移到下一个词 word</p>
+<h4 id="w-1"><strong>w</strong></h4>
+<p>向前移到下一个词 word</p>
+<h4 id="y"><em>y</em></h4>
+<p>yank 命令</p>
+<hr>
+<h3 id="配置">配置</h3>
+<h4 id="创建配置文件">创建配置文件</h4>
+<p>Linux 系统下, 在 <strong>~</strong> 目录下创建 <strong>.vim</strong> 文件夹, 并在文件夹创建 <strong>vimrc</strong></p>
+<h4 id="set-number">set number</h4>
+<p>设置行数</p>
+<h4 id="set-wrap">set wrap</h4>
+<p>如果一行内容长度超过窗体长度, 将这些内容下移</p>
+<h4 id="set-hlsearch">set hlsearch</h4>
+<p>设置高亮搜索</p>
+<h4 id="syntax-on">syntax on</h4>
+<p>开启语法标识</p>
+<h4 id="noremap">noremap</h4>
+<p>非递归键位映射</p>
+<h4 id="remap-选项">remap (选项)</h4>
+<p>使键位映射递归地起作用</p>
+<h4 id="map">map</h4>
+<p>递归键位映射</p>
+<h4 id="map-noremap-remap实例区分">map, noremap, remap实例区分</h4>
+<p>map - 递归表示将映射扩展为结果, 然后将结果扩展为另一个结果, 以此类推.</p>
+<p>停止扩展的条件:</p>
+<ul>
+<li>结果不再映射到其他任何内容</li>
+<li>已经应用到非递归映射 noremap / 其中一个是最后的扩展</li>
+</ul>
+<p>noremap - 非递归</p>
+<h4 id="cr"><!-- raw HTML omitted --></h4>
+<p>代表输入 <strong>enter</strong> 键</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/linux/linux-cmd-1/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/study-habit/time-management/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

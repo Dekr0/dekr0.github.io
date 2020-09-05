@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://dekr0.github.io/</loc>
+    <lastmod>2020-08-27T22:52:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/</loc>
+    <lastmod>2020-08-27T21:11:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/study-habit/</loc>
+    <lastmod>2020-08-27T21:11:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/</loc>
+    <lastmod>2020-08-27T21:11:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/study-habit/time-management/</loc>
+    <lastmod>2020-08-27T21:11:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/linux/</loc>
+    <lastmod>2020-08-24T15:49:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/vim/</loc>
+    <lastmod>2020-08-24T15:49:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/linux/vim-learning-note-1/</loc>
+    <lastmod>2020-08-24T15:49:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/linux/linux-cmd-1/</loc>
+    <lastmod>2020-08-20T16:23:57-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/study-habit/reading-skill/</loc>
+    <lastmod>2020-08-10T20:30:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/c/</loc>
+    <lastmod>2020-08-07T21:16:25-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/c/c-note-2/</loc>
+    <lastmod>2020-08-07T21:16:25-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/c/c-note-1/</loc>
+    <lastmod>2020-07-29T11:29:38-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/regex/</loc>
+    <lastmod>2020-07-21T16:13:27-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/regex/reg-note-5/</loc>
+    <lastmod>2020-07-21T16:13:27-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/regex/reg-note-4/</loc>
+    <lastmod>2020-07-20T11:45:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/regex/reg-note-3/</loc>
+    <lastmod>2020-07-18T17:26:37-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/regex/reg-note-2/</loc>
+    <lastmod>2020-07-15T19:43:29-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/python/</loc>
+    <lastmod>2020-07-01T20:02:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/win32com-ado-python/</loc>
+    <lastmod>2020-07-01T20:02:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/tags/blog-setup/</loc>
+    <lastmod>2020-07-01T13:16:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/blog-setup/hugo-build/</loc>
+    <lastmod>2020-07-01T13:16:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/regex/reg-note-1/</loc>
+    <lastmod>2020-06-27T11:51:27-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/decorator-review/</loc>
+    <lastmod>2020-06-26T12:31:07-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/general-concept-review/</loc>
+    <lastmod>2020-06-24T10:43:36-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/src-logging/</loc>
+    <lastmod>2020-06-23T20:14:49-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/src-queue/</loc>
+    <lastmod>2020-06-20T14:17:50-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/blog/python/src-socketserver/</loc>
+    <lastmod>2020-06-19T19:41:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://dekr0.github.io/contact/</loc>
+  </url>
+  
+</urlset>

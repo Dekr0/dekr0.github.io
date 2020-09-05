@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Python之win32com模块 - ADO的使用</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <p>ADO（ActiveX Data Objects）是微软旗下的一项技术。此技术提供了一种在多个领域的数据库中，访问数据且独立于数据库（在编程语言提供对COM接口的支持时，某种程度上是独立于编程语言）的方法。在Access，SQL Server，Oracle等数据引擎中，ADO所提供的函数都是通用且相同的。</p>
+<hr>
+<h1 id="ado基础对象">ADO基础对象</h1>
+<p><strong>Connection</strong>对象</p>
+<p>connection对象是用来管理一个对单一数据源的连接。</p>
+<ul>
+<li>初始化一个connection对象需要提供参数如数据源名（驱动程序名字），数据库服务器的地址，用户名和密码等，这些参数将引导connection对象连接到一个指定的数据库服务器）。所有其他ADO对象都与相关联。</li>
+</ul>
+<p>常用的属性：</p>
+<ul>
+<li>
+<p>CommandTimeout，等待一个命令执行完成的时间</p>
+</li>
+<li>
+<p>ConnectionString，设置连接参数（重要）（可选：通过其他属性来设置，由引擎自动将属性值组装成ConnectionString）</p>
+</li>
+<li>
+<p>State，返回connection对象与数据源的连接状态</p>
+</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li>
+<p>Close，断开数据源的连接</p>
+</li>
+<li>
+<p>Execute，执行一个查询，存储procedure或一个表达式</p>
+</li>
+<li>
+<p>Open，打开一个数据源的连接，接收一个字符串，如果ConnectionString为空</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">    <span class="nx">conn</span> <span class="p">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">Dispatch</span><span class="p">(</span><span class="nx">r</span><span class="s">&#34;ADODB.Connection&#34;</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">获得一个ADO</span> <span class="nx">Connection对象</span><span class="err">，</span><span class="nx">Connection对象代表与数据源的唯一对话</span>
+    <span class="nx">conn</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">DSN</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">建立到数据源的物理连接</span>
+    <span class="k">if</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">State</span> <span class="o">==</span> <span class="nx">adSateOpen</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nx">conn</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&#34;Failed to connection to database&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>RecordSet</strong>对象</p>
+<p>RecordSet对象是用来迭代查询procedure或储存procedure的结果。一般，RecordSet对象将会被赋予Command对象或Connection对象所获取的值或结果，并使用RecordSet对象来处理这些结果（rows of results）</p>
+<ul>
+<li>
+<p>一个RecordSet对象必须总是被一个Conneciton对象赋值，即可以获取数据的地方</p>
+</li>
+<li>
+<p>RecordSet对象可以单次对一行进行访问，并且会有一个Field集合，这个字段集合表示了一行中的各个列，即是字段（每一列都会有指定的列头，列头有代表某一整列的列名）。</p>
+</li>
+<li>
+<p>RecordSet对象可以通过方法（函数）在行中移动。</p>
+</li>
+<li>
+<p>如果一个存储步骤返回多个集合，这些集合包含不同的列个数和列类型（字段类型，用于SQL Server），RecordSet对象可以在这些集合之间进行切换或移动。</p>
+</li>
+<li>
+<p>RecordSet对象可以执行自身的查询procedure或储存procedure（在与Connection对象关联的情况下），并获取返回的结果。（注：RecordSet没有Execute方法）</p>
+</li>
+</ul>
+<p>常用的操作：</p>
+<p>创建一个RecordSet对象并打开一个表</p>
+<p>**Field（字段）**对象</p>
+<p>Field对象表示一行结果中的一列。一般地，多个列会从一个SQL查询返回，一个RecordSet对象会包含数个的Field对象，数量与列数相对应。</p>
+<p>Field对象存储有关列的信息，如列的值，列的类型，Field的最大长度，精度</p>
+<p><strong>Command</strong>对象</p>
+<p>一般地，Command对象会被附属在一个Connection对象之下，并且在通过Connection下被用来执行查询和存储procedures或访问表</p>
+<p>如果有结果从Command对象中返回（如SQL查询），这些结果会被赋予给一个RecordSet对象（以行的方式来迭代这些结果）</p>
+<p><strong>Parameter</strong>对象</p>
+<p>一般地，Parameter对象会附属在一个Command对象之下。此对象被用来传输参数值到Command对象中。</p>
+<p>一个Command对象可以有多个Parameter对象。</p>
+<p>额外：</p>
+<ul>
+<li>
+<p>灵活使用参数模型可以节约时间，提升代码的性能。</p>
+</li>
+<li>
+<p>多数现代数据库服务器能够接收带有参数的SQL表达式，并且将表达式提前编译。之后，在每次执行的时候可以直接为这个参数传入不同的参数值</p>
+</li>
+<li>
+<p>提前设置好参数可以避免考虑并解决由于特殊字符而造成的问题（如%，？），同时避免SQL注入攻击</p>
+</li>
+</ul>
+<hr>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li><a href="http://www.mayukhbose.com/python/ado/using-parameters.php">http://www.mayukhbose.com/python/ado/using-parameters.php</a></li>
+</ul>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/blog-setup/hugo-build/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-2/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

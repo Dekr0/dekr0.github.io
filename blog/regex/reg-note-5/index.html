@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">正则表达式Note（五）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#向前查找和向后查找">向前查找和向后查找</a>
+      <ul>
+        <li><a href="#向前查找">向前查找</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="向前查找和向后查找">向前查找和向后查找</h2>
+<h3 id="向前查找">向前查找</h3>
+<p>向前查找需要根据要匹配的字符序列后面<strong>存在</strong>一个特定的字符序列（肯定式向前查找）或者<strong>不存在</strong>一个特定的字符序列（否定式向前查找）来决定是否匹配</p>
+<p>备注：向前查找是一个子模式（子表达式），此模式匹配特定的字符序列（=后面的字符序列），但并<strong>不返回匹配结果</strong>（需要认识到出现在<strong>指定匹配项之后的字符序列</strong>不会被正则表达式引擎返回）。从本质上说，向前查找子模式匹配的<strong>测试文本中的位置</strong>。所谓的向前，也是基于这个位置而言，表示这个子表达式现在期望范围到匹配字符的后面。向前查找也就是向左、向文本中先出现的字符序列中查找要匹配并返回结果的字符序列。</p>
+<p><strong>实例</strong></p>
+<p>一个字符序列：BC21。现在有一个问题定义：匹配两个连续的字母字符，这连个字母字符位于一行的开始并且其后跟两个数字。最终匹配的只有两个字母字符，不匹配任何数字。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">^[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z</span><span class="p">]{</span><span class="mi">2</span><span class="p">}(</span><span class="err">?</span><span class="p">=</span><span class="err">\</span><span class="nx">d</span><span class="err">\</span><span class="nx">d</span><span class="p">)</span></code></pre></div>
+<p>^ 元字符匹配一行开始的位置。[A-Za-z]{2} 匹配两个ASCII字母字符。(?=\d\d)是向前查找，表示这两个字母字符后面必须是两个数字。</p>
+<p><strong>工作原理</strong></p>
+<p>正则表达式引擎从第一行中的B之前的位置开始匹配，它首先尝试将当前位置与 ^ 元字符进行匹配，结果成功。下一个字符类与大写的B，C（限量符{2}）进行匹配，匹配成功。</p>
+<p>然而，模式 (?=\d\d) 会告诉正则表达式引擎，必须检查随后的字符序列中存在 \d\d 表示的两个数字时，才能匹配这两个字母。21能够与\d\d匹配成功，因此向前查找模式 (?=\d\d) 强加的限制条件满足。因此整个模式匹配成功。（如果强加的限制条件不满足，即使前面的字符序列匹配成功，但整个表达式依旧会匹配失败）</p>
+<h4 id="肯定式向前查找">肯定式向前查找</h4>
+<p>肯定式向前查找 (?=regex_expression) 是指在要匹配的字符序列后面必须存在某些字符序列（通常与要匹配的字符序列不同）的条件约束下完成的匹配过程。</p>
+<p>例如，要匹配字符序列States中的State，可以用：
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">(</span><span class="err">?</span><span class="p">=</span><span class="nx">States</span><span class="p">)</span><span class="nx">State</span>  <span class="err">#</span> <span class="nx">含义是</span><span class="err">“</span><span class="nx">查找一个</span><span class="o">**</span><span class="nx">后跟字符序列States</span><span class="o">**</span><span class="nx">的位置</span><span class="err">。</span><span class="nx">如果该位置存在</span><span class="err">，</span><span class="nx">则匹配字符序列State</span><span class="err">”</span></code></pre></div>
+或者
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">State</span><span class="p">(</span><span class="err">?</span><span class="p">=</span><span class="nx">s</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">含义是</span><span class="err">“</span><span class="nx">匹配字符序列</span><span class="o">**</span><span class="nx">State</span><span class="o">**</span><span class="err">，</span><span class="nx">但它后面必须</span><span class="o">**</span><span class="nx">跟一个小写的s</span><span class="o">**</span><span class="err">”</span></code></pre></div></p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-4/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/c/c-note-1/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

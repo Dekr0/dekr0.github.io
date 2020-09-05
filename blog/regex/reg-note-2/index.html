@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">正则表达式Note（二）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#部分元字符">部分元字符</a>
+      <ul>
+        <li><a href="#元字符"><strong>（.）元字符</strong></a></li>
+        <li><a href="#w-元字符"><strong>\w 元字符</strong></a></li>
+        <li><a href="#w-元字符-1"><strong>\W 元字符</strong></a></li>
+        <li><a href="#d-元字符"><strong>\D 元字符</strong></a></li>
+        <li><a href="#空白和非空白元字符"><strong>空白和非空白元字符</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#字符类">字符类</a>
+      <ul>
+        <li></li>
+        <li><a href="#范围"><strong>范围</strong></a></li>
+        <li><a href="#字符类中元字符的含义"><strong>字符类中元字符的含义</strong></a></li>
+        <li><a href="#对字符类取反"><strong>对字符类取反</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="部分元字符">部分元字符</h2>
+<p>字符和位置之间的区别：</p>
+<p>示例文本：This is a simple sentence.</p>
+<p>这段文本中第一个字符为T，但第一个字符T前还有一个位置且不可见。第一个字符T和第二个字符h之间，也有一个位置。有些元字符可以匹配位置，如 ^ 元字符，这类元字符可以被称为词边界元字符，一般用来匹配一个字母字符和一个非字母字符之间的位置（严格来说，匹配一个字母序列或数字字母序列的边界）。</p>
+<h3 id="元字符"><strong>（.）元字符</strong></h3>
+<h3 id="w-元字符"><strong>\w 元字符</strong></h3>
+<p>表示一个ASCII字母字符（A~Z或a~z）、一个数字或一个下划线字符。不匹配象形符号，标点符号，在某些实现中也不匹配非英语语言中的字母字符（通过某些设置，\w元字符也可以应用于Unicode字符集而不单单是ASCII字符集的环境下）</p>
+<p>对应的字符类是：[A-Za-z0-9_]</p>
+<h3 id="w-元字符-1"><strong>\W 元字符</strong></h3>
+<p>用于匹配\w元字符不匹配的字符（任何非ASCII字母字符、非数字以及非下划线字符）（包括空格）</p>
+<h3 id="d-元字符"><strong>\D 元字符</strong></h3>
+<p>用于匹配非数字，即\d元字符不能匹配的其他字符（包括空格）</p>
+<h3 id="空白和非空白元字符"><strong>空白和非空白元字符</strong></h3>
+<p><strong>\s</strong> 元字符，针对性差，匹配任何单个的空白字符（空格符、制表符tab或换行符\n）</p>
+<p><strong>\S</strong> 元字符，用于匹配任何非空白字符。其他非英语语言中的字符也与\S 元字符匹配。但 \S 元字符不想句点元字符那样匹配尽可能多的字符。</p>
+<p><strong>\t</strong> 元字符，匹配一个制表符</p>
+<p><strong>\n</strong> 元字符，匹配一个换行符</p>
+<p><strong>转移符</strong>，有些字符，如.字符，如果要让它匹配对应的直接量字符，则需要进行转移，如使用. 元序列来匹配一个句点字符</p>
+<hr>
+<h2 id="字符类">字符类</h2>
+<p>字符类用于匹配一个字符集合中的任何一个字符</p>
+<p>字符类是一些字符的无序组合，正则表达式引擎可以从这个组合中挑选出一个字符来完成匹配。如果字符类中指定的任何字符都不能与之匹配，则该字符类匹配失败。</p>
+<p>当字符类不带有关联的限定符是，字符类只会指定其中一个字符用于匹配。例：pe[aei]r可能匹配pear、peer或peir，但不会匹配per。因为per中不包含字符类中所包含的任何一个字符。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">text</span> <span class="p">=</span> <span class="s">&#34;AB31 AB2D AB10 AB18 AB44 AB29 AB24&#34;</span>
+
+<span class="nx">mathces</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s">&#34;AB[12]\d&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+<span class="nf">showResult</span><span class="p">(</span><span class="nx">mathces</span><span class="p">)</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s">output:
+</span><span class="s">&lt;re.Match object; span=(10, 14), match=&#39;AB10&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(15, 19), match=&#39;AB18&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(25, 29), match=&#39;AB29&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(30, 34), match=&#39;AB24&#39;&gt;
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="工作原理"><strong>工作原理</strong>：</h4>
+<p>引擎在AB31中A之前的位置开始匹配。在A和B字符匹配成功后，引擎将表达式中的第三组件（一个字符类[12]）,而不是一个单独的直接量字符）于字符序列中的第三个字符（3），没有匹配成功，因为模式中的一个组件不能匹配，所以整个模式匹配失败。</p>
+<p>对于字符序列AB2D，AB被匹配成功，第三个字符数字2能和表达式的字符类[12]匹配。但是，第四个字符D无法 \d 匹配。由于表达式中的一个组件匹配失败，所以整个表达式匹配失败。</p>
+<h4 id="remark"><strong>Remark</strong>:</h4>
+<p>一个包含多个人名，每个名字单独位于一行，姓在前面，然后是一个逗号和一个空格，最后是名字。一个问题定义：在这些人名中匹配一个大写的C或者一个大写的D，其后跟任何数量的连续ASCII小写字母字符。</p>
+<p>给出一个表达式：[CD][a-z]+, 。在匹配Cardoza, Fred这个字符序列时，第一组件（字符类[CD]）与一个大写的C匹配成功。然后，引擎将表达式的第二组件（[a-z]+，一个或多个小写的ASCII字符）与字符序列中第二个以及后面的字符进行匹配。虽然最后的逗号不与模式 [a-z]+ 匹配，但能够和表达式的最后一个组件（直接量逗号）匹配。</p>
+<h3 id="范围"><strong>范围</strong></h3>
+<p>将[a-zA-z]或[A-Za-z]简化成[A-z]是不行的，简化后的字符类并灭有把字符限定在 ASCII 字母字符的范围之内，而且 ASCII 字符的排序的问题，有些非字母字符的位置处于大写的 Z 后面和小写的 a 前面。</p>
+<p>如果可选的字符序列在字母表是连续的，可以使用范围</p>
+<h4 id="潜在的范围陷阱">潜在的范围陷阱</h4>
+<p>如果一份文档的日期使用不同分隔符（如.，-或/），并且使用字符类[.-/]来进行分隔符匹配，实际上，资格字符序列会被解释为一个从句点到正斜杠的范围</p>
+<h4 id="范围的一些应用">范围的一些应用</h4>
+<p><strong>十六进制数字</strong></p>
+<p>定义：匹配一个直接量字符#，后跟六个连续的字符，其中每个字符都以0~15（十进制）的十六进制数——即0~F（十六进制）来表示。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="nx">a</span><span class="o">-</span><span class="nx">fA</span><span class="o">-</span><span class="nx">F</span><span class="p">]{</span><span class="mi">6</span><span class="p">}</span></code></pre></div>
+<p>需补充：匹配某些原因导致的无效数值</p>
+<p><strong>匹配日期</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span> <span class="nx">情景</span><span class="err">：</span><span class="nx">匹配符合规则日期</span><span class="err">，</span><span class="nx">年月日之间的间隔符可以为</span><span class="p">.</span><span class="err">，</span><span class="o">/</span><span class="nx">或</span><span class="o">-</span>
+
+<span class="nx">DATE</span> <span class="p">=</span> <span class="s">&#34;2004-12-31\n&#34;</span> \
+       <span class="s">&#34;2001/09/11\n&#34;</span> \
+       <span class="s">&#34;2003.11.19\n&#34;</span> \
+       <span class="s">&#34;2002/04/29\n&#34;</span> \
+       <span class="s">&#34;2000/10/19\n&#34;</span> \
+       <span class="s">&#34;2005/08/28\n&#34;</span> \
+       <span class="s">&#34;2006/09/18\n&#34;</span> \
+       <span class="s">&#34;2000/13/36\n&#34;</span> \
+       <span class="s">&#34;2000/24/41&#34;</span>
+
+<span class="nx">pattern</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="s">&#34;(20|19)[0-9]{2}[-./](0[1-9]|1[1-2])[-./](0[1-9]|[1-2][0-9]|3[0-1])&#34;</span><span class="p">)</span>
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="nx">DATE</span><span class="p">)</span>
+<span class="nf">showResult</span><span class="p">(</span><span class="nx">matches</span><span class="p">)</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s">output:
+</span><span class="s">&lt;re.Match object; span=(0, 10), match=&#39;2004-12-31&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(11, 21), match=&#39;2001/09/11&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(22, 32), match=&#39;2003.11.19&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(33, 43), match=&#39;2002/04/29&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(55, 65), match=&#39;2005/08/28&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(66, 76), match=&#39;2006/09/18&#39;&gt;
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="字符类中元字符的含义"><strong>字符类中元字符的含义</strong></h3>
+<h4 id="-元字符"><strong>^ 元字符</strong></h4>
+<p>^ 元字符（也称为脱字符），当它时字符类中左方括号后面的第一个字符时，表示的是方括号中指定的任何字符都不能匹配。如果 ^ 元字符不作为方括号中的第一个字符出现，而是出现在其他任何位置上，它的涵义都是其直接量本身。</p>
+<p>实例：</p>
+<p>[^_3]，匹配除了下划线或者数字3之外的任何字符</p>
+<h3 id="对字符类取反"><strong>对字符类取反</strong></h3>
+<p>取反后的字符类仍然会尝试匹配一个字符。例，匹配一个不在A~F范围内的字符：[^A-F]</p>
+<p>A[^A-F]不会匹配两个连续的A，因为取反的字符类[^A-f]不会匹配第二个A</p>
+<hr>
+<p>参考文献：</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/python/win32com-ado-python/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-3/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

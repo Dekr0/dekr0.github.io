@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/blog/</link>
+    <description>Recent content in Blogs on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 21:11:02 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>时间管理</title>
+      <link>https://dekr0.github.io/blog/study-habit/time-management/</link>
+      <pubDate>Thu, 27 Aug 2020 21:11:02 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/study-habit/time-management/</guid>
+      <description>项目和考试复习规划 (Monthly Schedules)   尽量提前且经常复习, 减小为 exam 前做的准备且提升知识弹性
+  提前设立 exam 复习时间表, 留有充足的预算时间, 提前 3 至 4 个星期开始 exam 复习或一个项目, 在考试日或项目 deadline 前几日前完成复习 / 项目
+ 设立开始日期 罗列需要完成的主要任务, 并解分成小步骤 / sections 将每一项任务分配到一个特定的星期 在每个星期的课程学习时间段, 着手完成这些分配的任务    使用 back-planning 的方法来进行规划, 即从考试日 / 项目 deadline 开始往后进行规划
+  每周时间表 / 日程安排 (Weekly Schedules) 可分为几个块:
+  Class Time - 标注为上课, 做 labs 或 seminars, etc.
+  Personal Time - 标注为paid work, 额外 curricular 活动, 健身, etc.</description>
+    </item>
+    
+    <item>
+      <title>Vim命令和配置（一）</title>
+      <link>https://dekr0.github.io/blog/linux/vim-learning-note-1/</link>
+      <pubDate>Mon, 24 Aug 2020 15:49:30 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/linux/vim-learning-note-1/</guid>
+      <description>命令 :i 插入模式
+追加 shift - 在文件头插入
+:w 写入
+:q 退出
+:a 追加, 指针会移动到下一个插入位置
+追加 shift - 在文件尾插入
+/ + keyword 在文本中搜索 keyword
+ 键位 注: 按一次某个可以触发特定操作的键位后, 再按两次相同的键位, 将对整行执行这些操作
+和 的概念 在普通模式下:
+ - 操作 - 动作, 操作的步骤  例:
+按 d 键, 即触发 delete 操作 - 操作
+按 3 键和 方向键 →, 指示往右删除 3 个字符 - 动作
+斜体: 需要接收动作的操作 动作
+c 改变命令 (删除并进入插入模式)
+例
+更改下一个词 - cw
+更改指针中的词 - ci**w**</description>
+    </item>
+    
+    <item>
+      <title>Linux常用指令（一）</title>
+      <link>https://dekr0.github.io/blog/linux/linux-cmd-1/</link>
+      <pubDate>Thu, 20 Aug 2020 16:23:57 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/linux/linux-cmd-1/</guid>
+      <description>对于普通用户, 命令行提示符一般为 &amp;ldquo;$&amp;rdquo;. 而 root 是以 &amp;ldquo;#&amp;rdquo; 结尾
+绝对 (Absolute) 路径 - 指定一个相对于系统的根目录 (root directory)的位置. 如果提供的路径以 / 开头, 此路径是以根目录为起始点的绝对路径
+相对 (Relatitve) 路径 - 如果路径以 ~/ 开头, 路径起始点为 home 目录; 如果路径以一个文件夹或文件的名字开头，无 / 或 ~/, 此路径是以当前目录为起始点的相对路径; 当前目录可以以 . 或 ./ 表.
+pwd 显示当前路径
+ 进程相关 ps 显示当前在系统的进程和进程的信息
+kill 向一个或多个进程发送一个信号 (通常来结束一个进程)
+参数:
+-l: 显示所有信号类型 (后加信号类型名返回其对应的整数值)
+-n: 根据信号类型对应的整数值来选择所发送信号的类型
+bg 将一个进程放进后台
+可以让一个因 Ctrl-Z 被挂起的进程在后台继续运行
+fg 将一个进行放进前台
+jobs 显示当前的进程 (无详细信息)
+&amp;amp; 让命令在后台运行
+单条命令 $ ping www.google.com &amp;amp;</description>
+    </item>
+    
+    <item>
+      <title>阅读学术文章和论文的技巧积累</title>
+      <link>https://dekr0.github.io/blog/study-habit/reading-skill/</link>
+      <pubDate>Mon, 10 Aug 2020 20:30:11 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/study-habit/reading-skill/</guid>
+      <description>Compile list of papers - 绘制一份简易的，包含需要阅读的papers列表
+  Skip around list - 绘制完成后，尝试快速浏览并粗略理解这些papers（例如，阅读每篇paper的10%或从每篇paper中得到10%理解左右）。在此之后：
+  剔除那些没有太大利用价值或意义的papers（根据其他作者对这些papers的评论或自身做决定）
+  着重花时间阅读并理解被认为时有意义/价值或开创性的papers，并从这papers中的引文寻找其他相关的papers
+  通过在papers（包括在引文中寻找到的）之间反复交替阅读回顾，刷新对列表中某些papers中比较难理解，弄懂的内容的认知和理解
+  重复前两步，直到对想要学习的主题的文学作品有一定程度的掌握
+  这个程度基于是对想要了解研究的领域有一个基本的了解（例如，15-20 papers），也许足够做一些工作或实现一些应用。又或是对想要了解研究的领域有一个很好的了解，即想处于最前沿并进行深入的研究
+    对一份paper进行阅读的一些方法（大致方向就是从非常有效且高重要性的内容出发，再回到更难的内容）：
+  标题，摘要Abstract，或图表
+  仔细阅读介绍，结论，数字，然后快速浏览剩余的部分（在第一次阅读时，可以skim related work section）
+  阅读但跳过/粗略浏览涉及到例如证明，计算的部分
+  阅读所有内容但跳过不明白的部分或没有意义的部分（从头读到尾有时不是特别推荐）
+    阅读papers需要记住且试着回答的问题：
+  作者试图表达，实现或完成什么？
+  关键要素
+  what can you use yourself?
+  哪些其他相关参考文献需要或想要继续跟进？</description>
+    </item>
+    
+    <item>
+      <title>C语言学习Note（二）</title>
+      <link>https://dekr0.github.io/blog/c/c-note-2/</link>
+      <pubDate>Fri, 07 Aug 2020 21:16:25 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/c/c-note-2/</guid>
+      <description>数据 常量 self explantaory。如果是常量，编译器一般通过用户书写的形式来识别数据类型
+C有别于Python的数据类型 long, short, unsigned, signed, void, _Bool, Complex 和 _Imaginary
+其中 long, short, unsigned 和 signed 用于提供基本整数类型的变式，如 unsigned short int 和 long long int
+字节和字的概念（重申） 字节为常用的计算机存储单位（1 bytes = 8 bit - 标准定义，但C对此有不同的定义）
+字为涉及计算机时给定的自然存储单位（如字长位32位，64位）。字长越大，数据转移越快，允许内存访问也更多。
+浮点数 浮点数的存储方案，浮点数分成小数和指数部分来表示，且这两部分分开存储。计算机内部使用二进制和2的幂进行储存。
+对于一些算术运算，浮点数损失的精度更多。
+计算机的浮点数不能表示取键内所有的值，且通常知识实际值的近似值。
+int 类型 存储一个 int 类型要占一个机器字长（一般而言）。
+声明变量，位变量赋予名称且分配内存空间。
+初始化变量，为变量赋予一个初始值。初始化可以直接在声明中完成 int a = 1; int b = 2, c = 3; int d, e = 4; /* work but bad 只有 e 初始化了 */</description>
+    </item>
+    
+    <item>
+      <title>C语言学习Note（一）</title>
+      <link>https://dekr0.github.io/blog/c/c-note-1/</link>
+      <pubDate>Wed, 29 Jul 2020 11:29:38 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/c/c-note-1/</guid>
+      <description>语言介绍和背景 部分有意义的内容，内容取自C Primer Plus 第一章
+C语言的设计理念符合自顶向下的规划、结构化编程和模块化设计
+C语言具有通常是汇编语言菜具有的微调控制能力，可根据情况微调程序以获得最大运行速度或最有效的使用内存
+使用C语言的7个步骤：
+第2步：设计程序
+确认程序的目标和所需完成任务后，将考虑如何用程序实现/完成它。如：组织程序的方式，目标用户，完成程序的所需时间。同时，还要决定在程序中表示数据的方式，及处理数据的方法
+第4步：编译
+编译器将源代码准换位可执行代码（机器语言代码）程序。编译器先将源代码转换成中间代码，链接器把中间代码和其他代码（C库，包含大量标准函数）合并链接，最后生成可执行文件。这种方法能够对程序进行模块化，即独立编译单独的模块，再用链接器合并已编译的模块。
+中间代码，可称为目标代码。目标代码包含机器语言代码，但不能直接运行该文件。因为目标文件储存的是编译器翻译的源代码，且缺失启动代码（程序和操作系统之间的接口，根据操作系统而变）和C标准库中的函数。
+链接器的作用就是把编写的目标代码，系统的标准启动代码和库代码（程序中要用到的库函数代码提取）合并成一个文件，即可执行文件。
+ 语言概述 #include&amp;lt;stdio.h&amp;gt; 告知编译器将stdio.h中的内容包含在程序中，把stdio.h文件中的所有内容都输入该行所有的位置。
+#include是一条C预处理器指令。通常，C编译器在编译前会对源代码进行预处理
+stdio.h是C编译器软件包的标准部分，提供键盘输入和屏幕输出的支持。stdio.h文件（文件名含义：标准输入/输出头文件）中包含供编译器使用的输入和输出函数（如，printf()）信息。
+通常，在C程序顶部的信息集合被称为头文件（header），这些文件包含了编译器创建可执行程序要用到的信息。
+int main(){ ... }}}
+main() 函数 C程序一定从 main() 函数开始执行，且是必须是开始的函数。int是main()函数的返回类型，返回值会返回给操作系统。
+声明 变量、函数或其他实体的名称，可视为标识符。因此，声明把特定标识符与计算机内存中的特定位置联系起来，同时也确定了储存在某位置的信息类型或数据类型。Remark：所有变量都必须声明才能使用，即列出程序中用到的所有变量名及其类型。
+使用多条声明
+int feet, fathoms; 以前的C语言标准，要求把变量声明在块的顶部，其他语句不能再声明的前面（为了与旧系统更好地兼容，使用旧的规则，且促使在编写程序之前做一些计划）。
+在创建标识符时，避免使用一个或两个下划线字符开始的标识符吗，因为操作系统和C库经常使用这类的标识符
+函数简介 函数是C语言的基本模块。
+函数调用，当程序运行到已被命名且定义好的函数的那一行后，控制权会被转给此函数。此函数执行结束后，控制权被返回至主调函数。
+函数原型（C99标准），是一种声明形式，也被称为函数声明。此告知编译器正在使用某函数，且指明了函数的属性。C标准建议，要位程序中用到的所有函数提供函数原型。
+实例：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  #include &amp;lt;stdio.h&amp;gt; void fetch(void); /* ANSI/ISO C函数原型 */ int main(void) { printf(&amp;#34;index&amp;#34;) fetch(); printf(&amp;#34;foo&amp;#34;) } void fetch(void) /* 函数定义 */ { printf(&amp;#34;fetch&amp;#34;); }   早期的C语言支持一种更简单的函数声明，只需指定返回类型，不用描述参数，但不是现在的函数原型。如果要使用以前写的C代码，就需要旧式函数声明转换成函数原型。 void fetch(); /* 早期的函数声明 */</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（五）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-5/</link>
+      <pubDate>Tue, 21 Jul 2020 16:13:27 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-5/</guid>
+      <description>向前查找和向后查找 向前查找 向前查找需要根据要匹配的字符序列后面存在一个特定的字符序列（肯定式向前查找）或者不存在一个特定的字符序列（否定式向前查找）来决定是否匹配
+备注：向前查找是一个子模式（子表达式），此模式匹配特定的字符序列（=后面的字符序列），但并不返回匹配结果（需要认识到出现在指定匹配项之后的字符序列不会被正则表达式引擎返回）。从本质上说，向前查找子模式匹配的测试文本中的位置。所谓的向前，也是基于这个位置而言，表示这个子表达式现在期望范围到匹配字符的后面。向前查找也就是向左、向文本中先出现的字符序列中查找要匹配并返回结果的字符序列。
+实例
+一个字符序列：BC21。现在有一个问题定义：匹配两个连续的字母字符，这连个字母字符位于一行的开始并且其后跟两个数字。最终匹配的只有两个字母字符，不匹配任何数字。
+^[A-Za-z]{2}(?=\d\d) ^ 元字符匹配一行开始的位置。[A-Za-z]{2} 匹配两个ASCII字母字符。(?=\d\d)是向前查找，表示这两个字母字符后面必须是两个数字。
+工作原理
+正则表达式引擎从第一行中的B之前的位置开始匹配，它首先尝试将当前位置与 ^ 元字符进行匹配，结果成功。下一个字符类与大写的B，C（限量符{2}）进行匹配，匹配成功。
+然而，模式 (?=\d\d) 会告诉正则表达式引擎，必须检查随后的字符序列中存在 \d\d 表示的两个数字时，才能匹配这两个字母。21能够与\d\d匹配成功，因此向前查找模式 (?=\d\d) 强加的限制条件满足。因此整个模式匹配成功。（如果强加的限制条件不满足，即使前面的字符序列匹配成功，但整个表达式依旧会匹配失败）
+肯定式向前查找 肯定式向前查找 (?=regex_expression) 是指在要匹配的字符序列后面必须存在某些字符序列（通常与要匹配的字符序列不同）的条件约束下完成的匹配过程。
+例如，要匹配字符序列States中的State，可以用： (?=States)State # 含义是“查找一个**后跟字符序列States**的位置。如果该位置存在，则匹配字符序列State” 或者 State(?=s) # 含义是“匹配字符序列**State**，但它后面必须**跟一个小写的s**”</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（四）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-4/</link>
+      <pubDate>Mon, 20 Jul 2020 11:45:39 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-4/</guid>
+      <description>圆括号 允许根据不同的目的对字符进行分组等其他用途。圆括号可以创建一或多个字符组，而且匹配的字符组可以用在后来的文本操作中。
+使用圆括号分组 正则表达式模式中圆括号的作用是对字符进行分组，并保存匹配的文本。
+通过圆括号分组的字符都是为了文本操作的目的而建立的。
+要创建一个字符组，只需简单地在需要分组的字符前面加一个圆开括号字符，而后面加一个圆闭括号字符（例：(hello world)，此表达式只包含直接量字符，可用于匹配文本hello world）
+另一个表达式：(hello)( )(world)。此表达式也会匹配相同的文本，同时还建立了三个组，第一个组中包含字符序列hello，第二组中包含一个空格符，而第三组中则包含字符序列world。
+圆括号和限定符 若要对一组字符进行限量，可以把相关的字符或元字符包含在一堆圆括号内，然后在这个组的后面添加一个适当的限定符（例：(A\d){2}）
+交替选择 圆括号的另一种重要的应用是表示可选择性。（支持二选一或多选一的应用）
+实例：多项选择
+对医生的称呼可能存在Doctor，doctor以及两种缩写方法——Dr.和Dr。
+1 2 3 4 5 6 7 8 9 10 11  Doctor Drf Dr Dr. Drs Doctors   定义：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r在或者匹配字符序列D、r和.（一个句号） 表达式：(Doctor|Dr.?)
+但通过测试Drf中的Dr被匹配到了。
+对定义进行优化：匹配字符序列D、o、c、t、o和r或者匹配字符序列D和r。在前面描述的选项后面必须是一个词边界的位置。（利用句点本身是一个非字母字符和词边界符的特性） 表达式：(Doctor|Dr)&amp;gt;
+错误匹配的交替选择 实例
+匹配一个单独的小写字符 a 或者小写的字符序列 ab 中的任何一个。模式 - (a|ab)
+测试文本：
+1 2 3 4 5 6 7 8 9  a ab ac ab ba bab   使用表达式 (a|ab) 进行匹配，再使用 (ab|a) 进行一次匹配</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（三）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-3/</link>
+      <pubDate>Sat, 18 Jul 2020 17:26:37 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-3/</guid>
+      <description>字符串、行和词边界 ^ 元字符 用于在字符类之外。直接匹配位于一行或一个字符串开始位置（Unicode换行符）之后的目标字符
+如果文本只有一行，则无需考虑 ^ 元字符与文本的开始出匹配，还是每一行的开始处匹配这个问题（这两个概念指的是同一位置）。如果需要匹配每一行的开始处，则需要开启多行模式
+python re开启多行模式。调用re函数或方法时，将flags参数设为re.MULTILINE
+$ 元字符 指定出现在一个文件结束位置或文件中一行结束位置（Unicode换行符）之前的字符序列
+同时使用 ^ 和 $ 元字符 实例
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  text = &amp;#34;ABC123\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;There is a part number ABC123.\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;ABC234\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;A purchase order for 400 of ABC345 was received yesterday.\n&amp;#34; \ &amp;#34;\n&amp;#34; \ &amp;#34;ABC789&amp;#34; pattern = re.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（二）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-2/</link>
+      <pubDate>Wed, 15 Jul 2020 19:43:29 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-2/</guid>
+      <description>部分元字符 字符和位置之间的区别：
+示例文本：This is a simple sentence.
+这段文本中第一个字符为T，但第一个字符T前还有一个位置且不可见。第一个字符T和第二个字符h之间，也有一个位置。有些元字符可以匹配位置，如 ^ 元字符，这类元字符可以被称为词边界元字符，一般用来匹配一个字母字符和一个非字母字符之间的位置（严格来说，匹配一个字母序列或数字字母序列的边界）。
+（.）元字符 \w 元字符 表示一个ASCII字母字符（A~Z或a~z）、一个数字或一个下划线字符。不匹配象形符号，标点符号，在某些实现中也不匹配非英语语言中的字母字符（通过某些设置，\w元字符也可以应用于Unicode字符集而不单单是ASCII字符集的环境下）
+对应的字符类是：[A-Za-z0-9_]
+\W 元字符 用于匹配\w元字符不匹配的字符（任何非ASCII字母字符、非数字以及非下划线字符）（包括空格）
+\D 元字符 用于匹配非数字，即\d元字符不能匹配的其他字符（包括空格）
+空白和非空白元字符 \s 元字符，针对性差，匹配任何单个的空白字符（空格符、制表符tab或换行符\n）
+\S 元字符，用于匹配任何非空白字符。其他非英语语言中的字符也与\S 元字符匹配。但 \S 元字符不想句点元字符那样匹配尽可能多的字符。
+\t 元字符，匹配一个制表符
+\n 元字符，匹配一个换行符
+转移符，有些字符，如.字符，如果要让它匹配对应的直接量字符，则需要进行转移，如使用. 元序列来匹配一个句点字符
+ 字符类 字符类用于匹配一个字符集合中的任何一个字符
+字符类是一些字符的无序组合，正则表达式引擎可以从这个组合中挑选出一个字符来完成匹配。如果字符类中指定的任何字符都不能与之匹配，则该字符类匹配失败。
+当字符类不带有关联的限定符是，字符类只会指定其中一个字符用于匹配。例：pe[aei]r可能匹配pear、peer或peir，但不会匹配per。因为per中不包含字符类中所包含的任何一个字符。
+1 2 3 4 5 6 7 8 9 10 11 12  text = &amp;#34;AB31 AB2D AB10 AB18 AB44 AB29 AB24&amp;#34; mathces = re.finditer(&amp;#34;AB[12]\d&amp;#34;, text) showResult(mathces) &amp;#34;&amp;#34;&amp;#34; output: &amp;lt;re.Match object; span=(10, 14), match=&amp;#39;AB10&amp;#39;&amp;gt; &amp;lt;re.</description>
+    </item>
+    
+    <item>
+      <title>Python之win32com模块 - ADO的使用</title>
+      <link>https://dekr0.github.io/blog/python/win32com-ado-python/</link>
+      <pubDate>Wed, 01 Jul 2020 20:02:39 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/win32com-ado-python/</guid>
+      <description>ADO（ActiveX Data Objects）是微软旗下的一项技术。此技术提供了一种在多个领域的数据库中，访问数据且独立于数据库（在编程语言提供对COM接口的支持时，某种程度上是独立于编程语言）的方法。在Access，SQL Server，Oracle等数据引擎中，ADO所提供的函数都是通用且相同的。
+ ADO基础对象 Connection对象
+connection对象是用来管理一个对单一数据源的连接。
+ 初始化一个connection对象需要提供参数如数据源名（驱动程序名字），数据库服务器的地址，用户名和密码等，这些参数将引导connection对象连接到一个指定的数据库服务器）。所有其他ADO对象都与相关联。  常用的属性：
+  CommandTimeout，等待一个命令执行完成的时间
+  ConnectionString，设置连接参数（重要）（可选：通过其他属性来设置，由引擎自动将属性值组装成ConnectionString）
+  State，返回connection对象与数据源的连接状态
+  常用方法：
+  Close，断开数据源的连接
+  Execute，执行一个查询，存储procedure或一个表达式
+  Open，打开一个数据源的连接，接收一个字符串，如果ConnectionString为空
+  1 2 3 4 5  conn = client.Dispatch(r&amp;#34;ADODB.Connection&amp;#34;) # 获得一个ADO Connection对象，Connection对象代表与数据源的唯一对话 conn.Open(DSN) # 建立到数据源的物理连接 if conn.State == adSateOpen: return conn print(&amp;#34;Failed to connection to database&amp;#34;)   RecordSet对象
+RecordSet对象是用来迭代查询procedure或储存procedure的结果。一般，RecordSet对象将会被赋予Command对象或Connection对象所获取的值或结果，并使用RecordSet对象来处理这些结果（rows of results）
+  一个RecordSet对象必须总是被一个Conneciton对象赋值，即可以获取数据的地方</description>
+    </item>
+    
+    <item>
+      <title>Hugo安装和搭建</title>
+      <link>https://dekr0.github.io/blog/blog-setup/hugo-build/</link>
+      <pubDate>Wed, 01 Jul 2020 13:16:35 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/blog-setup/hugo-build/</guid>
+      <description>备忘 - 以免时间长了忘记一些重要的操作步骤
+注：所有站点搭建、部署、配置等相关的命令都在站点目录下执行
+ Hugo安装  创建目录“&amp;hellip;\Hugo” 创建分两个分目录“&amp;hellip;\Hugo\bin”和“&amp;hellip;\Hugo\Sites” 下载带Hugo（Extended版本）可执行程序的压缩包（Hugo Release） 将文件解压到“&amp;hellip;\Hugo\bin”下 将“&amp;hellip;\Hugo\bin”添加到系统环境变量PATH中 验证安装，在shell中输入hugo version   站点搭建 创建一个新的站点 hugo new site 目录名
+使用git将主题 下载到站点目录下的themes目录 git clone github库地址 themes/主题目录名
+在本地启动hugo站点 hugo server -t 主题目录名 --buildDrafts
+新建文章（.md格式）（文件夹和文件会储存在站点目录下的content目录中） hugo new 文件名或文件路径
+ 站点部署 部署到Github免费仓库下：
+创建新的Gtihub远程仓库（注：远程仓库名格式 - 用户名.github.io）（用户名小写）（例：用户名：Dekr0，仓库名：dekr0.github.io）
+部署站点（会在站点目录下创建一个public目录）hugo --theme=主题目录名 --baseUrl=&amp;#34;https://远程仓库名/&amp;#34; --buildDrafts
+hugo --theme=m10c --baseUrl=&amp;#34;https://dekr0.github.io/&amp;#34; --buildDrafts 剩下的是一些常规的git操作：
+cd到public目录，使用git进行仓库初始化（会生成.git） git init
+将public目录的所有内容进行添加 git add .
+将以上操作进行提交 git commit -m &amp;#34;提交信息&amp;#34;
+将本地public目录对Github的远程仓库进行关联
+git remote add origin 远程仓库地址.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式Note（一）</title>
+      <link>https://dekr0.github.io/blog/regex/reg-note-1/</link>
+      <pubDate>Sat, 27 Jun 2020 11:51:27 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/regex/reg-note-1/</guid>
+      <description>所用的语言不同，正则表达式所得出的结果会出现差异
+表达式中的一个组件/字符/部分匹配失败，整个表达式会匹配失败（根据情况）。只有在所有表达式中的组件/字符/部分匹配成功，表达式才能匹配成功。
+findstr Windows命令提示符中的一个提供在文件中寻找字符串的实用程序
+参数
+  /？ - 帮助
+  /N - 标识在匹配的每行前显示行号，以继文件名和匹配的文本
+  正则表达式的分析方法（构造表达式的思路）  用自然语言表达和说明意图  可能需要几次反复的构思才能得到符合要求的恰当描述   考虑数据源及其可能的内容 考虑可以使用的正则表达式选项（根据所使用的语言或应用程序而变化） 考虑灵敏度和特殊性（匹配的精确度和准确性） 对复杂正则表达式给予说明，用空白区域保持表达式说明的清晰  表达式的目的，需要匹配和规避的目标   创建适当的正则表达式 测试结果  匹配单个字符 如果匹配一个特定的字母字符或数子，只需是使用相应的字符或数子组成的模式即可
+实例：已知文本 Excel has XLM macros. They were replaced by Visual Basic for Applications in later versions of the spreadsheet software. CMLIII Leoni could swim like a fish. Legal difficulties plagued the Clinton administration. Lewinski was he source of some of the former president&amp;#39;s difficulties.</description>
+    </item>
+    
+    <item>
+      <title>Python之装饰器</title>
+      <link>https://dekr0.github.io/blog/python/decorator-review/</link>
+      <pubDate>Fri, 26 Jun 2020 12:31:07 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/decorator-review/</guid>
+      <description>装饰器（decorator） 与装饰器运作相关的情景（对象、指针、内存空间、地址）：
+已定义的函数体允许以变量赋值的方式赋值给其他变量
+函数体内部允许定义新的函数体（注意：作用域）
+函数体能够充当一个函数体的返回值
+函数体能够充当另一个函数体的参数
+如果一段代码定义两个拥有相同函数名的函数，但所执行操作的不同。最后被解析的函数的函数体将会被保留，而最先被解析的函数的函数体会被覆盖。
+def func(): return 1 def func(): return 2 ret = func() 粗略来说，函数（方法）名相当于一个函数（方法）对象的对象指针，此指针指向一个内存地址或内存空间，函数体将会存储在此处
+装饰器能够进行对函数和方法进行转换（转化）操作。
+一个函数定义（def &amp;hellip;(&amp;hellip;):）可以被一个或多个装饰器表达式包含。在包含一个函数定义的作用域中，当此函数被定义时，装饰器将会被求值。以函数对象（非函数体）为唯一参数的调用方式所返回的求值结果必须是一个可调用的对象。
+@ - 进行装饰器的操作
+@decorator_2 @decorator_1 def func(arg): pass 这等同于：
+def func(arg): pass func = decorator_2(decorator_1(func)) 实例：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  def decor(func): def format(a, b): ret = func(a, b) return &amp;#34;{} + {} = {}&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Python基础知识拾漏</title>
+      <link>https://dekr0.github.io/blog/python/general-concept-review/</link>
+      <pubDate>Wed, 24 Jun 2020 10:43:36 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/general-concept-review/</guid>
+      <description>set类型 与list和tuple（不允许修改的列表），set是一种不允许重复的列表并且是无序的，所以不支持索引
+类set的方法（不存在于list和tuple）：
+  add(self, *args, **kwargs) - 添加一个元素。如果元素存在，则无效果
+  differece(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法set存在的元素不存在于被传入的set，将这些元素以一个新的set对象返回
+  difference_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素不存在于被传入的set，保留这些元素并移除其他存在于传入的set对象的元素
+  1 2 3 4 5  SetA = {1, 2, 3, 4,} SetB = {3, 4, 5, 6, 7,} SetA.difference_update(SetB) print(SetA) # output: {1, 2}     discrad(self, *args, **kwargs) - 移除一个是此对象成员的元素，如果元素不是对象的成员，不执行（与remove功能相同，但不会因为元素不存在而报错）
+  intersection(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，将这些元素以一个新的set对象返回
+  intersection_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，保留这些元素并移除其他不在于传入的set对象的元素</description>
+    </item>
+    
+    <item>
+      <title>Python之logging模块</title>
+      <link>https://dekr0.github.io/blog/python/src-logging/</link>
+      <pubDate>Tue, 23 Jun 2020 20:14:49 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-logging/</guid>
+      <description>logging模块提供了一个灵活的事件记录系统并且是线程安全的。
+ 基础用法 - 模块级别的函数 logging.basicConfig() - 为logging系统提供基本配置。此函数应该在debug()，info()等类似的函数调用之前调用
+此函数一些常用、可选的参数
+filename：文件处理器的名字（如果此函数为空，事件信息会被在标准错误流（即sys.stderr）中输出/记录）
+format：处理器的格式化字符串（格式化字符串的格式定义与类LogRecord、Formatter相关）
+datefmt：事件日期的格式
+level：设置根记录器的级别（建议直接使用logging模块内部定义好的级别）
+91 92 93 94 95 96 97 98  CRITICAL = 50 FATAL = CRITICAL ERROR = 40 WARNING = 30 WARN = WARNING INFO = 20 DEBUG = 10 NOTSET = 0   这些级别的数值可以直接以 logging.level 的方式来调取（级别大名要大写）
+以下这些函数会根据函数名所代表的级别来记录一条信息或事件。如果此函数名所代表的级别低于根记录器的级别，信息或事件将不会被记录器所记录
+  logging.debug(msg, *args, **kwargs)
+  logging.info(msg, *args, **kwargs)
+  logging.warning(msg, *args, **kwargs)
+  logging.error(msg, *args, **kwargs)</description>
+    </item>
+    
+    <item>
+      <title>Python之queue模块</title>
+      <link>https://dekr0.github.io/blog/python/src-queue/</link>
+      <pubDate>Sat, 20 Jun 2020 14:17:50 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-queue/</guid>
+      <description>The queue module introduces the concept of queue (consumer-producer model) by implementing the concept of thread lock, and it is thread-safe for information exchange between threads.
+ 1. The Concept of Queue Queue is a linear data structure that follows a specific order (FIFO) in which the operations are performed (Example: consumer - first come, first server).
+There are four basic operations are performed on queue:
+Enqueue: Adds an item into the queue.</description>
+    </item>
+    
+    <item>
+      <title>socketserver源码剖析</title>
+      <link>https://dekr0.github.io/blog/python/src-socketserver/</link>
+      <pubDate>Fri, 19 Jun 2020 19:41:16 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-socketserver/</guid>
+      <description>sockserver模块是一个提供基于I/O多路复用和多线程及多进程的网络框架，此模块能够给简化建立网络服务器的任务
+socketserver模块的类继承图:
++------------+ | BaseServer | +------------+ | v +-----------+ +------------------+ | TCPServer |-------&amp;gt;| UnixStreamServer | +-----------+ +------------------+ | v +-----------+ +--------------------+ | UDPServer |-------&amp;gt;| UnixDatagramServer | +-----------+ +--------------------+ </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog-setup on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/blog-setup/</link>
+    <description>Recent content in blog-setup on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jul 2020 13:16:35 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/blog-setup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo安装和搭建</title>
+      <link>https://dekr0.github.io/blog/blog-setup/hugo-build/</link>
+      <pubDate>Wed, 01 Jul 2020 13:16:35 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/blog-setup/hugo-build/</guid>
+      <description>备忘 - 以免时间长了忘记一些重要的操作步骤
+注：所有站点搭建、部署、配置等相关的命令都在站点目录下执行
+ Hugo安装  创建目录“&amp;hellip;\Hugo” 创建分两个分目录“&amp;hellip;\Hugo\bin”和“&amp;hellip;\Hugo\Sites” 下载带Hugo（Extended版本）可执行程序的压缩包（Hugo Release） 将文件解压到“&amp;hellip;\Hugo\bin”下 将“&amp;hellip;\Hugo\bin”添加到系统环境变量PATH中 验证安装，在shell中输入hugo version   站点搭建 创建一个新的站点 hugo new site 目录名
+使用git将主题 下载到站点目录下的themes目录 git clone github库地址 themes/主题目录名
+在本地启动hugo站点 hugo server -t 主题目录名 --buildDrafts
+新建文章（.md格式）（文件夹和文件会储存在站点目录下的content目录中） hugo new 文件名或文件路径
+ 站点部署 部署到Github免费仓库下：
+创建新的Gtihub远程仓库（注：远程仓库名格式 - 用户名.github.io）（用户名小写）（例：用户名：Dekr0，仓库名：dekr0.github.io）
+部署站点（会在站点目录下创建一个public目录）hugo --theme=主题目录名 --baseUrl=&amp;#34;https://远程仓库名/&amp;#34; --buildDrafts
+hugo --theme=m10c --baseUrl=&amp;#34;https://dekr0.github.io/&amp;#34; --buildDrafts 剩下的是一些常规的git操作：
+cd到public目录，使用git进行仓库初始化（会生成.git） git init
+将public目录的所有内容进行添加 git add .
+将以上操作进行提交 git commit -m &amp;#34;提交信息&amp;#34;
+将本地public目录对Github的远程仓库进行关联
+git remote add origin 远程仓库地址.</description>
+    </item>
+    
+  </channel>
+</rss>

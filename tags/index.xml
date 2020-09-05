@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/</link>
+    <description>Recent content in Tags on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 21:11:02 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>study-habit</title>
+      <link>https://dekr0.github.io/tags/study-habit/</link>
+      <pubDate>Thu, 27 Aug 2020 21:11:02 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/study-habit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://dekr0.github.io/tags/linux/</link>
+      <pubDate>Mon, 24 Aug 2020 15:49:30 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>https://dekr0.github.io/tags/vim/</link>
+      <pubDate>Mon, 24 Aug 2020 15:49:30 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://dekr0.github.io/tags/c/</link>
+      <pubDate>Fri, 07 Aug 2020 21:16:25 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>https://dekr0.github.io/tags/regex/</link>
+      <pubDate>Tue, 21 Jul 2020 16:13:27 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://dekr0.github.io/tags/python/</link>
+      <pubDate>Wed, 01 Jul 2020 20:02:39 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog-setup</title>
+      <link>https://dekr0.github.io/tags/blog-setup/</link>
+      <pubDate>Wed, 01 Jul 2020 13:16:35 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/tags/blog-setup/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

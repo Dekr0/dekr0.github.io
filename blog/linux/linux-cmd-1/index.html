@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Linux常用指令（一）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#进程相关">进程相关</a></li>
+        <li><a href="#重新定向输入和输出-stream">重新定向输入和输出 stream</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <p>对于普通用户, 命令行提示符一般为 &ldquo;<strong>$</strong>&rdquo;. 而 root 是以 &ldquo;<strong>#</strong>&rdquo; 结尾</p>
+<p>绝对 (Absolute) 路径 - 指定一个相对于系统的根目录 (<strong>root directory</strong>)的位置. 如果提供的路径以 <strong>/</strong> 开头, 此路径是以根目录为起始点的绝对路径</p>
+<p>相对 (Relatitve) 路径 - 如果路径以 <strong>~/</strong> 开头, 路径起始点为 <strong>home</strong> 目录; 如果路径以一个文件夹或文件的名字开头，无 / 或 ~/, 此路径是以当前目录为起始点的相对路径; 当前目录可以以 <strong>.</strong> 或 <strong>./</strong> 表.</p>
+<h4 id="pwd">pwd</h4>
+<p>显示当前路径</p>
+<hr>
+<h3 id="进程相关">进程相关</h3>
+<h4 id="ps">ps</h4>
+<p>显示当前在系统的进程和进程的信息</p>
+<h4 id="kill">kill</h4>
+<p>向一个或多个进程发送一个信号 (通常来结束一个进程)</p>
+<p>参数:</p>
+<p>-l: 显示所有信号类型 (后加信号类型名返回其对应的整数值)</p>
+<p>-n: 根据信号类型对应的整数值来选择所发送信号的类型</p>
+<h4 id="bg">bg</h4>
+<p>将一个进程放进后台</p>
+<p>可以让一个因 Ctrl-Z 被挂起的进程在后台继续运行</p>
+<h4 id="fg">fg</h4>
+<p>将一个进行放进前台</p>
+<h4 id="jobs">jobs</h4>
+<p>显示当前的进程 (无详细信息)</p>
+<h4 id="heading">&amp;</h4>
+<p>让命令在后台运行</p>
+<p>单条命令
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">ping</span> <span class="nx">www</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">com</span> <span class="o">&amp;</span></code></pre></div></p>
+<p>两条或多条命令
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">ping</span> <span class="nx">www</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">com</span> <span class="o">&amp;</span> <span class="nx">sudo</span> <span class="nx">pacman</span> <span class="o">-</span><span class="nx">Syyu</span></code></pre></div></p>
+<hr>
+<h4 id="heading-1">;</h4>
+<p>让多条命令按顺序执行（非同时）</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">sudo</span> <span class="nx">pacman</span> <span class="o">-</span><span class="nx">Syyu</span> <span class="p">;</span> <span class="nx">cd</span> <span class="err">~</span> <span class="p">;</span> <span class="nx">mkdir</span> <span class="nx">test</span></code></pre></div>
+<h4 id="命令返回状态">命令返回状态</h4>
+<p>如果一个命令执行成功, 将返回状态 <strong>0</strong>; 如果一个命令执行失败, 将返回状态 <strong>1</strong></p>
+<h4 id="heading-2">&amp;&amp;</h4>
+<p>逻辑和运算符, 允许两个或多个指令一起执行 (前提是第一条命令执行成功, 如果是多条命令, 以此类推).</p>
+<h4 id="heading-3">||</h4>
+<p>逻辑或运算符</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">pacman</span> <span class="o">-</span><span class="nx">Syyu</span> <span class="o">||</span> <span class="nx">mkdir</span> <span class="nx">test</span></code></pre></div>
+<p>如果第一条命令执行失败, 则执行第二条命令. 对于多条命令, 则以此类推</p>
+<h4 id="heading-4">!</h4>
+<p>逻辑否, 类似于 except 语句</p>
+<p>命令会执行所有除 <strong>!</strong> 后跟的条件</p>
+<p>例：移除cmd-test文件夹中所有除 .html 的文件</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="p">[</span><span class="o">...</span> <span class="nx">cmd</span><span class="o">-</span><span class="nx">test</span><span class="p">]</span><span class="err">$</span> <span class="nx">rm</span> <span class="o">-</span><span class="nx">r</span> <span class="p">!(</span><span class="o">*</span><span class="p">.</span><span class="nx">html</span><span class="p">)</span></code></pre></div>
+<h4 id="--">&amp;&amp; &hellip; ||</h4>
+<p><strong>&amp;&amp;</strong> 和 <strong>||</strong> 组合起来相当于一个 if-else 语句</p>
+<p>例：</p>
+<p>ping 网址 <a href="http://www.google.com">www.google.com</a>, 如果成功, 则控制台显示 &lsquo;Verified&rsquo;; 如果失败, 则显示 &lsquo;Host Down&rsquo;.</p>
+<p>测试开关网络的结果</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">ping</span> <span class="nx">www</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">com</span> <span class="o">&amp;&amp;</span> <span class="nx">echo</span> <span class="s">&#34;Verified&#34;</span> <span class="o">||</span> <span class="nx">echo</span> <span class="s">&#34;Host Down&#34;</span></code></pre></div>
+<h4 id="heading-5"></h4>
+<p>连接两条或多条命令, 后跟的命令依赖于前面命令的执行</p>
+<h4 id="heading-6">()</h4>
+<p>类似于分组</p>
+<hr>
+<h3 id="重新定向输入和输出-stream">重新定向输入和输出 stream</h3>
+<p>默认 / 标准 stream (每一个 stream 都有一个与关联的文件描述符, 作用 - 识别):</p>
+<ul>
+<li>0 标准输入 (stdin), 程序输入的普通源,</li>
+<li>1 标准输出 (stdout), 用于从程序进行普通输出</li>
+<li>2 标准错误 (stderr), 用于程序的错误信息和诊断</li>
+</ul>
+<p>当标准交互出现在用户和终端时，标准输入会以用户的键盘方式被传入。标准输出和标准错误会以文字的形式被显示到用户的终端中</p>
+<h4 id="标准输入-stdin">标准输入 (stdin)</h4>
+<p>一般地, stdin 会将用户的数据传输到程序中. 等待 stdin 的程序通常会从一个设备, 如键盘, 来接收输入. stdin 会在到达 EOF (end-of-file, 即没有更多的数据被读入) 时候被终止.</p>
+<p>例:</p>
+<p>使用 cat 打开一个循环的提示符后, 当在提示符中进行输入时, 输入的内容会发送到 stdin 并传输到正在运行的 cat 程序 (等待输入). cat 程序会将输入的内容以 stdout 形式发送给终端</p>
+<p>此时, EOF 可以 ctrl-d 的形式输入, 在这之后, cat 收到 EOF 并停止运行</p>
+<h4 id="标准输出-stdout">标准输出 (stdout)</h4>
+<p>stdout 会写程序生成的数据. 当 stdout stream 没有被重新定向, 就会将文字输出到终端中.</p>
+<h4 id="标准错误-stderr">标准错误 (stderr)</h4>
+<p>stderr 会写程序在每一时刻因执行失败的错误. stderr stream 的默认输出目标为终端输出</p>
+<p>当一个程序的 stderr 流通过管道传输 (piped) 至第二个程序时, 被管道传输的数据 (包含程序的错误) 将会同时送往终端</p>
+<h4 id="流重定向的指令">流重定向的指令</h4>
+<p>这些命令会将 stdout 写入一个文件. 如果一个指定文件名不存在, 将会新建文件.</p>
+<p><strong>重写</strong></p>
+<ul>
+<li><strong>&gt;</strong> stdout</li>
+<li><strong>&lt;</strong> stdin</li>
+<li><strong>2&gt;</strong> stderr</li>
+</ul>
+<p><strong>追加</strong></p>
+<ul>
+<li><strong>&raquo;</strong> stdout</li>
+<li><strong>&laquo;</strong> stdin</li>
+<li><strong>2&raquo;</strong> stderr</li>
+</ul>
+<p>例:</p>
+<p>将 home 目录下的内容重定向至 home.txt 中
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ls</span> <span class="err">~</span> <span class="p">|</span> <span class="nx">home</span><span class="p">.</span><span class="nx">txt</span></code></pre></div></p>
+<p><strong>command &gt; /dev/null</strong>
+任何被重定向至 /dev/null 的数据都会被</p>
+<h4 id="pipes">Pipes</h4>
+<p>管道是用来将一个 stream 从一个程序重定向到另一个程序. 当一个程序的 stdout 通过管道发送到另外一个程序中, 第一个程序的数据会被另外一个程序接收, 不会被输出到终端中</p>
+<p><strong>pipe</strong> 命令
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="o">*</span> <span class="p">|</span> <span class="o">*</span></code></pre></div></p>
+<p>例:</p>
+<p>将当前目录的内容, 管道传输到 less 程序 () 中
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ls</span> <span class="p">|</span> <span class="nx">less</span></code></pre></div></p>
+<p>pipe 与 &gt; 和 &raquo; 的区别是 pipe 从一个命令重定向数据到另一个, 而 &gt; 和 &raquo; 专门用来重定向至文件</p>
+<h4 id="filters">Filters</h4>
+<p>Filters 指的是一类能够修改 pipe 的重定向和输出的命令</p>
+<ul>
+<li><strong>find</strong> - 返回符合已传入参数条件的文件及其文件名</li>
+<li><strong>grep</strong> - 返回符合正则表达式的文字</li>
+<li><strong>tee</strong> - 重定向 stdin 至 stdout 以及一个或多个文件</li>
+<li><strong>tr</strong> - 查找一个字符串并替换成另一个字符串</li>
+<li><strong>wc</strong> - 对字符, 行和字进行计算</li>
+</ul>
+<h4 id="cat">cat</h4>
+<p>连接单个或多个文件并将其打印到标准输出中</p>
+<p>如果是只有命令本身, cat 会打开一个循环的提示符.</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/study-habit/reading-skill/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/linux/vim-learning-note-1/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

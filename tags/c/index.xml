@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/c/</link>
+    <description>Recent content in c on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Aug 2020 21:16:25 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C语言学习Note（二）</title>
+      <link>https://dekr0.github.io/blog/c/c-note-2/</link>
+      <pubDate>Fri, 07 Aug 2020 21:16:25 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/c/c-note-2/</guid>
+      <description>数据 常量 self explantaory。如果是常量，编译器一般通过用户书写的形式来识别数据类型
+C有别于Python的数据类型 long, short, unsigned, signed, void, _Bool, Complex 和 _Imaginary
+其中 long, short, unsigned 和 signed 用于提供基本整数类型的变式，如 unsigned short int 和 long long int
+字节和字的概念（重申） 字节为常用的计算机存储单位（1 bytes = 8 bit - 标准定义，但C对此有不同的定义）
+字为涉及计算机时给定的自然存储单位（如字长位32位，64位）。字长越大，数据转移越快，允许内存访问也更多。
+浮点数 浮点数的存储方案，浮点数分成小数和指数部分来表示，且这两部分分开存储。计算机内部使用二进制和2的幂进行储存。
+对于一些算术运算，浮点数损失的精度更多。
+计算机的浮点数不能表示取键内所有的值，且通常知识实际值的近似值。
+int 类型 存储一个 int 类型要占一个机器字长（一般而言）。
+声明变量，位变量赋予名称且分配内存空间。
+初始化变量，为变量赋予一个初始值。初始化可以直接在声明中完成 int a = 1; int b = 2, c = 3; int d, e = 4; /* work but bad 只有 e 初始化了 */</description>
+    </item>
+    
+    <item>
+      <title>C语言学习Note（一）</title>
+      <link>https://dekr0.github.io/blog/c/c-note-1/</link>
+      <pubDate>Wed, 29 Jul 2020 11:29:38 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/c/c-note-1/</guid>
+      <description>语言介绍和背景 部分有意义的内容，内容取自C Primer Plus 第一章
+C语言的设计理念符合自顶向下的规划、结构化编程和模块化设计
+C语言具有通常是汇编语言菜具有的微调控制能力，可根据情况微调程序以获得最大运行速度或最有效的使用内存
+使用C语言的7个步骤：
+第2步：设计程序
+确认程序的目标和所需完成任务后，将考虑如何用程序实现/完成它。如：组织程序的方式，目标用户，完成程序的所需时间。同时，还要决定在程序中表示数据的方式，及处理数据的方法
+第4步：编译
+编译器将源代码准换位可执行代码（机器语言代码）程序。编译器先将源代码转换成中间代码，链接器把中间代码和其他代码（C库，包含大量标准函数）合并链接，最后生成可执行文件。这种方法能够对程序进行模块化，即独立编译单独的模块，再用链接器合并已编译的模块。
+中间代码，可称为目标代码。目标代码包含机器语言代码，但不能直接运行该文件。因为目标文件储存的是编译器翻译的源代码，且缺失启动代码（程序和操作系统之间的接口，根据操作系统而变）和C标准库中的函数。
+链接器的作用就是把编写的目标代码，系统的标准启动代码和库代码（程序中要用到的库函数代码提取）合并成一个文件，即可执行文件。
+ 语言概述 #include&amp;lt;stdio.h&amp;gt; 告知编译器将stdio.h中的内容包含在程序中，把stdio.h文件中的所有内容都输入该行所有的位置。
+#include是一条C预处理器指令。通常，C编译器在编译前会对源代码进行预处理
+stdio.h是C编译器软件包的标准部分，提供键盘输入和屏幕输出的支持。stdio.h文件（文件名含义：标准输入/输出头文件）中包含供编译器使用的输入和输出函数（如，printf()）信息。
+通常，在C程序顶部的信息集合被称为头文件（header），这些文件包含了编译器创建可执行程序要用到的信息。
+int main(){ ... }}}
+main() 函数 C程序一定从 main() 函数开始执行，且是必须是开始的函数。int是main()函数的返回类型，返回值会返回给操作系统。
+声明 变量、函数或其他实体的名称，可视为标识符。因此，声明把特定标识符与计算机内存中的特定位置联系起来，同时也确定了储存在某位置的信息类型或数据类型。Remark：所有变量都必须声明才能使用，即列出程序中用到的所有变量名及其类型。
+使用多条声明
+int feet, fathoms; 以前的C语言标准，要求把变量声明在块的顶部，其他语句不能再声明的前面（为了与旧系统更好地兼容，使用旧的规则，且促使在编写程序之前做一些计划）。
+在创建标识符时，避免使用一个或两个下划线字符开始的标识符吗，因为操作系统和C库经常使用这类的标识符
+函数简介 函数是C语言的基本模块。
+函数调用，当程序运行到已被命名且定义好的函数的那一行后，控制权会被转给此函数。此函数执行结束后，控制权被返回至主调函数。
+函数原型（C99标准），是一种声明形式，也被称为函数声明。此告知编译器正在使用某函数，且指明了函数的属性。C标准建议，要位程序中用到的所有函数提供函数原型。
+实例：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  #include &amp;lt;stdio.h&amp;gt; void fetch(void); /* ANSI/ISO C函数原型 */ int main(void) { printf(&amp;#34;index&amp;#34;) fetch(); printf(&amp;#34;foo&amp;#34;) } void fetch(void) /* 函数定义 */ { printf(&amp;#34;fetch&amp;#34;); }   早期的C语言支持一种更简单的函数声明，只需指定返回类型，不用描述参数，但不是现在的函数原型。如果要使用以前写的C代码，就需要旧式函数声明转换成函数原型。 void fetch(); /* 早期的函数声明 */</description>
+    </item>
+    
+  </channel>
+</rss>

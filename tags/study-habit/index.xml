@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>study-habit on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/study-habit/</link>
+    <description>Recent content in study-habit on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 21:11:02 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/study-habit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>时间管理</title>
+      <link>https://dekr0.github.io/blog/study-habit/time-management/</link>
+      <pubDate>Thu, 27 Aug 2020 21:11:02 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/study-habit/time-management/</guid>
+      <description>项目和考试复习规划 (Monthly Schedules)   尽量提前且经常复习, 减小为 exam 前做的准备且提升知识弹性
+  提前设立 exam 复习时间表, 留有充足的预算时间, 提前 3 至 4 个星期开始 exam 复习或一个项目, 在考试日或项目 deadline 前几日前完成复习 / 项目
+ 设立开始日期 罗列需要完成的主要任务, 并解分成小步骤 / sections 将每一项任务分配到一个特定的星期 在每个星期的课程学习时间段, 着手完成这些分配的任务    使用 back-planning 的方法来进行规划, 即从考试日 / 项目 deadline 开始往后进行规划
+  每周时间表 / 日程安排 (Weekly Schedules) 可分为几个块:
+  Class Time - 标注为上课, 做 labs 或 seminars, etc.
+  Personal Time - 标注为paid work, 额外 curricular 活动, 健身, etc.</description>
+    </item>
+    
+    <item>
+      <title>阅读学术文章和论文的技巧积累</title>
+      <link>https://dekr0.github.io/blog/study-habit/reading-skill/</link>
+      <pubDate>Mon, 10 Aug 2020 20:30:11 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/study-habit/reading-skill/</guid>
+      <description>Compile list of papers - 绘制一份简易的，包含需要阅读的papers列表
+  Skip around list - 绘制完成后，尝试快速浏览并粗略理解这些papers（例如，阅读每篇paper的10%或从每篇paper中得到10%理解左右）。在此之后：
+  剔除那些没有太大利用价值或意义的papers（根据其他作者对这些papers的评论或自身做决定）
+  着重花时间阅读并理解被认为时有意义/价值或开创性的papers，并从这papers中的引文寻找其他相关的papers
+  通过在papers（包括在引文中寻找到的）之间反复交替阅读回顾，刷新对列表中某些papers中比较难理解，弄懂的内容的认知和理解
+  重复前两步，直到对想要学习的主题的文学作品有一定程度的掌握
+  这个程度基于是对想要了解研究的领域有一个基本的了解（例如，15-20 papers），也许足够做一些工作或实现一些应用。又或是对想要了解研究的领域有一个很好的了解，即想处于最前沿并进行深入的研究
+    对一份paper进行阅读的一些方法（大致方向就是从非常有效且高重要性的内容出发，再回到更难的内容）：
+  标题，摘要Abstract，或图表
+  仔细阅读介绍，结论，数字，然后快速浏览剩余的部分（在第一次阅读时，可以skim related work section）
+  阅读但跳过/粗略浏览涉及到例如证明，计算的部分
+  阅读所有内容但跳过不明白的部分或没有意义的部分（从头读到尾有时不是特别推荐）
+    阅读papers需要记住且试着回答的问题：
+  作者试图表达，实现或完成什么？
+  关键要素
+  what can you use yourself?
+  哪些其他相关参考文献需要或想要继续跟进？</description>
+    </item>
+    
+  </channel>
+</rss>

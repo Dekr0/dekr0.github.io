@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">正则表达式Note（三）</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#字符串行和词边界">字符串、行和词边界</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="字符串行和词边界">字符串、行和词边界</h2>
+<h4 id="-元字符"><strong>^ 元字符</strong></h4>
+<p>用于在字符类之外。直接匹配位于一行或一个字符串开始位置（Unicode换行符）之后的目标字符</p>
+<p>如果文本只有一行，则无需考虑 ^ 元字符与文本的开始出匹配，还是每一行的开始处匹配这个问题（这两个概念指的是同一位置）。如果需要匹配每一行的开始处，则需要开启多行模式</p>
+<p>python re开启多行模式。调用re函数或方法时，将flags参数设为re.MULTILINE</p>
+<h4 id="-元字符-1"><strong>$ 元字符</strong></h4>
+<p>指定出现在一个文件结束位置或文件中一行结束位置（Unicode换行符）之前的字符序列</p>
+<h4 id="同时使用--和--元字符"><strong>同时使用 ^ 和 $ 元字符</strong></h4>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">text</span> <span class="p">=</span> <span class="s">&#34;ABC123\n&#34;</span> \
+       <span class="s">&#34;\n&#34;</span> \
+       <span class="s">&#34;There is a part number ABC123.\n&#34;</span> \
+       <span class="s">&#34;\n&#34;</span> \
+       <span class="s">&#34;ABC234\n&#34;</span> \
+       <span class="s">&#34;\n&#34;</span> \
+       <span class="s">&#34;A purchase order for 400 of ABC345 was received yesterday.\n&#34;</span> \
+       <span class="s">&#34;\n&#34;</span> \
+       <span class="s">&#34;ABC789&#34;</span>
+
+<span class="nx">pattern</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="s">&#34;^ABC[0-9]{3}$&#34;</span><span class="p">,</span> <span class="nx">flags</span><span class="p">=</span><span class="nx">re</span><span class="p">.</span><span class="nx">MULTILINE</span><span class="p">)</span>
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+<span class="nf">showResult</span><span class="p">(</span><span class="nx">matches</span><span class="p">)</span>
+
+<span class="s">&#34;&#34;&#34;
+</span><span class="s">output:
+</span><span class="s">&lt;re.Match object; span=(0, 6), match=&#39;ABC123&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(40, 46), match=&#39;ABC234&#39;&gt;
+</span><span class="s">&lt;re.Match object; span=(108, 114), match=&#39;ABC789&#39;&gt;
+</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>工作原理</strong></p>
+<p>引擎首先将 ^ 元字符与当前所在位置匹配，结果匹配成功。直接量字符A，B，C都被匹配成功。然后再用字符类[0-9]与字符1，2，3进行匹配，同时满足限定{3}的指示。最后，将 $ 元字符与字符3之后的位置进行匹配，这个位置直接位于一个Unicode换行符之前，结果匹配成功。</p>
+<p>在第二行的开始位置处，表达式成功匹配到 ^ 元字符。但是直接量字符A与T匹配失败。而且，接下来在该行中匹配 ^ 元字符都会失败，因为后面的任何位置都不是一行的开始位置。</p>
+<h4 id="匹配空白行"><strong>匹配空白行</strong></h4>
+<p>组合使用 ^ 和 $ 元字符可以匹配空白行，因为 ^ 元字符匹配行的开始位置，而 $ 元字符匹配位于一个Unicode换行符。</p>
+<h4 id="ip地址的匹配"><strong>IP地址的匹配</strong></h4>
+<p>IP地址中包含的数值最大不能超过255</p>
+<p>定义：</p>
+<ol>
+<li>如果是一位数，匹配任何0~9的数字</li>
+<li>如果是两位数，匹配第一字符为1~9且第二个字符为0~9的数字</li>
+<li>如果是三位数，那么与下面任一项匹配即可：
+<ol>
+<li>匹配数字1，后跟一个数字0~9，后跟一个数字0~9；</li>
+<li>匹配数字2，后跟一个数字0~4，后跟一个数字0~9；</li>
+<li>匹配数字2，后跟一个数字5，后跟一个数字0~5；</li>
+</ol>
+</li>
+</ol>
+<p>构建匹配IP地址的步骤：</p>
+<ol>
+<li>一位数字：[0-9]</li>
+<li>两位数字，10~99：[1-9]（注：不用[0-9]是因为小于10的数字属于一位数）[0-9]</li>
+<li>三位数字：
+<ol>
+<li>匹配100~199之间的三位数：1[0-9][0-9]</li>
+<li>匹配200~249之间的三位数：2[0-4][0-9]</li>
+<li>匹配259~255之间的三位数：25[0-5]</li>
+</ol>
+</li>
+</ol>
+<p>得出表达式：([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])。但此表达式存在潜在问题，当进行匹配的时候，一些不符合IP地址格式规则的字符序列仍然被匹配出来，如256。而且，所有的匹配结果都是单个字符而不是包含部分整个字符序列（连续三个数字字符）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">IP</span> <span class="p">=</span> <span class="s">&#34;12.12.12.12\n&#34;</span> \
+     <span class="s">&#34;255.255.256.255\n&#34;</span> \
+     <span class="s">&#34;12.255.12.255\n&#34;</span> \
+     <span class="s">&#34;256.123.256.123\n&#34;</span> \
+     <span class="s">&#34;8.234.88.55\n&#34;</span> \
+     <span class="s">&#34;196.83.83.191\n&#34;</span> \
+     <span class="s">&#34;8.234.88,55\n&#34;</span> \
+     <span class="s">&#34;88.173.71.66\n&#34;</span> \
+     <span class="s">&#34;241.92.88.103&#34;</span>
+
+<span class="nx">pattern</span> <span class="p">=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="s">&#34;([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])&#34;</span><span class="p">)</span>
+<span class="nx">matches</span> <span class="p">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="nx">IP</span><span class="p">)</span>
+<span class="nf">showResult</span><span class="p">(</span><span class="nx">matches</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>当单独匹配256时，单独匹配256时，第一个数字2被匹配了，即256中的2与圆括号中的第一个选项匹配[0-9]。同样的，5和6也会被匹配。实际上那是三次独立的匹配，而不是连续的。</p>
+<p>解决方案：颠倒括号中所有选项的顺序：(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])。</p>
+<p>但仍然会有潜在问题，256仍然会被已另一种方式匹配到。首先时25与[1-9][0-9]匹配，然后是6（与字符类[0-9]，最后一个选项）匹配。</p>
+<h4 id="识别词边界"><strong>识别词边界</strong></h4>
+<p>可以用两个位置来定义词边界：一个是构成一个单词的字符序列的<strong>开始位置</strong>，另一个是构成一个单词的字符序列的<strong>结束位置</strong>。</p>
+<p><strong>\b 语法</strong></p>
+<p>匹配位于词<strong>开始处的词边界</strong>也可以用于匹配词<strong>结尾处的词边界</strong></p>
+<p>备注：在python的re模块中，使用\b需要使用raw string（r&quot;whatever go in here&rdquo;）</p>
+<p><strong>\B 元字符</strong></p>
+<p>\B 元字符的含义与\b元字符相反。\B 元字符匹配一个非词边界的位置</p>
+<hr>
+<p>参考文献：</p>
+<hr>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-2/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-4/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blank">
+    <meta name="Author" content="Dekr0">
+    <link rel="stylesheet" href=https://dekr0.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://dekr0.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Dekr0&#39;s Note</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://dekr0.github.io/><img src="https://dekr0.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://dekr0.github.io/ style="font-size:larger;">
+        
+            Dekr0&#39;s Note
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Dekr0"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Hugo安装和搭建</h1>
+    
+      
+    <nav id="TableOfContents"></nav>
+    <p>备忘 - 以免时间长了忘记一些重要的操作步骤</p>
+<p>注：所有站点搭建、部署、配置等相关的命令都在站点目录下执行</p>
+<hr>
+<h1 id="hugo安装">Hugo安装</h1>
+<ol>
+<li>创建目录“&hellip;\Hugo”</li>
+<li>创建分两个分目录“&hellip;\Hugo\bin”和“&hellip;\Hugo\Sites”</li>
+<li>下载带Hugo（Extended版本）可执行程序的压缩包（<a href="https://github.com/gohugoio/hugo/releases">Hugo Release</a>）</li>
+<li>将文件解压到“&hellip;\Hugo\bin”下</li>
+<li>将“&hellip;\Hugo\bin”添加到系统环境变量PATH中</li>
+<li>验证安装，在shell中输入hugo version</li>
+</ol>
+<hr>
+<h1 id="站点搭建">站点搭建</h1>
+<p>创建一个新的站点 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">site</span> <span class="nx">目录名</span></code></pre></div></p>
+<p>使用git将<a href="https://themes.gohugo.io/">主题</a> 下载到站点目录下的themes目录
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">github库地址</span> <span class="nx">themes</span><span class="o">/</span><span class="nx">主题目录名</span></code></pre></div></p>
+<p>在本地启动hugo站点 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">hugo</span> <span class="nx">server</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">主题目录名</span> <span class="o">--</span><span class="nx">buildDrafts</span></code></pre></div></p>
+<p>新建文章（.md格式）（文件夹和文件会储存在站点目录下的content目录中） <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">文件名或文件路径</span></code></pre></div></p>
+<hr>
+<h1 id="站点部署">站点部署</h1>
+<p>部署到Github免费仓库下：</p>
+<p>创建新的Gtihub远程仓库（注：远程仓库名格式 - 用户名.github.io）（用户名小写）（例：用户名：Dekr0，仓库名：dekr0.github.io）</p>
+<p>部署站点（会在站点目录下创建一个public目录）<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">hugo</span> <span class="o">--</span><span class="nx">theme</span><span class="p">=</span><span class="nx">主题目录名</span> <span class="o">--</span><span class="nx">baseUrl</span><span class="p">=</span><span class="s">&#34;https://远程仓库名/&#34;</span> <span class="o">--</span><span class="nx">buildDrafts</span></code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">hugo</span> <span class="o">--</span><span class="nx">theme</span><span class="p">=</span><span class="nx">m10c</span> <span class="o">--</span><span class="nx">baseUrl</span><span class="p">=</span><span class="s">&#34;https://dekr0.github.io/&#34;</span> <span class="o">--</span><span class="nx">buildDrafts</span></code></pre></div>
+<p>剩下的是一些常规的git操作：</p>
+<p>cd到public目录，使用git进行仓库初始化（会生成.git） <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">init</span></code></pre></div></p>
+<p>将public目录的所有内容进行添加 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">add</span> <span class="p">.</span></code></pre></div></p>
+<p>将以上操作进行提交 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="s">&#34;提交信息&#34;</span></code></pre></div></p>
+<p>将本地public目录对Github的远程仓库进行关联</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="nx">远程仓库地址</span><span class="p">.</span><span class="nx">git</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="nx">https</span><span class="p">:</span><span class="o">//</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">Dekr0</span><span class="o">/</span><span class="nx">dekr0</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">git</span></code></pre></div>
+<p>将所提交的操作推送到Github的远程仓库中 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">git</span> <span class="nx">push</span> <span class="o">-</span><span class="nx">u</span> <span class="nx">origin</span> <span class="nx">master</span></code></pre></div></p>
+<hr>
+<h1 id="configtoml的配置">config.toml的配置</h1>
+<hr>
+<h1 id="主题配置">主题配置</h1>
+<p>注：有一些主题需要在extend版本的hugo才能正常工作</p>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1q4411i7gL?t=1211">https://www.bilibili.com/video/BV1q4411i7gL?t=1211</a></li>
+<li><a href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a></li>
+</ul>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://dekr0.github.io/blog/regex/reg-note-1/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://dekr0.github.io/blog/python/win32com-ado-python/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://dekr0.github.io/js/navbutton.js></script>
+</html>

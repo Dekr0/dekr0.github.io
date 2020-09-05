@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Dekr0&#39;s Note</title>
+    <link>https://dekr0.github.io/tags/python/</link>
+    <description>Recent content in python on Dekr0&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jul 2020 20:02:39 -0600</lastBuildDate>
+    
+	<atom:link href="https://dekr0.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python之win32com模块 - ADO的使用</title>
+      <link>https://dekr0.github.io/blog/python/win32com-ado-python/</link>
+      <pubDate>Wed, 01 Jul 2020 20:02:39 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/win32com-ado-python/</guid>
+      <description>ADO（ActiveX Data Objects）是微软旗下的一项技术。此技术提供了一种在多个领域的数据库中，访问数据且独立于数据库（在编程语言提供对COM接口的支持时，某种程度上是独立于编程语言）的方法。在Access，SQL Server，Oracle等数据引擎中，ADO所提供的函数都是通用且相同的。
+ ADO基础对象 Connection对象
+connection对象是用来管理一个对单一数据源的连接。
+ 初始化一个connection对象需要提供参数如数据源名（驱动程序名字），数据库服务器的地址，用户名和密码等，这些参数将引导connection对象连接到一个指定的数据库服务器）。所有其他ADO对象都与相关联。  常用的属性：
+  CommandTimeout，等待一个命令执行完成的时间
+  ConnectionString，设置连接参数（重要）（可选：通过其他属性来设置，由引擎自动将属性值组装成ConnectionString）
+  State，返回connection对象与数据源的连接状态
+  常用方法：
+  Close，断开数据源的连接
+  Execute，执行一个查询，存储procedure或一个表达式
+  Open，打开一个数据源的连接，接收一个字符串，如果ConnectionString为空
+  1 2 3 4 5  conn = client.Dispatch(r&amp;#34;ADODB.Connection&amp;#34;) # 获得一个ADO Connection对象，Connection对象代表与数据源的唯一对话 conn.Open(DSN) # 建立到数据源的物理连接 if conn.State == adSateOpen: return conn print(&amp;#34;Failed to connection to database&amp;#34;)   RecordSet对象
+RecordSet对象是用来迭代查询procedure或储存procedure的结果。一般，RecordSet对象将会被赋予Command对象或Connection对象所获取的值或结果，并使用RecordSet对象来处理这些结果（rows of results）
+  一个RecordSet对象必须总是被一个Conneciton对象赋值，即可以获取数据的地方</description>
+    </item>
+    
+    <item>
+      <title>Python之装饰器</title>
+      <link>https://dekr0.github.io/blog/python/decorator-review/</link>
+      <pubDate>Fri, 26 Jun 2020 12:31:07 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/decorator-review/</guid>
+      <description>装饰器（decorator） 与装饰器运作相关的情景（对象、指针、内存空间、地址）：
+已定义的函数体允许以变量赋值的方式赋值给其他变量
+函数体内部允许定义新的函数体（注意：作用域）
+函数体能够充当一个函数体的返回值
+函数体能够充当另一个函数体的参数
+如果一段代码定义两个拥有相同函数名的函数，但所执行操作的不同。最后被解析的函数的函数体将会被保留，而最先被解析的函数的函数体会被覆盖。
+def func(): return 1 def func(): return 2 ret = func() 粗略来说，函数（方法）名相当于一个函数（方法）对象的对象指针，此指针指向一个内存地址或内存空间，函数体将会存储在此处
+装饰器能够进行对函数和方法进行转换（转化）操作。
+一个函数定义（def &amp;hellip;(&amp;hellip;):）可以被一个或多个装饰器表达式包含。在包含一个函数定义的作用域中，当此函数被定义时，装饰器将会被求值。以函数对象（非函数体）为唯一参数的调用方式所返回的求值结果必须是一个可调用的对象。
+@ - 进行装饰器的操作
+@decorator_2 @decorator_1 def func(arg): pass 这等同于：
+def func(arg): pass func = decorator_2(decorator_1(func)) 实例：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  def decor(func): def format(a, b): ret = func(a, b) return &amp;#34;{} + {} = {}&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Python基础知识拾漏</title>
+      <link>https://dekr0.github.io/blog/python/general-concept-review/</link>
+      <pubDate>Wed, 24 Jun 2020 10:43:36 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/general-concept-review/</guid>
+      <description>set类型 与list和tuple（不允许修改的列表），set是一种不允许重复的列表并且是无序的，所以不支持索引
+类set的方法（不存在于list和tuple）：
+  add(self, *args, **kwargs) - 添加一个元素。如果元素存在，则无效果
+  differece(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法set存在的元素不存在于被传入的set，将这些元素以一个新的set对象返回
+  difference_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素不存在于被传入的set，保留这些元素并移除其他存在于传入的set对象的元素
+  1 2 3 4 5  SetA = {1, 2, 3, 4,} SetB = {3, 4, 5, 6, 7,} SetA.difference_update(SetB) print(SetA) # output: {1, 2}     discrad(self, *args, **kwargs) - 移除一个是此对象成员的元素，如果元素不是对象的成员，不执行（与remove功能相同，但不会因为元素不存在而报错）
+  intersection(self, *args, **kwargs) - 传入一个或多个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，将这些元素以一个新的set对象返回
+  intersection_update(self, *args, **kwargs) - 传入一个set对象，如果调用此方法的set对象存在的元素同样存在于被传入的set，保留这些元素并移除其他不在于传入的set对象的元素</description>
+    </item>
+    
+    <item>
+      <title>Python之logging模块</title>
+      <link>https://dekr0.github.io/blog/python/src-logging/</link>
+      <pubDate>Tue, 23 Jun 2020 20:14:49 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-logging/</guid>
+      <description>logging模块提供了一个灵活的事件记录系统并且是线程安全的。
+ 基础用法 - 模块级别的函数 logging.basicConfig() - 为logging系统提供基本配置。此函数应该在debug()，info()等类似的函数调用之前调用
+此函数一些常用、可选的参数
+filename：文件处理器的名字（如果此函数为空，事件信息会被在标准错误流（即sys.stderr）中输出/记录）
+format：处理器的格式化字符串（格式化字符串的格式定义与类LogRecord、Formatter相关）
+datefmt：事件日期的格式
+level：设置根记录器的级别（建议直接使用logging模块内部定义好的级别）
+91 92 93 94 95 96 97 98  CRITICAL = 50 FATAL = CRITICAL ERROR = 40 WARNING = 30 WARN = WARNING INFO = 20 DEBUG = 10 NOTSET = 0   这些级别的数值可以直接以 logging.level 的方式来调取（级别大名要大写）
+以下这些函数会根据函数名所代表的级别来记录一条信息或事件。如果此函数名所代表的级别低于根记录器的级别，信息或事件将不会被记录器所记录
+  logging.debug(msg, *args, **kwargs)
+  logging.info(msg, *args, **kwargs)
+  logging.warning(msg, *args, **kwargs)
+  logging.error(msg, *args, **kwargs)</description>
+    </item>
+    
+    <item>
+      <title>Python之queue模块</title>
+      <link>https://dekr0.github.io/blog/python/src-queue/</link>
+      <pubDate>Sat, 20 Jun 2020 14:17:50 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-queue/</guid>
+      <description>The queue module introduces the concept of queue (consumer-producer model) by implementing the concept of thread lock, and it is thread-safe for information exchange between threads.
+ 1. The Concept of Queue Queue is a linear data structure that follows a specific order (FIFO) in which the operations are performed (Example: consumer - first come, first server).
+There are four basic operations are performed on queue:
+Enqueue: Adds an item into the queue.</description>
+    </item>
+    
+    <item>
+      <title>socketserver源码剖析</title>
+      <link>https://dekr0.github.io/blog/python/src-socketserver/</link>
+      <pubDate>Fri, 19 Jun 2020 19:41:16 -0600</pubDate>
+      
+      <guid>https://dekr0.github.io/blog/python/src-socketserver/</guid>
+      <description>sockserver模块是一个提供基于I/O多路复用和多线程及多进程的网络框架，此模块能够给简化建立网络服务器的任务
+socketserver模块的类继承图:
++------------+ | BaseServer | +------------+ | v +-----------+ +------------------+ | TCPServer |-------&amp;gt;| UnixStreamServer | +-----------+ +------------------+ | v +-----------+ +--------------------+ | UDPServer |-------&amp;gt;| UnixDatagramServer | +-----------+ +--------------------+ </description>
+    </item>
+    
+  </channel>
+</rss>
