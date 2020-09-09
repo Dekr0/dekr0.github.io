@@ -1,0 +1,681 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lecture 3 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../ece202/" />
+    
+    
+    <link rel="prev" href="../lecture2/lecture2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    CMPUT 274
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../lecture1/lecture1.html">
+            
+                <a href="../lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../lecture2/lecture2.html">
+            
+                <a href="../lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="lecture3.html">
+            
+                <a href="lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../ece202/">
+            
+                <a href="../../ece202/">
+            
+                    
+                    ECE 202
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../ece202/lecture2/lecture1.html">
+            
+                <a href="../../ece202/lecture2/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../ece202/lecture2/lecture2.html">
+            
+                <a href="../../ece202/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../ece202/lecture3/lecture3.html">
+            
+                <a href="../../ece202/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../ece210/">
+            
+                <a href="../../ece210/">
+            
+                    
+                    ECE 210
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../ece210/lecture3/lecture3.html">
+            
+                <a href="../../ece210/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../math201/">
+            
+                <a href="../../math201/">
+            
+                    
+                    MATH 201
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../math201/lecture1/lecture1.html">
+            
+                <a href="../../math201/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../math201/lecture2/lecture2.html">
+            
+                <a href="../../math201/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../math209/">
+            
+                <a href="../../math209/">
+            
+                    
+                    MATH 209
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../math209/lecture1/lecture1.html">
+            
+                <a href="../../math209/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../math209/lecture2/lecture2.html">
+            
+                <a href="../../math209/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../phil125/">
+            
+                <a href="../../phil125/">
+            
+                    
+                    PHIL 125
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../phil125/reading/">
+            
+                <a href="../../phil125/reading/">
+            
+                    
+                    Reading
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../../phil125/reading/chapter1.html">
+            
+                <a href="../../phil125/reading/chapter1.html">
+            
+                    
+                    Chapter 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../phil125/lecture/">
+            
+                <a href="../../phil125/lecture/">
+            
+                    
+                    Lecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../phil125/lecture/lecture1/lecture1.html">
+            
+                <a href="../../phil125/lecture/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../phil125/lecture/lecture2/lecture2.html">
+            
+                <a href="../../phil125/lecture/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lecture 3</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lecture-3">Lecture 3</h1>
+<p><strong>Morning Problem</strong> </p>
+<ul>
+<li>Download the .pdf file (about the problems) and the .tar.gz file (source code of the problem) </li>
+<li><p>Once finish, execute opentestcenter.sh</p>
+</li>
+<li><p>Presentation Error, won&apos;t deduct mark (incorrect output format, correct result)</p>
+</li>
+<li><p>&quot;EOF is not <strong>inherently an error</strong>, but an <strong>unexpected EOF may</strong> cause an error&quot;</p>
+<ul>
+<li>&quot;EOF&quot; is sent by input &quot;ctrl-d&quot;</li>
+</ul>
+</li>
+</ul>
+<h2 id="computational-thinking-ct">Computational Thinking (CT)</h2>
+<p><img src="img_1.png" alt=""></p>
+<ul>
+<li><p>Problem solving using computation, centered at what digital co1mputer can do on problem solving</p>
+<ul>
+<li>Tool and foundation of Computer Science <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> Computation and Data</li>
+</ul>
+</li>
+<li><p>Computation</p>
+<ul>
+<li>precise operations, instructions need to be implementable, possible, doable.</li>
+</ul>
+</li>
+<li><p><strong>Side Note</strong>: Difference between JPEG and PNG</p>
+<ul>
+<li>JPEG represents the bit map of the image but also try to implement compression<ul>
+<li>loose file format, which allows the original imagine to be loose to repesent the image in fewer byte (If it&apos;s done well, the lost detail can be ignored)</li>
+</ul>
+</li>
+<li>PNG represents the bit map of the image without losing any data or information</li>
+</ul>
+</li>
+<li><p>Data</p>
+</li>
+</ul>
+<p>In memory, information will be called <strong>data strcutures</strong>. </p>
+<p>In disk, information will be called <strong>file strcutures</strong>. </p>
+<h3 id="classifier-about-the-weather">Classifier: About the Weather</h3>
+<p><img src="img_2.png" alt=""></p>
+<h4 id="recall-classifer">Recall Classifer</h4>
+<ul>
+<li>A software that takes input, and for each input instance, it will say what class the input instance belong to</li>
+</ul>
+<h4 id="recall-supervised-learnging">Recall Supervised Learnging</h4>
+<ul>
+<li>Somebody or something has to declare about a thing through authority whether is yes (true) or no(false)</li>
+</ul>
+<h4 id="target-words">Target Words</h4>
+<ul>
+<li><p>Hardcoded</p>
+</li>
+<li><p>Has some flaw (see Metrics of Goodness)</p>
+</li>
+</ul>
+<h4 id="metrics-of-goodness">Metrics of Goodness</h4>
+<ul>
+<li><p>False Positive - the test result incorreclty indicates the presence of a condition when it is not present</p>
+<ul>
+<li>e.g &quot;I need a coffee&quot; is false positive. The classifier classify it as a sentence about 
+weather because &quot;need&quot; is in the hardcoded target words but in reality, this sentence is not about
+weather</li>
+</ul>
+</li>
+<li><p>False Negative - the test result incorreclty fails to indicate the prescence of a condition when it is present</p>
+<ul>
+<li>e.g &quot;wind is high&quot; is false negaitve. The classifier shouldn&apos;t classify this sentence as a sentence about the weather because &quot;wind&quot; is not in the hardcoded target words (although &quot;windy&quot; is in it). However, the classifer, in fact, does classify this sentence as a sentence about weather.</li>
+</ul>
+</li>
+</ul>
+<h4 id="confusion-matrix">Confusion Matrix</h4>
+<ul>
+<li>Presents the number of occurrence of TP, TN, FP and FN</li>
+</ul>
+<h3 id="ct-diagram-v10">CT Diagram (v1.0)</h3>
+<p><img src="img_3.png" alt=""></p>
+<p>Input <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> Algorithm / Program <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> Output</p>
+<ul>
+<li><p>Input (Training data) contains two columns</p>
+<ul>
+<li>label</li>
+<li>string</li>
+</ul>
+</li>
+<li><p>Algorithm / Program</p>
+<ul>
+<li>take string, break into individual word and compare with the hardcoded target word</li>
+</ul>
+</li>
+<li><p>Output contains </p>
+<ul>
+<li>classfication (TP, TN, FP, FN)</li>
+</ul>
+</li>
+</ul>
+<h4 id="exmaple-problems">Exmaple Problems</h4>
+<p><img src="img_4.png" alt=""></p>
+<p><strong>Example Problem 1</strong> </p>
+<ul>
+<li>Runtime Error <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> an error is only visible when the program is running</li>
+</ul>
+<h2 id="what-is-computer-science">What is computer science?</h2>
+<p><img src="img_5.png" alt=""></p>
+<p><img src="img_6.png" alt=""></p>
+<h3 id="why-are-semantics-not-repesented-using-semantic-diagrams">Why are semantics not repesented using &quot;semantic diagrams&quot;?</h3>
+<ul>
+<li><p>syntax, about the source code file, based on what&apos;s in the source code</p>
+</li>
+<li><p>semantic, relate to runtime (dynamic) information (e.g input)</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../lecture2/lecture2.html" class="navigation navigation-prev " aria-label="Previous page: Lecture 2">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../ece202/" class="navigation navigation-next " aria-label="Next page: ECE 202">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lecture 3","level":"1.2.3","depth":2,"next":{"title":"ECE 202","level":"1.3","depth":1,"path":"ece202/README.md","ref":"ece202/README.md","articles":[{"title":"Lecture 1","level":"1.3.1","depth":2,"path":"ece202/lecture2/lecture1.md","ref":"ece202/lecture2/lecture1.md","articles":[]},{"title":"Lecture 2","level":"1.3.2","depth":2,"path":"ece202/lecture2/lecture2.md","ref":"ece202/lecture2/lecture2.md","articles":[]},{"title":"Lecture 3","level":"1.3.3","depth":2,"path":"ece202/lecture3/lecture3.md","ref":"ece202/lecture3/lecture3.md","articles":[]}]},"previous":{"title":"Lecture 2","level":"1.2.2","depth":2,"path":"cmput274/lecture2/lecture2.md","ref":"cmput274/lecture2/lecture2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cmput274/lecture3/lecture3.md","mtime":"2020-09-08T16:28:04.206Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-09T04:26:52.450Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
