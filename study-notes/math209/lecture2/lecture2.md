@@ -40,7 +40,7 @@ General Solution:
 	- curve / path should cross point $$(a,b)$$
 	- choose the curve / path that is relatively simple to approach $$(a,b)$$
 
-Example 1:
+**Example 1.1**:
 
 ![](img_4.png)
 
@@ -71,6 +71,37 @@ then
 <center>$$\because \frac {1}{2} \neq 0$$</center> 
 
 <center>$$\therefore$$ Limit D.N.E by definition</center>
+
+**Example 1.2**:
+
+![](img_5_2.png)
+
+- Solution
+	- use **horizontal line / vertical line to approach** to approach $$(a,b)$$ (even $$x$$, $$y$$ axis)
+
+![](img_5_3.png)
+
+**Example 1.3**:
+
+![](img_5_4.png)
+
+**Remark**:
+- always assume $$(x,y,z)$$ is always close to $$(a,b,c)$$, which is $$(x,y) \neq (a,b)$$
+- sometimes, it is better not to directly calculate the limit by substitue the coordinates of limit point (estimate by looking functions' graph)
+
+- Solution
+
+![](img_5_5.png)
+
+**Example 1.4**: 
+
+![](img_5_6.png)
+
+- Solution
+	- use line with a specific slope $$y = kx$$ 
+	- L. hospital rule
+
+![](img_5_7.png)
 
 #### Examples (limit do exist)
 
