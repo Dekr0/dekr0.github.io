@@ -146,7 +146,7 @@ Three system to generate a negative number
 
 - a + number, $$N$$, is represented by a 0 followed by the magnitude as in the sign and magnitude system
 
-- a - number, $$-N$$, is represented by its 2's complement, $$N*$$ 
+- a - number, $$-N$$, is represented by its 2's complement, $$N^{*}$$ 
 	- If the word length is n bits, the 2's complement of a postive integer $$N$$ is 
 
 <center>
@@ -172,7 +172,7 @@ $$\overline{N} = (2^n - 1) - N$$
 </center>
 
 
-### (Dis)Advantage of Addition and Subtraction of Three Representation
+### (Dis)Advantage of Three Representation in Addition and Subtraction
 
 ![](img_27.jpg)
 

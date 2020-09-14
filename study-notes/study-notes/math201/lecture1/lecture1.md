@@ -73,16 +73,58 @@ And $$y(t_0) = y_0$$ is a given inital condition
 **Side Note**:
 
 $$ \mu = e^{\int p(t)dt}$$
+
 $$ \mu (y^{'}(t) + p(t)y(t) = \mu g(t) $$
+
 $$ \mu y^{'}(t) + \mu p(t)y(t) = \mu g(t)$$
 
 Taking derivate of integral of a function equals to the function itself
 
 $$ \because \mu^{'} = \frac{d}{dt} e^{\int p(t)dt} = p(t) e^{\int p(t)dt}$$
+
 $$ \therefore \mu y^{'}(t) + \mu^{'}y(t) = \mu g(t) $$
 
 by mupltiplication
 
 $$ \frac{d}{dt}(\mu (t) y(t)) = \mu g(t)$$
 
+take definite integral of both side
+
+$$ \mu (t)y(t) - \mu (t_0)y(t_0) = \int_{t}^{t_0} \mu (s) g(s)ds$$
+
+**Recall** : 
+- the integral of the derviative of a function equal to function itself (remember inital conditions / value or constant C)
+
+**Side Note**: 
+- $$ \mu (t_0)y(t_)$$ is merged with constant number C from integral $$ \int_{t}^{t_0} \mu (s) g(s)ds$$
+	- if an I.C is given, e.g $$y(t_0) = y_0 \leftarrow$$ value 
+
+### Summary of Integrating Factor Method
+
+![](img_8.png)
+
+### Example
+
+Example 1
+
+![](img_9.png)
+
+**Solution**:
+- $$t \rightarrow$$ **ind. var.**; $$v \rightarrow$$ **dep. var.**, depend on $$t$$ 
+- unknown $$\rightarrow$$ $$v$$ or $$v(t)$$ 
+- constant: $$m, g, b$$
+
+![](img_10.png)
+
+evaluate integrating factor:
+- u - subtitution
+	- $$u = \frac {bt}{m}$$
+	- $$du = \frac {b}{m}dt$$ 
+	- $$dt = du \frac {m}{b}$$
+
+![](img_11.png)
+
+Example 2
+
+![](img_12.png)
 
