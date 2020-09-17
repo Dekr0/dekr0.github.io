@@ -13,7 +13,8 @@
 A circuit or a system is given.
 
 We are aksed to find out how the circuit or the system behaves (no assumption, no given information, everythin is unknown)
-	- **remark:** don't assume the direction of the current, don't consider positve and negative
+
+- **remark:** don't assume the direction of the current, don't consider positve and negative
 
 ### Synthesis (Opoosite of Analysis)
 
@@ -38,8 +39,8 @@ We are aksed to create the circuit (system) that exhibits such behavior
 - **Shape** of the nodes can be **changed arbitrary** without **affecting the electrical variables** inside the circuit
 
 **Important** : Circuit description (or circuit toplogy)
-	- How many nodes? (Label The Nodes)
-	- How the componenets are connected between those nodes?
+- How many nodes? (Label The Nodes)
+- How the componenets are connected between those nodes?
 
 #### Example
 
@@ -76,7 +77,7 @@ A **loop** is any closed path through the circuit in which **no node** is encout
 The number of Mesh is not always the same (depends on the direction / way of travel?)
 
 Mesh is a loop that does not **contain any other loop** within it. ("smallest size loop")
-	- strictly follow the characteristic of the loop
+- strictly follow the characteristic of the loop
 
 ### Branch
 
@@ -94,11 +95,11 @@ Any **lumped element** can be viewed as a branch.
 
 - not a valid loop because 2 has been visited twice
 
-- # of branches = 7
+- number of branches = 7
 
 **Remark**:
 
-- # of branches and # of nodes in a circuit are constants
+- number of branches and # of nodes in a circuit are constants
 
 ### Kirchoff's Current Law (KCL)
 
@@ -126,8 +127,53 @@ Check:
 
 ![](img_14.png)
 
-### KFL
+### Kirchoff's Voltage Law (KVL)
 
-**Important:** Note that Eq(1) + Eq(2) $$\rightarrow$$ Eq(3). All these KVL equations are not linearly indep.
+... applied on meshes and loops
 
-In a circuit with N nodes and B branches, # of indep. KVL equations $$= B - N + 1$$ 
+Around any closed path (mesh and loop)
+
+<center>
+$$\sum$$ Voltage drop = $$\sum$$ Voltage rise
+</center>
+
+Aet: Around any closed patgh (meshes and loops) algebraic sum of all voltage rise (or drop) is **zero**
+
+#### Example
+
+![](img_15.png)
+
+- red - meshes
+
+- green - loop and direction of travel
+
+**Important**
+- Arrows mean direction of Travel (NOT the direction of current)
+
+KVL for **inside the loop** (Meshes)
+
+**Left Mesh**: A - B - E - F [Direction of travel does not matter]
+
+KVL:
+
+![](img_16.png)
+
+**Rigth Mesh**:
+
+KVL:
+
+![](img_17.png)
+
+![](img_20.png)
+
+KVL **around the outer loop**
+
+![](img_18.png)
+
+**Important**
+- Note that Eq(1) + Eq(2) $$\rightarrow$$ Eq(3). All these KVL equations are not linearly indep.
+- In a circuit with N nodes and B branches, # of indep. KVL equations $$= B - N + 1$$ 
+
+check:
+
+![](img_19.png)

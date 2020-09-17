@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../ece210/" />
+    <link rel="next" href="../lecture5/lecture5.html" />
     
     
     <link rel="prev" href="../lecture3/lecture3.html" />
@@ -172,6 +172,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.5" data-path="../../cmput274/lecture5/lecture5.html">
+            
+                <a href="../../cmput274/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../cmput274/lecture6/lecture6.html">
+            
+                <a href="../../cmput274/lecture6/lecture6.html">
+            
+                    
+                    Lecture 6
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -243,6 +269,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.5" data-path="../lecture5/lecture5.html">
+            
+                <a href="../lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -262,7 +301,39 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../ece210/lecture3/lecture3.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../ece210/lab/">
+            
+                <a href="../../ece210/lab/">
+            
+                    
+                    Lab
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../ece210/lab/lab0/lab0.html">
+            
+                <a href="../../ece210/lab/lab0/lab0.html">
+            
+                    
+                    Lab 0
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../ece210/lecture3/lecture3.html">
             
                 <a href="../../ece210/lecture3/lecture3.html">
             
@@ -275,12 +346,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../../ece210/lecture4/lecture4.html">
+        <li class="chapter " data-level="1.4.3" data-path="../../ece210/lecture4/lecture4.html">
             
                 <a href="../../ece210/lecture4/lecture4.html">
             
                     
                     Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../ece210/lecture5/lecture5.html">
+            
+                <a href="../../ece210/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
             
                 </a>
             
@@ -560,8 +644,10 @@
 <h3 id="analysis-ece-202">Analysis (ECE 202)</h3>
 <p>A circuit or a system is given.</p>
 <p>We are aksed to find out how the circuit or the system behaves (no assumption, no given information, everythin is unknown)</p>
-<pre><code>- **remark:** don&apos;t assume the direction of the current, don&apos;t consider positve and negative
-</code></pre><h3 id="synthesis-opoosite-of-analysis">Synthesis (Opoosite of Analysis)</h3>
+<ul>
+<li><strong>remark:</strong> don&apos;t assume the direction of the current, don&apos;t consider positve and negative</li>
+</ul>
+<h3 id="synthesis-opoosite-of-analysis">Synthesis (Opoosite of Analysis)</h3>
 <p>Desired circuit behavior (system behavior) is given</p>
 <p>We are aksed to create the circuit (system) that exhibits such behavior</p>
 <h2 id="node">Node</h2>
@@ -581,9 +667,11 @@
 </li>
 </ul>
 <p><strong>Important</strong> : Circuit description (or circuit toplogy)</p>
-<pre><code>- How many nodes? (Label The Nodes)
-- How the componenets are connected between those nodes?
-</code></pre><h4 id="example">Example</h4>
+<ul>
+<li>How many nodes? (Label The Nodes)</li>
+<li>How the componenets are connected between those nodes?</li>
+</ul>
+<h4 id="example">Example</h4>
 <ul>
 <li>Previous Example:<ul>
 <li>6 nodes</li>
@@ -610,8 +698,10 @@
 <h3 id="mesh">Mesh</h3>
 <p>The number of Mesh is not always the same (depends on the direction / way of travel?)</p>
 <p>Mesh is a loop that does not <strong>contain any other loop</strong> within it. (&quot;smallest size loop&quot;)</p>
-<pre><code>- strictly follow the characteristic of the loop
-</code></pre><h3 id="branch">Branch</h3>
+<ul>
+<li>strictly follow the characteristic of the loop</li>
+</ul>
+<h3 id="branch">Branch</h3>
 <p>Any <strong>lumped element</strong> can be viewed as a branch.</p>
 <h4 id="examples">Examples</h4>
 <p><img src="img_9.png" alt=""></p>
@@ -625,13 +715,12 @@
 <ul>
 <li><p>not a valid loop because 2 has been visited twice</p>
 </li>
-<li><h1 id="of-branches--7">of branches = 7</h1>
+<li><p>number of branches = 7</p>
 </li>
 </ul>
 <p><strong>Remark</strong>:</p>
 <ul>
-<li><h1 id="of-branches-and--of-nodes-in-a-circuit-are-constants">of branches and # of nodes in a circuit are constants</h1>
-</li>
+<li>number of branches and # of nodes in a circuit are constants</li>
 </ul>
 <h3 id="kirchoffs-current-law-kcl">Kirchoff&apos;s Current Law (KCL)</h3>
 <p>Applied on nodes ...</p>
@@ -646,9 +735,43 @@
 <p>Eqns (1) - (5): linearly dependent</p>
 <p>Check:</p>
 <p><img src="img_14.png" alt=""></p>
-<h3 id="kfl">KFL</h3>
-<p><strong>Important:</strong> Note that Eq(1) + Eq(2) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> Eq(3). All these KVL equations are not linearly indep.</p>
-<p>In a circuit with N nodes and B branches, # of indep. KVL equations <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>B</mi><mo>&#x2212;</mo><mi>N</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">= B - N + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> </p>
+<h3 id="kirchoffs-voltage-law-kvl">Kirchoff&apos;s Voltage Law (KVL)</h3>
+<p>... applied on meshes and loops</p>
+<p>Around any closed path (mesh and loop)</p>
+<center>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2211;</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="base textstyle uncramped"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span></span></span></span> Voltage drop = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2211;</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="base textstyle uncramped"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span></span></span></span> Voltage rise
+</center>
+
+<p>Aet: Around any closed patgh (meshes and loops) algebraic sum of all voltage rise (or drop) is <strong>zero</strong></p>
+<h4 id="example">Example</h4>
+<p><img src="img_15.png" alt=""></p>
+<ul>
+<li><p>red - meshes</p>
+</li>
+<li><p>green - loop and direction of travel</p>
+</li>
+</ul>
+<p><strong>Important</strong></p>
+<ul>
+<li>Arrows mean direction of Travel (NOT the direction of current)</li>
+</ul>
+<p>KVL for <strong>inside the loop</strong> (Meshes)</p>
+<p><strong>Left Mesh</strong>: A - B - E - F [Direction of travel does not matter]</p>
+<p>KVL:</p>
+<p><img src="img_16.png" alt=""></p>
+<p><strong>Rigth Mesh</strong>:</p>
+<p>KVL:</p>
+<p><img src="img_17.png" alt=""></p>
+<p><img src="img_20.png" alt=""></p>
+<p>KVL <strong>around the outer loop</strong></p>
+<p><img src="img_18.png" alt=""></p>
+<p><strong>Important</strong></p>
+<ul>
+<li>Note that Eq(1) + Eq(2) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.36687em;"></span><span class="strut bottom" style="height:0.36687em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mrel">&#x2192;</span></span></span></span> Eq(3). All these KVL equations are not linearly indep.</li>
+<li>In a circuit with N nodes and B branches, # of indep. KVL equations <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>B</mi><mo>&#x2212;</mo><mi>N</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">= B - N + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> </li>
+</ul>
+<p>check:</p>
+<p><img src="img_19.png" alt=""></p>
 
                                 
                                 </section>
@@ -681,7 +804,7 @@
                 </a>
                 
                 
-                <a href="../../ece210/" class="navigation navigation-next " aria-label="Next page: ECE 210">
+                <a href="../lecture5/lecture5.html" class="navigation navigation-next " aria-label="Next page: Lecture 5">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -692,7 +815,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lecture 4","level":"1.3.4","depth":2,"next":{"title":"ECE 210","level":"1.4","depth":1,"path":"ece210/README.md","ref":"ece210/README.md","articles":[{"title":"Lecture 3","level":"1.4.1","depth":2,"path":"ece210/lecture3/lecture3.md","ref":"ece210/lecture3/lecture3.md","articles":[]},{"title":"Lecture 4","level":"1.4.2","depth":2,"path":"ece210/lecture4/lecture4.md","ref":"ece210/lecture4/lecture4.md","articles":[]}]},"previous":{"title":"Lecture 3","level":"1.3.3","depth":2,"path":"ece202/lecture3/lecture3.md","ref":"ece202/lecture3/lecture3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ece202/lecture4/lecture4.md","mtime":"2020-09-13T03:29:30.237Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-14T22:13:51.659Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lecture 4","level":"1.3.4","depth":2,"next":{"title":"Lecture 5","level":"1.3.5","depth":2,"path":"ece202/lecture5/lecture5.md","ref":"ece202/lecture5/lecture5.md","articles":[]},"previous":{"title":"Lecture 3","level":"1.3.3","depth":2,"path":"ece202/lecture3/lecture3.md","ref":"ece202/lecture3/lecture3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ece202/lecture4/lecture4.md","mtime":"2020-09-15T18:52:02.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-17T13:11:11.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
