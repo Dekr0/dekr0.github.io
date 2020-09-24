@@ -150,7 +150,7 @@ Not all sets of sentences that lead to statements claimed to be true are argumen
 
 ## Premises
 
-Argument depends for its strength upon *premises* functioning as reasons to accpet the conclusion
+- Argument depends for its strength upon *premises* functioning as reasons to accpet the conclusion
 	- give an argument its heft (重要性), its strength,, the ground upon which the conclusion stands
 	- work togther in exacting ways to prove or demonstrate or justify the conclusion
 
@@ -162,7 +162,7 @@ They are informal argument that rely on premises not explicitly articulated
 
 ### Identifying premises
 
-Easier if first identifying the argument's conclusion.
+- Easier if first identifying the argument's conclusion.
 	- Once the conclusion is identified, any remaining claims that are there to support the truth of the conclusion become easier to discern
 
 **Remark** 

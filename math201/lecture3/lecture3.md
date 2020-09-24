@@ -40,4 +40,14 @@ $$\frac {\partial M}{\partial y} = \frac {\partial}{\partial y} (\frac {\partial
 
 #### Examples
 
+- Example 1
+
 ![](img_6.png)
+
+- Example 2
+
+![](img_7.jpg)
+
+### Review Partial Differential
+
+Notice that $$\frac {d\psi}{dx} \ne \frac {\partial \psi}{\partial x}$$

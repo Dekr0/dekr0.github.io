@@ -1,0 +1,973 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lecture 8 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../ece202/" />
+    
+    
+    <link rel="prev" href="../lecture7/lecture7.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    CMPUT 274
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../lecture1/lecture1.html">
+            
+                <a href="../lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../lecture2/lecture2.html">
+            
+                <a href="../lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../lecture3/lecture3.html">
+            
+                <a href="../lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../lecture4/lecture4.html">
+            
+                <a href="../lecture4/lecture4.html">
+            
+                    
+                    Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../lecture5/lecture5.html">
+            
+                <a href="../lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../lecture6/lecture6.html">
+            
+                <a href="../lecture6/lecture6.html">
+            
+                    
+                    Lecture 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../lecture7/lecture7.html">
+            
+                <a href="../lecture7/lecture7.html">
+            
+                    
+                    Lecture 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8" data-path="lecture8.html">
+            
+                <a href="lecture8.html">
+            
+                    
+                    Lecture 8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../ece202/">
+            
+                <a href="../../ece202/">
+            
+                    
+                    ECE 202
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../ece202/lecture2/lecture1.html">
+            
+                <a href="../../ece202/lecture2/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../ece202/lecture2/lecture2.html">
+            
+                <a href="../../ece202/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../ece202/lecture3/lecture3.html">
+            
+                <a href="../../ece202/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../ece202/lecture4/lecture4.html">
+            
+                <a href="../../ece202/lecture4/lecture4.html">
+            
+                    
+                    Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../ece202/lecture5/lecture5.html">
+            
+                <a href="../../ece202/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../ece202/lecture6/lecture6.html">
+            
+                <a href="../../ece202/lecture6/lecture6.html">
+            
+                    
+                    Lecture 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../ece202/lecture7/lecture7.html">
+            
+                <a href="../../ece202/lecture7/lecture7.html">
+            
+                    
+                    Lecture 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../ece202/lecture8/lecture8.html">
+            
+                <a href="../../ece202/lecture8/lecture8.html">
+            
+                    
+                    Lecture 8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../ece210/">
+            
+                <a href="../../ece210/">
+            
+                    
+                    ECE 210
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../ece210/lab/">
+            
+                <a href="../../ece210/lab/">
+            
+                    
+                    Lab
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../ece210/lab/lab0/lab0.html">
+            
+                <a href="../../ece210/lab/lab0/lab0.html">
+            
+                    
+                    Lab 0
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../ece210/lecture3/lecture3.html">
+            
+                <a href="../../ece210/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../ece210/lecture4/lecture4.html">
+            
+                <a href="../../ece210/lecture4/lecture4.html">
+            
+                    
+                    Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../ece210/lecture5/lecture5.html">
+            
+                <a href="../../ece210/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../math201/">
+            
+                <a href="../../math201/">
+            
+                    
+                    MATH 201
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../math201/lecture1/lecture1.html">
+            
+                <a href="../../math201/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../math201/lecture2/lecture2.html">
+            
+                <a href="../../math201/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../math201/lecture3/lecture3.html">
+            
+                <a href="../../math201/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../math201/lecture4/lecture4.html">
+            
+                <a href="../../math201/lecture4/lecture4.html">
+            
+                    
+                    Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../math201/lecture5/lecture5.html">
+            
+                <a href="../../math201/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../math209/">
+            
+                <a href="../../math209/">
+            
+                    
+                    MATH 209
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../math209/lecture1/lecture1.html">
+            
+                <a href="../../math209/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../math209/lecture2/lecture2.html">
+            
+                <a href="../../math209/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../math209/lecture3/lecture3.html">
+            
+                <a href="../../math209/lecture3/lecture3.html">
+            
+                    
+                    Lecture 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../math209/lecture4/lecture4.html">
+            
+                <a href="../../math209/lecture4/lecture4.html">
+            
+                    
+                    Lecture 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../math209/lecture5/lecture5.html">
+            
+                <a href="../../math209/lecture5/lecture5.html">
+            
+                    
+                    Lecture 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../../math209/lecture6/lecture6.html">
+            
+                <a href="../../math209/lecture6/lecture6.html">
+            
+                    
+                    Lecture 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../../math209/lecture7/lecture7.html">
+            
+                <a href="../../math209/lecture7/lecture7.html">
+            
+                    
+                    Lecture 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../phil125/">
+            
+                <a href="../../phil125/">
+            
+                    
+                    PHIL 125
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../phil125/reading/">
+            
+                <a href="../../phil125/reading/">
+            
+                    
+                    Reading
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../../phil125/reading/chapter1.html">
+            
+                <a href="../../phil125/reading/chapter1.html">
+            
+                    
+                    Chapter 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="../../phil125/reading/chapter2.html">
+            
+                <a href="../../phil125/reading/chapter2.html">
+            
+                    
+                    Chapter 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../phil125/lecture/">
+            
+                <a href="../../phil125/lecture/">
+            
+                    
+                    Lecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../phil125/lecture/lecture1/lecture1.html">
+            
+                <a href="../../phil125/lecture/lecture1/lecture1.html">
+            
+                    
+                    Lecture 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../phil125/lecture/lecture2/lecture2.html">
+            
+                <a href="../../phil125/lecture/lecture2/lecture2.html">
+            
+                    
+                    Lecture 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lecture 8</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lecture-8">Lecture 8</h1>
+<h2 id="file-io">File I/O</h2>
+<h3 id="files-for-input--ouput">Files for Input / Ouput</h3>
+<p><img src="img_1.jpg" alt=""></p>
+<ul>
+<li><p>The file in Pipeline is not saved</p>
+</li>
+<li><p>The benefit of human readable outweight the storage cost / effeciency of using binary file</p>
+</li>
+<li><p>Binary file (database, compressed files, jpg., etc.)</p>
+</li>
+</ul>
+<h3 id="using-files">Using Files</h3>
+<p><img src="img_2.jpg" alt=""></p>
+<ul>
+<li><p>Initialization (prepration / create) before use (high overhead operation)</p>
+<ul>
+<li>Python cannot access file (required OS and underlying sys.)</li>
+</ul>
+</li>
+<li><p>Closing connection (Finalization)</p>
+</li>
+</ul>
+<h3 id="open-file">Open File</h3>
+<p><img src="img_3.jpg" alt=""></p>
+<ul>
+<li><p>append mode usually is used for logging and other situations</p>
+</li>
+<li><p>binary mode</p>
+<ul>
+<li>the invisisble character in the file (e.g: newline) is not processed by Python</li>
+<li>readline: line by line way of processing the file, Python and OS interprets where the line ends (newline character)</li>
+<li>binary mode interprets by number of bytes</li>
+</ul>
+</li>
+<li><p>In Windows, when a text file is created and written out, it is different from other OS.</p>
+<ul>
+<li>MacOS, Linux, a line of data in a text file ends with a newline (one char)</li>
+<li>Windows, a line of data in a text file ends with a newline and a carriage return (two char.)</li>
+<li>in binary mode, the difference between Windows and non-Windows textfile become visible (text mode, sys. will handle automatically)</li>
+<li>also, an extra invisible char, Windows / DOS format text file will be carried when transform between Windows and non-Windows sys.</li>
+</ul>
+</li>
+</ul>
+<h3 id="check-if-file-exists">Check if File Exists</h3>
+<p><img src="img_4.jpg" alt=""></p>
+<h3 id="methods-to-read-from-file">Methods to Read from File</h3>
+<p><img src="img_5.jpg" alt=""> </p>
+<ul>
+<li><p>size chars. - utf-8, ascii</p>
+</li>
+<li><p>readlines for large file (some known adv. and disadv.)</p>
+<ul>
+<li>require large memory storage, significant latency during reading and writing into memory </li>
+<li>but once is being read into memory, it can be accessed very quickly</li>
+</ul>
+</li>
+</ul>
+<p><strong>Recommendation</strong> </p>
+<ul>
+<li><p>design the file format / file IO such that read it line by line (many modules and functionality support line by line processing)</p>
+</li>
+<li><p>file format be json (javascript object notation) or well-known format based on text files that has many modules support to it</p>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<p><img src="img_6.jpg" alt=""> </p>
+<p><strong>Example 1</strong> </p>
+<ul>
+<li>allow python program to be executing on a earlier line of the file while th later line of file will be brought into memory by the OS / python</li>
+<li>overlapping the processing of the file with the reading of the file (prefetching)</li>
+</ul>
+<p><strong>Exmaple 2</strong> </p>
+<ul>
+<li><em>file_object</em>.read() will read the entire file into memory</li>
+<li>somehow equivalent to readlines</li>
+<li>can be go backward (since alist is a list)</li>
+</ul>
+<h3 id="writing-to-file">Writing to File</h3>
+<p><img src="img_7.jpg" alt=""></p>
+<h3 id="close-file">Close File</h3>
+<p><img src="img_8.jpg" alt=""></p>
+<ul>
+<li>Release buffer / memory to OS / VRAM</li>
+</ul>
+<h2 id="dictionaries">Dictionaries</h2>
+<p><img src="img_9.jpg" alt=""></p>
+<ul>
+<li><p>C++ - hashmap (emphasize the implementation of this data type); other programming language - key value stores</p>
+</li>
+<li><p>Make dictionaries fat to use, fast to access by hash table</p>
+<ul>
+<li>Take a key value</li>
+<li>Instead of look for it by one by one checking to see which value is assoicated with this key (linear search), use hash function to computes the key to a special number called a hash value and then it checks in that data strcuture at that special number or value</li>
+<li>A well-designed hash table can find data far more quickly than searching the data strcuture</li>
+<li>There&apos;s overhead. Hashmaps and hash table don&apos;t search by lookup</li>
+</ul>
+</li>
+</ul>
+<h3 id="built-in-type-dictionary">Built-in type: Dictionary</h3>
+<p><img src="img_10.jpg" alt=""></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../lecture7/lecture7.html" class="navigation navigation-prev " aria-label="Previous page: Lecture 7">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../ece202/" class="navigation navigation-next " aria-label="Next page: ECE 202">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lecture 8","level":"1.2.8","depth":2,"next":{"title":"ECE 202","level":"1.3","depth":1,"path":"ece202/README.md","ref":"ece202/README.md","articles":[{"title":"Lecture 1","level":"1.3.1","depth":2,"path":"ece202/lecture2/lecture1.md","ref":"ece202/lecture2/lecture1.md","articles":[]},{"title":"Lecture 2","level":"1.3.2","depth":2,"path":"ece202/lecture2/lecture2.md","ref":"ece202/lecture2/lecture2.md","articles":[]},{"title":"Lecture 3","level":"1.3.3","depth":2,"path":"ece202/lecture3/lecture3.md","ref":"ece202/lecture3/lecture3.md","articles":[]},{"title":"Lecture 4","level":"1.3.4","depth":2,"path":"ece202/lecture4/lecture4.md","ref":"ece202/lecture4/lecture4.md","articles":[]},{"title":"Lecture 5","level":"1.3.5","depth":2,"path":"ece202/lecture5/lecture5.md","ref":"ece202/lecture5/lecture5.md","articles":[]},{"title":"Lecture 6","level":"1.3.6","depth":2,"path":"ece202/lecture6/lecture6.md","ref":"ece202/lecture6/lecture6.md","articles":[]},{"title":"Lecture 7","level":"1.3.7","depth":2,"path":"ece202/lecture7/lecture7.md","ref":"ece202/lecture7/lecture7.md","articles":[]},{"title":"Lecture 8","level":"1.3.8","depth":2,"path":"ece202/lecture8/lecture8.md","ref":"ece202/lecture8/lecture8.md","articles":[]}]},"previous":{"title":"Lecture 7","level":"1.2.7","depth":2,"path":"cmput274/lecture7/lecture7.md","ref":"cmput274/lecture7/lecture7.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cmput274/lecture8/lecture8.md","mtime":"2020-09-24T17:01:49.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-24T18:26:41.769Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
